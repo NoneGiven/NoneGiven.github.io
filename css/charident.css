@@ -1,6 +1,14 @@
+.txt {
+  width: 80em;
+  height: 25em;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .msg {
   color: gray;
   margin-left: 20px;
+  font-family: Arial;
 }
 
 .good {
