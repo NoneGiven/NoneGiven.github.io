@@ -38,10 +38,9 @@
   }
   
   function readText() {
-    var ta, text;
+    var text;
     displayRes("");
-    ta = document.getElementById("txt");
-    if (!(text = ta.value)) {
+    if (!(text = document.getElementById("txt").value)) {
       complainMsg("No text entered.");
       return;
     }
