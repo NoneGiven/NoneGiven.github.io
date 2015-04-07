@@ -3,6 +3,9 @@
   var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing;
   
   function startup() {
+    if (isAutoboxTicked()) {
+      document.addEventListener("keydown", tickText);
+    }
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
@@ -36,13 +39,18 @@
     buttonEnabled(true);
     checkboxEnabled(true);
     processing = false;
-    if (isAutoboxTicked()) {
+    /*if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }
+    }*/
   }
   
   function tickText() {
-    var text = document.getElementById("txt").value;
+    var ta, text;
+    ta = document.getElementById("txt");
+    if (!(ta == document.activeElement)) {
+      return;
+    }
+    text = ta.value;
     if (!processing && text && text != storedValue) {
       readText();
     }
@@ -63,7 +71,7 @@
     textareaEnabled(false);
     buttonEnabled(false);
     processing = true;
-    clearInterval(ticker);
+    //clearInterval(ticker);
     if (isCheckboxTicked()) {
       processTextVerbose(text);
     }
@@ -113,9 +121,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    if (isAutoboxTicked()) {
+    /*if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }
+    }*/
   }
   
   function processTextVerbose(text) {
@@ -252,9 +260,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    if (isAutoboxTicked()) {
+    /*if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }
+    }*/
   }
   
   function buildCodeString(code) {
@@ -337,11 +345,20 @@
   }
   
   window.autoboxToggle = function() {
+    if (isAutoboxTicked()) {
+      document.addEventListener("keydown", tickText);
+    }
+    else {
+      document.removeEventListener("keydown", tickText);
+    }
+  }
+  
+  /*window.autoboxToggle = function() {
     clearInterval(ticker);
     if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
     }
-  }
+  }*/
   
   function setupVerboseData() {
     gcStrings = {};
