@@ -194,7 +194,7 @@
   
   function buildCodeString(code) {
     var part = "";
-    console.log(unicodeData[code]);
+    console.log(code);
     if (unicodeData[code][2] != "0") {
       part = "&nbsp;;"
     }
