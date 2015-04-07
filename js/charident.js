@@ -6,13 +6,13 @@
   function startup() {
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
-    xhr.onload = getData();
+    xhr.onload = getData;
     xhr.open("GET", "../res/UnicodeData.txt", true);
     xhr.send();
   }
   
   function getData() {
-    //console.log(this);
+    console.log(this.status);
     if (this.status != "200" && this.status != "304") {
       complainMsg("Error fetching the file!")
     }
