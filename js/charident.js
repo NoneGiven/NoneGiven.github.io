@@ -60,7 +60,7 @@
       }
       console.log(hex);
       attr = unicodeData[hex];
-      if (attr[0] == "&lt;contsdafrol&gt;") {
+      if (attr[0] == "&lt;control&gt;") {
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
