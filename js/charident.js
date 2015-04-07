@@ -39,13 +39,16 @@
   
   function readText() {
     var ta, text;
-    document.getElementById("msg-res").innerHTML = "";
+    displayRes("");
     ta = document.getElementById("txt");
     if (!(text = ta.value)) {
       complainMsg("No text entered.");
       return;
     }
     displayMsg("Processing...")
+    if (isCheckboxTicked()) {
+      alert("VERBOSE");
+    }
     textareaEnabled(false);
     buttonEnabled(false);
     processText(text);
@@ -69,13 +72,17 @@
       }
     }
     happyMsg("Done.")
-    document.getElementById("msg-res").innerHTML = s;
+    displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
   }
   
   function processTextVerbose(text) {
     //hi
+  }
+  
+  function isCheckboxTicked(yn) {
+    return document.getElementById("chk").checked;
   }
   
   function buttonEnabled(yn) {
@@ -88,16 +95,6 @@
     }
   }
   
-  function checkboxEnabled(yn) {
-    var chk = document.getElementById("chk");
-    if (yn) {
-      chk.removeAttribute("disabled");
-    }
-    else {
-      chk.setAttribute("disabled", "");
-    }
-  }
-  
   function textareaEnabled(yn) {
     var txt = document.getElementById("txt");
     if (yn) {
@@ -106,6 +103,10 @@
     else {
       txt.setAttribute("readonly", "");
     }
+  }
+  
+  function displayRes(res) {
+    document.getElementById("msg-res").innerHTML = msg;
   }
   
   function displayMsg(msg) {
