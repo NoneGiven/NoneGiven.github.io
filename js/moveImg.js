@@ -1,4 +1,5 @@
 (function() {
+  var theImg;
   function shiftImage(dir, amt) {
     var pos;
     if (dir == "lr") {
@@ -14,6 +15,9 @@
   }
   
   function keyCheck(e) {
+    if (!theImg) {
+      return;
+    }
     if (e.keyCode == 37) {
       shiftImg("lr", -1);
     }
@@ -27,13 +31,26 @@
       shiftImg("ud", 1);
     }
   }
-    
-  var theImg = document.getElementById("shiftyImg");
-  if (theImg) {
-    console.log(theImg);
-    theImg.style.left = "0px";
-    theImg.style.top = "0px";
-    document.addEventListener("keydown", keyCheck);
+  
+  function grabImg() {
+    var theImg = document.getElementById("shiftyImg");
+    if (theImg) {
+      theImg.style.left = "0px";
+      theImg.style.top = "0px";
+      return true;
+    }
+    return false;
   }
-  console.log("hi");
+  
+  function grabImgLoop() {
+    if (!grabImg()) {
+      setTimeout(grabImgLoop, 10);
+    }
+  }
+  
+  if (!grabImg()) {
+    setTimeout(grabImgLoop, 10);;
+  }
+  document.addEventListener("keydown", keyCheck);
+  
 }).call();
