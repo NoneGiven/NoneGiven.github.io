@@ -2,7 +2,7 @@
   
   function processText() {
     var text;
-    if (!text = document.getElementById("txt").value) {
+    if (!(text = document.getElementById("txt").value)) {
       alert("Enter some text, stupid");
       return;
     }
