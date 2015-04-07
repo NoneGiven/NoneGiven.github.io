@@ -23,11 +23,13 @@
   
   function parseData(data) {
     var lines, splits;
-    data = data.replace(/>/g, "&gt;").replace(/</g, "&lt;");
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length; i++) {
       splits = lines[i].split(";");
+      for (var j = 0; j < splits.length; j++) {
+        splits[j] = splits[j].replace(/>/g, "&gt;").replace(/</g, "&lt;")
+      }
       unicodeData[splits[0]] = splits.slice(1);
     }
     displayMsg("Ready");
