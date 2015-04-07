@@ -5,7 +5,7 @@
   function startup() {
     console.log("startup");
     if (isAutoboxTicked()) {
-      document.addEventListener("keydown", tickText);
+      document.addEventListener("keyup", tickText);
     }
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
@@ -347,10 +347,10 @@
   
   window.autoboxToggle = function() {
     if (isAutoboxTicked()) {
-      document.addEventListener("keydown", tickText);
+      document.addEventListener("keyup", tickText);
     }
     else {
-      document.removeEventListener("keydown", tickText);
+      document.removeEventListener("keyup", tickText);
     }
   }
   
