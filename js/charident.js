@@ -120,7 +120,7 @@
       }
       if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" + hex +
-          s += "<br>No further data available";
+          "<br>No further data available";
         continue;
       }
       attr = unicodeData[hex];
