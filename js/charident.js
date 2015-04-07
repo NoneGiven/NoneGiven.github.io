@@ -101,11 +101,11 @@
       else {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
       }
-      for (var i = 1; i < 13; i++) {
-        if (i == 9 || attr[i] == "") {
+      for (var j = 1; j < 14; j++) {
+        if (j == 9 || attr[j] == "") {
           continue;
         }
-        s += "<br>&nbsp;&nbsp;" + attr[i];
+        s += "<br>&nbsp;&nbsp;" + attr[j];
       }
     }
     happyMsg("Done.")
