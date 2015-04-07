@@ -1,6 +1,10 @@
+body {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .header {
   display: inline;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .title {
@@ -26,7 +30,6 @@
 .msg {
   color: gray;
   margin-left: 20px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .res {
