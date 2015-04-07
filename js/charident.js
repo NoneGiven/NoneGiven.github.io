@@ -247,6 +247,7 @@
     displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
+    processing = false;
     ticker = setInterval(tickText, 100);
   }
   
