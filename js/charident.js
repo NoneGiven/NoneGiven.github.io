@@ -156,6 +156,7 @@
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words + ": " + attr[j];
       }
+      s += "<br>"
     }
     happyMsg("Done.")
     displayRes(s);
