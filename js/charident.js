@@ -51,7 +51,7 @@
     s = "";
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16);
-      for (var j = 0; j < 5 - hex.length; j++) {
+      while (hex.length < 4) {
         hex = "0" + hex;
       }
       console.log(hex);
