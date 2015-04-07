@@ -34,12 +34,14 @@
   }
   
   function processText() {
-    var text;
-    if (!(text = document.getElementById("txt").value)) {
+    var ta, text;
+    ta = document.getElementById("txt");
+    if (!(text = ta.value)) {
       complainMsg("No text entered.");
       return;
     }
     displayMsg("Processing...")
+    textareaEnabled(false);
     buttonEnabled(false);
   }
   
@@ -50,6 +52,16 @@
     }
     else {
       btn.setAttribute("disabled", "");
+    }
+  }
+  
+  function textareaEnabled(yn) {
+    var btn = document.getElementById("txt");
+    if (yn) {
+      btn.removeAttribute("readonly");
+    }
+    else {
+      btn.setAttribute("readonly", "");
     }
   }
   
