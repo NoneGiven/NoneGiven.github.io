@@ -21,7 +21,7 @@
     if (e.keyCode == 65) { // A
       shiftImg("lr", -1);
     }
-    else if (e.keyCode == 69) { // D
+    else if (e.keyCode == 68) { // D
       shiftImg("lr", 1);
     }
     else if (e.keyCode == 87) { // W
