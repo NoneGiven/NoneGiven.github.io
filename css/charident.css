@@ -8,6 +8,10 @@
   font-size: 24px;
 }
 
+.home {
+  color: gray;
+}
+
 #txt {
   width: 80em;
   height: 12em;
@@ -27,6 +31,7 @@
 
 .res {
   font-family: 'Courier New', Courier, monospace;
+  color: #111111;
   font-size: 1.3em;
   margin-top: -4px;
 }
