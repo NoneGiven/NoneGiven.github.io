@@ -73,7 +73,7 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + text.charAt(i) + buildCodeString(attr[0]);
+        s += "<br>" + text.charAt(i) + buildCodeString(hex) + " - " + attr[0];
       }
     }
     happyMsg("Done.")
@@ -194,7 +194,6 @@
   
   function buildCodeString(code) {
     var part = "";
-    console.log(code);
     if (unicodeData[code][2] != "0") {
       part = "&nbsp;;"
     }
