@@ -5,7 +5,7 @@
     if (dir == "lr") {
        pos = parseInt(theImg.style.left);
        pos += amt * 5;
-      theImg.style.left = pos;
+       theImg.style.left = pos;
     }
     else {
       pos = parseInt(theImg.style.top);
@@ -15,9 +15,11 @@
   }
   
   function keyCheck(e) {
+    console.log("wut");
     if (!theImg) {
       return;
     }
+    console.log("why");
     if (e.keyCode == 37) {
       shiftImg("lr", -1);
     }
@@ -51,7 +53,7 @@
   }
   
   if (!grabImg()) {
-    window.setTimeout(grabImgLoop, 10);;
+    window.setTimeout(grabImgLoop, 10);
   }
   document.addEventListener("keydown", keyCheck);
   
