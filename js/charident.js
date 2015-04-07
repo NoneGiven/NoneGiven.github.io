@@ -47,14 +47,15 @@
   }
   
   function processText(text) {
-    var hex, s;
+    var hex, attrs, s;
     s = "";
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16);
       for (var j = 0; j < 5 - hex.length; j++) {
         hex = "0" + hex;
       }
-      s += "<br>" + hex;
+      attrs = unicodeData[hex];
+      s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attrs[0];
     }
     //happyMsg("Done.")
     displayMsg(s);
