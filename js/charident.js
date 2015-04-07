@@ -88,13 +88,23 @@
     }
   }
   
-  function textareaEnabled(yn) {
-    var btn = document.getElementById("txt");
+  function checkboxEnabled(yn) {
+    var chk = document.getElementById("chk");
     if (yn) {
-      btn.removeAttribute("readonly");
+      chk.removeAttribute("readonly");
     }
     else {
-      btn.setAttribute("readonly", "");
+      chk.setAttribute("readonly", "");
+    }
+  }
+  
+  function textareaEnabled(yn) {
+    var txt = document.getElementById("txt");
+    if (yn) {
+      txt.removeAttribute("readonly");
+    }
+    else {
+      txt.setAttribute("readonly", "");
     }
   }
   
