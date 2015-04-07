@@ -7,7 +7,7 @@
     var xhr = new XMLHttpRequest();
     xhr.onload = getData();
     xhr.open("GET", "http://unicode.org/Public/UNIDATA/UnicodeData.txt", true);
-    xhr.sent();
+    xhr.send();
   }
   
   function getData() {
