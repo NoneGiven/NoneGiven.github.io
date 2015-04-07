@@ -3,6 +3,7 @@
   var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing;
   
   function startup() {
+    console.log("startup");
     if (isAutoboxTicked()) {
       document.addEventListener("keydown", tickText);
     }
