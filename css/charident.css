@@ -1,0 +1,12 @@
+.msg {
+  font-weight: bold;
+  color: black;
+}
+
+.good {
+  color: green;
+}
+
+.bad {
+  color: red;
+}
