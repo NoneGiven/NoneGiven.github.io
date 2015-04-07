@@ -116,7 +116,7 @@
   }
   
   function displayRes(res) {
-    document.getElementById("msg-res").innerHTML = msg;
+    document.getElementById("msg-res").innerHTML = res;
   }
   
   function displayMsg(msg) {
