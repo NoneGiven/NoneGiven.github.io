@@ -8,6 +8,10 @@ h1, h1 a {
   color: white;
 }
 
+h1 span {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 .title {
   font-size: 24px;
 }
