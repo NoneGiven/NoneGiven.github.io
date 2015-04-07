@@ -66,8 +66,8 @@
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
       }
     }
-    //happyMsg("Done.")
-    displayMsg(s);
+    happyMsg("Done.")
+    document.getElementById("msg-res").innerHTML = s;
     textareaEnabled(true);
     buttonEnabled(true);
   }
