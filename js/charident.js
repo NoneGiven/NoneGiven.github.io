@@ -46,12 +46,14 @@
       return;
     }
     displayMsg("Processing...")
-    if (isCheckboxTicked()) {
-      alert("VERBOSE");
-    }
     textareaEnabled(false);
     buttonEnabled(false);
-    processText(text);
+    if (isCheckboxTicked()) {
+      processTextVerbose(text);
+    }
+    else {
+      processText(text);
+    }
   }
   
   function processText(text) {
@@ -62,8 +64,11 @@
       while (hex.length < 4) {
         hex = "0" + hex;
       }
-      console.log(hex);
       attr = unicodeData[hex];
+      if (attr == null) {
+        s += "<br>Could not find data for U+" + hex + ".";
+        continue;
+      }
       if (attr[0] == "&lt;control&gt;") {
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
@@ -78,7 +83,35 @@
   }
   
   function processTextVerbose(text) {
-    //hi
+    var hex, attr, s;
+    s = "";
+    for (var i = 0; i < text.length; i++) {
+      hex = text.charCodeAt(i).toString(16).toUpperCase();
+      while (hex.length < 4) {
+        hex = "0" + hex;
+      }
+      attr = unicodeData[hex];
+      if (attr == null) {
+        s += "<br>Could not find data for U+" + hex + ".";
+        continue;
+      }
+      if (attr[0] == "&lt;control&gt;") {
+        s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
+      }
+      else {
+        s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
+      }
+      for (var i = 1; i < 14; i++) {
+        if (i == 9 || attr[i] == "") {
+          continue;
+        }
+        s += "<br>&nbsp;&nbsp;" + attr[i];
+      }
+    }
+    happyMsg("Done.")
+    displayRes(s);
+    textareaEnabled(true);
+    buttonEnabled(true);
   }
   
   function isCheckboxTicked(yn) {
