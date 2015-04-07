@@ -7,7 +7,7 @@
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData;
-    xhr.open("GET", "../res/short.txt", true);
+    xhr.open("GET", "../res/UnicodeData.txt", true);
     xhr.send();
   }
   
@@ -33,7 +33,7 @@
     buttonEnabled(true);
   }
   
-  function processText() {
+  function readText() {
     var ta, text;
     ta = document.getElementById("txt");
     if (!(text = ta.value)) {
@@ -43,6 +43,18 @@
     displayMsg("Processing...")
     textareaEnabled(false);
     buttonEnabled(false);
+    processText(text);
+  }
+  
+  function processText(text) {
+    console.log(text.charCodeAt(0));
+    happyMsg("Done.")
+    textareaEnabled(true);
+    buttonEnabled(true);
+  }
+  
+  function processTextVerbose(text) {
+    //hi
   }
   
   function buttonEnabled(yn) {
@@ -85,7 +97,7 @@
   }
   
   window.submitText = function() {
-    processText();
+    readText();
   }
   
   addEventListener("DOMContentLoaded", startup);
