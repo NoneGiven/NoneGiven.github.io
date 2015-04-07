@@ -25,8 +25,9 @@
     var lines, splits;
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
+    console.log(lines);
     for (var i = 0; i < lines.length; i++) {
-      //console.log(lines[i]);
+      console.log(lines[i]);
       splits = lines[i].split(";");
       console.log(splits);
       unicodeData[splits[0]] = splits.slice(1);
