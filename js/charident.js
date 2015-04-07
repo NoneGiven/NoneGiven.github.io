@@ -22,8 +22,8 @@
   }
   
   function parseData(data) {
-    data = data.replace(">", "&gt;").replace("<", "&lt;");
     var lines, splits;
+    data = data.replace(">", "&gt;").replace("<", "&lt;");
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length; i++) {
