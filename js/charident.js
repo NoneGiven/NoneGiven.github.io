@@ -12,13 +12,22 @@
   }
   
   function getData() {
-    console.log(this.status);
-    if (this.status != "200" && this.status != "304") {
+    if (this.status != "200") {
       complainMsg("Error fetching the file!")
     }
     else {
-      displayMsg("Fetched file successfully.");
+      displayMsg("Fetched file successfully. Parsing...");
+      parseData(this.responseText);
     }
+  }
+  
+  function parseData(data) {
+    var lines = data.match(/[^\r\n]+/g);
+    for (var i = 0; i < lines.length / 10; i++) {
+      console.log(lines[i]);
+    }
+    displayMsg("Ready");
+    buttonEnabled(true);
   }
   
   function processText() {
@@ -27,7 +36,7 @@
       alert("Enter some text, stupid");
       return;
     }
-    alert("text");
+    alert("insert text processing here");
   }
   
   function buttonEnabled(yn) {
