@@ -137,7 +137,8 @@
               w += a[0];
             }
             for (i; i < a.length; i++) {
-              w += "<br>" + a[i];
+              w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
+                + String.fromCharCode(parseInt(attr[j], 16)) + " - U+" + attr[j];
             }
             words[1] = w;
             break;
