@@ -36,7 +36,9 @@
     buttonEnabled(true);
     checkboxEnabled(true);
     processing = false;
-    ticker = setInterval(tickText, 100);
+    if (isAutoboxTicked()) {
+      ticker = setInterval(tickText, 100);
+    }
   }
   
   function tickText() {
@@ -111,7 +113,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    ticker = setInterval(tickText, 100);
+    if (isAutoboxTicked()) {
+      ticker = setInterval(tickText, 100);
+    }
   }
   
   function processTextVerbose(text) {
@@ -248,7 +252,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    ticker = setInterval(tickText, 100);
+    if (isAutoboxTicked()) {
+      ticker = setInterval(tickText, 100);
+    }
   }
   
   function buildCodeString(code) {
@@ -261,6 +267,10 @@
   
   function isCheckboxTicked() {
     return document.getElementById("chk").checked;
+  }
+  
+  function isAutoboxTicked() {
+    return document.getElementById("auto").checked;
   }
   
   function buttonEnabled(yn) {
@@ -323,6 +333,13 @@
   window.checkboxToggle = function() {
     if (document.getElementById("txt").value) {
       readText();
+    }
+  }
+  
+  window.autoboxToggle = function() {
+    clearInterval(ticker);
+    if (isAutoboxTicked()) {
+      ticker = setInterval(tickText, 100);
     }
   }
   
