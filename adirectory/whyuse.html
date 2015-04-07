@@ -12,7 +12,11 @@
         alert("Can't let you do that, Star Fox.");
       }
     }
+    function clickCheck(e) {
+      alert("You clicked X: " + e.clientX + ", Y: " + e.clientY);
+    }
     document.addEventListener("keydown", keyCheck);
+    document.addEventListener("click", clickCheck);
   }).call();
 </script>
 <title>Why Use</title>
