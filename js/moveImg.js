@@ -35,7 +35,7 @@
   }
   
   function grabImg() {
-    var theImg = document.getElementById("shiftyImg");
+    theImg = document.getElementById("shiftyImg");
     if (theImg) {
       theImg.style.left = "0px";
       theImg.style.top = "0px";
