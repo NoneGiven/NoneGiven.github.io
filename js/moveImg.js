@@ -40,15 +40,19 @@
   function keyUpCheck(e) {
     if (e.keyCode == 65) { // A
       window.clearInterval(lInt);
+      lInt = null;
     }
     else if (e.keyCode == 68) { // D
       window.clearInterval(rInt);
+      rInt = null;
     }
     else if (e.keyCode == 87) { // W
       window.clearInterval(uInt);
+      uInt = null;
     }
     else if (e.keyCode == 83) { // S
       window.clearInterval(dInt);
+      dInt = null;
     }
   }
   
