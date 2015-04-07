@@ -83,7 +83,7 @@
   }
   
   function processTextVerbose(text) {
-    var hex, attr, s;
+    var hex, attr, s, words;
     s = "";
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16).toUpperCase();
@@ -105,7 +105,56 @@
         if (j == 9 || attr[j] == "") {
           continue;
         }
-        s += "<br>&nbsp;&nbsp;" + attr[j];
+        switch (j) {
+          case 1:
+            words = "General category";
+            break;
+            
+          case 2:
+            words = "Canonical combining classes";
+            break;
+            
+          case 3:
+            words = "Bidirectional category	";
+            break;
+            
+          case 4:
+            words = "Character decomposition mapping";
+            break;
+            
+          case 5:
+            words = "Decimal digit value";
+            break;
+            
+          case 6:
+            words = "Digit value";
+            break;
+            
+          case 7:
+            words = "Numeric value";
+            break;
+            
+          case 8:
+            words = "Mirrored";
+            break;
+            
+          case 10:
+            words = "Comment";
+            break;
+          
+          case 11:
+            words = "Uppercase mapping";
+            break;
+            
+          case 12:
+            words = "Lowercase mapping";
+            break;
+            
+          case 13:
+            words = "Titlecase mapping";
+            break;
+        }
+        s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words + ": " + attr[j];
       }
     }
     happyMsg("Done.")
