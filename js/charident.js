@@ -137,8 +137,7 @@
               w += a[0];
             }
             for (k; k < a.length; k++) {
-              w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
-                + String.fromCharCode(parseInt(a[k], 16)) + "&nbsp;- U+" + a[k];
+              w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + buildCodeString(a[k]);
             }
             words[1] = w;
             break;
@@ -170,17 +169,17 @@
           
           case 11:
             words[0] = "Uppercase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + "&nbsp;- U+" + attr[j];
+            words[1] = buildCodeString(attr[j]);
             break;
             
           case 12:
             words[0] = "Lowercase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + " &nbsp; U+" + attr[j];
+            words[1] = buildCodeString(attr[j]);
             break;
             
           case 13:
             words[0] = "Titlecase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + "&nbsp;- U+" + attr[j];
+            words[1] = buildCodeString(attr[j]);
             break;
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
@@ -191,6 +190,10 @@
     displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
+  }
+  
+  function buildCodeString(code) {
+    return String.fromCharCode(parseInt(code, 16)) + " &nbsp;- U+" + code;
   }
   
   function setupVerboseData() {
