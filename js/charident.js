@@ -13,7 +13,7 @@
   
   function getData() {
     //console.log(this);
-    if (this.status != 200 && this.status != 304) {
+    if (this.status != "200" && this.status != "304") {
       complainMsg("Error fetching the file!")
     }
     else {
