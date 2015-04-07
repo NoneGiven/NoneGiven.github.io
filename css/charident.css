@@ -9,15 +9,15 @@
 }
 
 .msg {
-  font-family: Arial;
+  color: gray;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .res {
-  color: gray;
-  margin-left: 20px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3em
   margin-top: 4px;
-  size: 150%;
 }
 
 .good {
