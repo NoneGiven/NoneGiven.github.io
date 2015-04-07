@@ -26,7 +26,7 @@
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length / 10; i++) {
-      split = lines[i].match([^;]+/g);
+      split = lines[i].match(/[^;]+/g);
       unicodeData[split[0]] = split.slice(1);
     }
     displayMsg("Ready");
