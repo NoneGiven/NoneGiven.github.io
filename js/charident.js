@@ -129,7 +129,7 @@
             
           case 4:
             words[0] = "Character decomposition mapping";
-            words[1] = attr[j];
+            words[1] = attr[j]; //split by spaces...
             break;
             
           case 5:
@@ -149,7 +149,7 @@
             
           case 8:
             words[0] = "Mirrored";
-            words[1] = attr[j];
+            words[1] = (attr[j] == "N" ? "No" : "Yes");
             break;
             
           case 10:
@@ -159,17 +159,17 @@
           
           case 11:
             words[0] = "Uppercase mapping";
-            words[1] = attr[j];
+            words[1] = String.fromCharCode(attr[j]);
             break;
             
           case 12:
             words[0] = "Lowercase mapping";
-            words[1] = attr[j];
+            words[1] = String.fromCharCode(attr[j]);
             break;
             
           case 13:
             words[0] = "Titlecase mapping";
-            words[1] = attr[j];
+            words[1] = String.fromCharCode(attr[j]);
             break;
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
