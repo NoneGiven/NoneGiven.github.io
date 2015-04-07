@@ -61,20 +61,10 @@
     if (theImg) {
       theImg.style.left = "0px";
       theImg.style.top = "0px";
-      return true;
-    }
-    return false;
-  }
-  
-  function grabImgLoop() {
-    if (!grabImg()) {
-      window.setTimeout(grabImgLoop, 10);
     }
   }
   
-  if (!grabImg()) {
-    window.setTimeout(grabImgLoop, 10);
-  }
+  document.addEventListener("DOMContentLoaded", grabImg);
   document.addEventListener("keydown", keyCheck);
   document.addEventListener("keyup", keyUpCheck);
   
