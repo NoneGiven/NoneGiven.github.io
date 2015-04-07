@@ -25,25 +25,22 @@
     var lines, splits;
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
-    console.log(lines);
     for (var i = 0; i < lines.length; i++) {
-      console.log(lines[i]);
       splits = lines[i].split(";");
-      console.log(splits);
       unicodeData[splits[0]] = splits.slice(1);
     }
     displayMsg("Ready");
-    window.ud = unicodeData;
     buttonEnabled(true);
   }
   
   function processText() {
     var text;
     if (!(text = document.getElementById("txt").value)) {
-      alert("Enter some text, stupid");
+      complainMsg("No text entered.");
       return;
     }
-    alert("insert text processing here");
+    displayMsg("Processing...")
+    buttonEnabled(false);
   }
   
   function buttonEnabled(yn) {
@@ -59,6 +56,11 @@
   function displayMsg(msg) {
     document.getElementById("msg-line").className = "msg";
     writeMsg(msg);
+  }
+  
+  function happyMsg(msg) {
+    document.getElementById("msg-line").className = "msg good";
+    writeMsg(msg); 
   }
   
   function complainMsg(msg) {
