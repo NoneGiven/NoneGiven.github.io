@@ -140,7 +140,7 @@
         continue;
       }
       if (pa >= 44032 && pa <= 55203) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "");
+        s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "") +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
