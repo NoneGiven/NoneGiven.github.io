@@ -7,7 +7,7 @@
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData;
-    xhr.open("GET", "../res/UnicodeData.txt", true);
+    xhr.open("GET", "../res/short.txt", true);
     xhr.send();
   }
   
@@ -26,8 +26,9 @@
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length; i++) {
-      console.log(lines[i]);
+      //console.log(lines[i]);
       splits = lines[i].split(";");
+      console.log(splits);
       unicodeData[splits[0]] = splits.slice(1);
     }
     displayMsg("Ready");
