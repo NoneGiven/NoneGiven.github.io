@@ -159,16 +159,22 @@
           
           case 11:
             words[0] = "Uppercase mapping";
+            console.log(attr[j]);
+            console.log(parseInt(attr[j], 16));
             words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
             
           case 12:
             words[0] = "Lowercase mapping";
+            console.log(attr[j]);
+            console.log(parseInt(attr[j], 16));
             words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
             
           case 13:
             words[0] = "Titlecase mapping";
+            console.log(attr[j]);
+            console.log(parseInt(attr[j], 16));
             words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
         }
