@@ -73,7 +73,7 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
+        s += "<br>" + text.charAt(i) + "&nbsp;- U+" + hex + " - " + attr[0];
       }
     }
     happyMsg("Done.")
@@ -100,7 +100,7 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
+        s += "<br>" + text.charAt(i) + "&nbsp;- U+" + hex + " - " + attr[0];
       }
       for (var j = 1; j < 14; j++) {
         if (j == 9 || attr[j] == "") {
@@ -138,7 +138,7 @@
             }
             for (k; k < a.length; k++) {
               w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
-                + String.fromCharCode(parseInt(a[k], 16)) + " - U+" + a[k];
+                + String.fromCharCode(parseInt(a[k], 16)) + "&nbsp;- U+" + a[k];
             }
             words[1] = w;
             break;
@@ -170,17 +170,17 @@
           
           case 11:
             words[0] = "Uppercase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + " - U+" + attr[j];
+            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + "&nbsp;- U+" + attr[j];
             break;
             
           case 12:
             words[0] = "Lowercase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + " - U+" + attr[j];
+            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + " &nbsp; U+" + attr[j];
             break;
             
           case 13:
             words[0] = "Titlecase mapping";
-            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + " - U+" + attr[j];
+            words[1] = String.fromCharCode(parseInt(attr[j], 16)) + "&nbsp;- U+" + attr[j];
             break;
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
