@@ -30,8 +30,10 @@
     
   var theImg = document.getElementById("shiftyImg");
   if (theImg) {
+    console.log(theImg);
     theImg.style.left = "0px";
     theImg.style.top = "0px";
     document.addEventListener("keydown", keyCheck);
   }
+  console.log("hi");
 }).call();
