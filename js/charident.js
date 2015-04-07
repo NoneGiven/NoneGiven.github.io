@@ -54,7 +54,7 @@
       for (var j = 0; j < 5 - hex.length; j++) {
         hex = "0" + hex;
       }
-      s += hex + "<br>";
+      s += "<br>" + hex;
     }
     //happyMsg("Done.")
     displayMsg(s);
