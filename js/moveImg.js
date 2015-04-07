@@ -5,12 +5,12 @@
     if (dir == "lr") {
        pos = parseInt(theImg.style.left);
        pos += amt * 5;
-       theImg.style.left = pos;
+       theImg.style.left = pos + "px";
     }
     else {
       pos = parseInt(theImg.style.top);
       pos += amt * 5;
-      theImg.style.top = pos;
+      theImg.style.top = pos + "px";
     }
   }
   
