@@ -95,6 +95,16 @@
     }
   }
   
+  function checkboxEnabled(yn) {
+    var chk = document.getElementById("chk");
+    if (yn) {
+      chk.removeAttribute("disabled");
+    }
+    else {
+      chk.setAttribute("disabled", "");
+    }
+  }
+  
   function textareaEnabled(yn) {
     var txt = document.getElementById("txt");
     if (yn) {
