@@ -159,17 +159,17 @@
           
           case 11:
             words[0] = "Uppercase mapping";
-            words[1] = String.fromCharCode(attr[j]);
+            words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
             
           case 12:
             words[0] = "Lowercase mapping";
-            words[1] = String.fromCharCode(attr[j]);
+            words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
             
           case 13:
             words[0] = "Titlecase mapping";
-            words[1] = String.fromCharCode(attr[j]);
+            words[1] = String.fromCharCode(parseInt(attr[j], 16));
             break;
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
