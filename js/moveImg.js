@@ -20,15 +20,19 @@
       return;
     }
     if (e.keyCode == 65) { // A
+      shiftImg("lr", -1);
       lInt = window.setInterval(function() { shiftImg("lr", -1); }, 500);
     }
     else if (e.keyCode == 68) { // D
+      shiftImg("lr", 1);
       rInt = window.setInterval(function() { shiftImg("lr", 1); }, 500);
     }
     else if (e.keyCode == 87) { // W
+      shiftImg("ud", -1);
       uInt = window.setInterval(function() { shiftImg("ud", -1); }, 500);
     }
     else if (e.keyCode == 83) { // S
+      shiftImg("ud", 1);
       dInt = window.setInterval(function() { shiftImg("ud", 1); }, 500);
     }
   }
