@@ -7,7 +7,7 @@
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData;
-    xhr.open("GET", "../res/UnicodeData.txt", true);
+    xhr.open("GET", "/res/UnicodeData.txt", true);
     xhr.send();
   }
   
@@ -280,7 +280,7 @@
     bcStrings["ON"] = "Other Neutrals";
   }
   
-  function isCheckboxTicked(yn) {
+  function isCheckboxTicked() {
     return document.getElementById("chk").checked;
   }
   
@@ -314,8 +314,8 @@
     }
   }
   
-  function displayRes(res) {
-    document.getElementById("msg-res").innerHTML = res;
+  function displayRes(msg) {
+    document.getElementById("msg-res").innerHTML = msg;
   }
   
   function displayMsg(msg) {
