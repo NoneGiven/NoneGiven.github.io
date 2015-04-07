@@ -1,6 +1,7 @@
 (function() {
   
   var unicodeData = null;
+  var proto = location.protocol;
   
   function startup() {
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
