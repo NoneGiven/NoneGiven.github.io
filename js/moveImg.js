@@ -19,19 +19,19 @@
     if (!theImg) {
       return;
     }
-    if (e.keyCode == 65) { // A
+    if (e.keyCode == 65 && !lInt) { // A
       shiftImg("lr", -1);
       lInt = window.setInterval(function() { shiftImg("lr", -1); }, 500);
     }
-    else if (e.keyCode == 68) { // D
+    else if (e.keyCode == 68 && !rInt) { // D
       shiftImg("lr", 1);
       rInt = window.setInterval(function() { shiftImg("lr", 1); }, 500);
     }
-    else if (e.keyCode == 87) { // W
+    else if (e.keyCode == 87 && !uInt) { // W
       shiftImg("ud", -1);
       uInt = window.setInterval(function() { shiftImg("ud", -1); }, 500);
     }
-    else if (e.keyCode == 83) { // S
+    else if (e.keyCode == 83 && !dInt) { // S
       shiftImg("ud", 1);
       dInt = window.setInterval(function() { shiftImg("ud", 1); }, 500);
     }
