@@ -49,7 +49,7 @@
   function processText(text) {
     var hex;
     for (var i = 0; i < text.length; i++) {
-      hex = text.charCodeAt(i).toString(16));
+      hex = text.charCodeAt(i).toString(16);
       for (var j = 0; j < 4 - hex.length; j++) {
         hex = "0" + hex;
       }
