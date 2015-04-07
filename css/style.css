@@ -8,6 +8,14 @@ h1, h1 a {
   color: white;
 }
 
+a:focus {
+  outline: none;
+}
+
+a::-moz-focus-inner {
+  border: 0;
+}
+
 h1 span {
   background-color: rgba(0, 0, 0, 0.75);
   padding: 0.4em;
