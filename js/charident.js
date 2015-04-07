@@ -129,7 +129,17 @@
             
           case 4:
             words[0] = "Character decomposition mapping";
-            words[1] = attr[j]; //split by spaces...
+            var a = attr[j].split(" ");
+            var w = "";
+            var i = 0;
+            if (a[0].substring(0,4) == "&gt") {
+              i = 1;
+              w += a[0];
+            }
+            for (i; i < a.length; i++) {
+              w += "<br>" + a[i];
+            }
+            words[1] = w;
             break;
             
           case 5:
