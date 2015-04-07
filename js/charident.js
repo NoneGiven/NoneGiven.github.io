@@ -22,12 +22,12 @@
   }
   
   function parseData(data) {
-    var lines, split;
+    var lines, splits;
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length / 10; i++) {
-      split = lines[i].match(/[^;]+/g);
-      unicodeData[split[0]] = split.slice(1);
+      splits = lines[i].split(";");
+      unicodeData[splits[0]] = splits.slice(1);
     }
     displayMsg("Ready");
     window.ud = unicodeData;
