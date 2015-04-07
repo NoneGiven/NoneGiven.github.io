@@ -1,6 +1,6 @@
 (function() {
   var theImg = null;
-  function shiftImage(dir, amt) {
+  function shiftImg(dir, amt) {
     var pos;
     if (dir == "lr") {
        pos = parseInt(theImg.style.left);
@@ -15,21 +15,19 @@
   }
   
   function keyCheck(e) {
-    console.log("wut");
     if (!theImg) {
       return;
     }
-    console.log("why");
-    if (e.keyCode == 37) {
+    if (e.keyCode == 65) { // A
       shiftImg("lr", -1);
     }
-    else if (e.keyCode == 39) {
+    else if (e.keyCode == 69) { // D
       shiftImg("lr", 1);
     }
-    else if (e.keyCode == 38) {
+    else if (e.keyCode == 87) { // W
       shiftImg("ud", -1);
     }
-    else if (e.keyCode == 40) {
+    else if (e.keyCode == 83) { // S
       shiftImg("ud", 1);
     }
   }
@@ -39,10 +37,8 @@
     if (theImg) {
       theImg.style.left = "0px";
       theImg.style.top = "0px";
-      console.log(theImg);
       return true;
     }
-    console.log("retry");
     return false;
   }
   
