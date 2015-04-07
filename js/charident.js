@@ -60,8 +60,8 @@
       }
       console.log(hex);
       attr = unicodeData[hex];
-      if (attr[0] == "&lt;control&gt;") {
-        s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;notacontrol&gt;";
+      if (attr[0] == "&lt;contsdafrol&gt;") {
+        s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
