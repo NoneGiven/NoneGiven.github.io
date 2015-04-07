@@ -6,7 +6,7 @@
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData();
-    xhr.open("GET", "http://unicode.org/Public/UNIDATA/UnicodeData.txt", true);
+    xhr.open("GET", "../res/UnicodeData.txt", true);
     xhr.send();
   }
   
