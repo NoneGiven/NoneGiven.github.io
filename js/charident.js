@@ -54,6 +54,7 @@
       for (var j = 0; j < 5 - hex.length; j++) {
         hex = "0" + hex;
       }
+      console.log(hex);
       attrs = unicodeData[hex];
       s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attrs[0];
     }
