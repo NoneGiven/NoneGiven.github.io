@@ -110,23 +110,23 @@
       if ((pa >= 13312 && pa <= 19893) || (pa >= 19968 && pa <= 40908) || (pa >= 131072 && pa <= 173782) || (pa >= 173824 && pa <= 177972) || (pa >= 177984 && pa <= 178205)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]";
+          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
       if (pa >= 44032 && pa <= 55203) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE " + hsStrings[hex];
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]";
+          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
       if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" + hex +
-          "<br>No further data available";
+          "<br>No further data available<br>";
         continue;
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>Could not find data for U+" + hex + ".";
+        s += "<br>Could not find data for U+" + hex + ".<br>";
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
