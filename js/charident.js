@@ -39,6 +39,9 @@
     if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
     }
+    if (document.getElementById("txt").value) {
+      readText();
+    }
   }
   
   function tickText() {
