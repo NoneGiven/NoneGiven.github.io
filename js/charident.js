@@ -101,7 +101,7 @@
       else {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
       }
-      for (var i = 1; i < 14; i++) {
+      for (var i = 1; i < 13; i++) {
         if (i == 9 || attr[i] == "") {
           continue;
         }
