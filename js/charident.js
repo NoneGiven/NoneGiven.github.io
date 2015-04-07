@@ -98,7 +98,7 @@
         continue;
       }
       if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" + hex;
+        s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE";
         continue;
       }
       attr = unicodeData[hex];
@@ -149,7 +149,7 @@
         continue;
       }
       if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" + hex +
+        s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" +
           "<br>No further data available<br>";
         continue;
       }
