@@ -1,7 +1,23 @@
 (function() {
   
+  var unicodeData = null;
+  
   function startup() {
-    displayMsg("Fetching <i>UnicodeData.txt</i>...")
+    displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
+    var xhr = new XMLHttpRequest();
+    xhr.onload = getData();
+    xhr.open("GET", "http://unicode.org/Public/UNIDATA/UnicodeData.txt", true);
+    xhr.sent();
+  }
+  
+  function getData() {
+    //console.log(this);
+    if (this.status != 200 && this.status != 304) {
+      complainMsg("Error fetching the file!")
+    }
+    else {
+      displayMsg("Fetched file successfully.");
+    }
   }
   
   function processText() {
