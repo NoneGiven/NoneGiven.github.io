@@ -48,6 +48,9 @@
   }
   
   function readText() {
+    if (processing) {
+      return;
+    }
     var text;
     displayRes("");
     if (!(text = document.getElementById("txt").value)) {
@@ -244,6 +247,7 @@
     displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
+    ticker = setInterval(tickText, 100);
   }
   
   function buildCodeString(code) {
@@ -313,6 +317,12 @@
   
   window.submitText = function() {
     readText();
+  }
+  
+  window.checkboxToggle = function() {
+    if (document.getElementById("txt").value) {
+      readText();
+    }
   }
   
   function setupVerboseData() {
