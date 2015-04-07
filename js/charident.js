@@ -194,8 +194,9 @@
   
   function buildCodeString(code) {
     var part = "";
+    console.log(unicodeData[code][2]);
     if (unicodeData[code][2] != "0") {
-      part = "&nbsp;"
+      part = "FUCK;"
     }
     return String.fromCharCode(parseInt(code, 16)) + part + "&nbsp;- U+" + code;
   }
