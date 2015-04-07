@@ -3,6 +3,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a:focus {
+  outline: none;
+}
+
+a::-moz-focus-inner {
+  border: 0;
+}
+
 .header {
   display: inline;
 }
