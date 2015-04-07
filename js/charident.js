@@ -131,14 +131,14 @@
             words[0] = "Character decomposition mapping";
             var a = attr[j].split(" ");
             var w = "";
-            var i = 0;
+            var k = 0;
             if (a[0].substring(0,4) == "&gt") {
-              i = 1;
+              k = 1;
               w += a[0];
             }
-            for (i; i < a.length; i++) {
+            for (k; k < a.length; k++) {
               w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
-                + String.fromCharCode(parseInt(attr[j], 16)) + " - U+" + attr[j];
+                + String.fromCharCode(parseInt(a[k], 16)) + " - U+" + a[k];
             }
             words[1] = w;
             break;
