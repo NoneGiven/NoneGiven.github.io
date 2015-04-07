@@ -47,15 +47,17 @@
   }
   
   function processText(text) {
-    var hex;
+    var hex, s;
+    s = "";
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16);
-      for (var j = 0; j < 4 - hex.length; j++) {
+      for (var j = 0; j < 5 - hex.length; j++) {
         hex = "0" + hex;
       }
-      console.log(hex);
+      s += hex + "<br>";
     }
-    happyMsg("Done.")
+    //happyMsg("Done.")
+    displayMsg(s);
     textareaEnabled(true);
     buttonEnabled(true);
   }
