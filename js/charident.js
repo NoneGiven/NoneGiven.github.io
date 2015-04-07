@@ -4,6 +4,7 @@
   var proto = location.protocol;
   
   function startup() {
+    document.getElementById("chk").setAttribute("onclick", "alert('hi')");
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData;
