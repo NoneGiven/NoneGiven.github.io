@@ -3,10 +3,6 @@
   var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing;
   
   function startup() {
-    console.log("startup");
-    if (isAutoboxTicked()) {
-      document.addEventListener("keyup", tickText);
-    }
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
@@ -40,9 +36,9 @@
     buttonEnabled(true);
     checkboxEnabled(true);
     processing = false;
-    /*if (isAutoboxTicked()) {
+    if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }*/
+    }
   }
   
   function tickText() {
@@ -72,7 +68,7 @@
     textareaEnabled(false);
     buttonEnabled(false);
     processing = true;
-    //clearInterval(ticker);
+    clearInterval(ticker);
     if (isCheckboxTicked()) {
       processTextVerbose(text);
     }
@@ -122,9 +118,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    /*if (isAutoboxTicked()) {
+    if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }*/
+    }
   }
   
   function processTextVerbose(text) {
@@ -261,9 +257,9 @@
     textareaEnabled(true);
     buttonEnabled(true);
     processing = false;
-    /*if (isAutoboxTicked()) {
+    if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
-    }*/
+    }
   }
   
   function buildCodeString(code) {
@@ -346,20 +342,11 @@
   }
   
   window.autoboxToggle = function() {
-    if (isAutoboxTicked()) {
-      document.addEventListener("keyup", tickText);
-    }
-    else {
-      document.removeEventListener("keyup", tickText);
-    }
-  }
-  
-  /*window.autoboxToggle = function() {
     clearInterval(ticker);
     if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
     }
-  }*/
+  }
   
   function setupVerboseData() {
     gcStrings = {};
