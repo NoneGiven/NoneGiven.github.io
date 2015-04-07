@@ -157,7 +157,7 @@
             break;
             
           case 8:
-            if (attr[j] == N) {
+            if (attr[j] == "N") {
               continue;
             }
             words[0] = "Mirrored";
