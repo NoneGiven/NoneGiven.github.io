@@ -1,9 +1,9 @@
 (function() {
   
-  var unicodeData = null;
-  var proto = location.protocol;
+  var gcStrings, ccStrings, bcStrings, unicodeData;
   
   function startup() {
+    setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
     xhr.onload = getData;
@@ -85,6 +85,7 @@
   function processTextVerbose(text) {
     var hex, attr, s, words;
     s = "";
+    words = [];
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16).toUpperCase();
       while (hex.length < 4) {
@@ -107,54 +108,71 @@
         }
         switch (j) {
           case 1:
-            words = "General category";
+            words[0] = "General category";
+            words[1] = gcStrings[attr[j]] + " [" + attr[j] + "]";
             break;
             
           case 2:
-            words = "Canonical combining classes";
+            words[0] = "Canonical combining classes";
+            if (parseInt(attr[j] >= 10) && parseInt(attr[j] <= 199)) {
+              words[1] = "Fixed position [" + attr[j] + "]";
+            }
+            else {
+              words[1] = ccStrings[attr[j]] + " [" + attr[j] + "]";
+            }
             break;
             
           case 3:
-            words = "Bidirectional category	";
+            words[0] = "Bidirectional category";
+            words[1] = bcStrings[attr[j]] + " [" + attr[j] + "]";
             break;
             
           case 4:
-            words = "Character decomposition mapping";
+            words[0] = "Character decomposition mapping";
+            words[1] = attr[j];
             break;
             
           case 5:
-            words = "Decimal digit value";
+            words[0] = "Decimal digit value";
+            words[1] = attr[j];
             break;
             
           case 6:
-            words = "Digit value";
+            words[0] = "Digit value";
+            words[1] = attr[j];
             break;
             
           case 7:
-            words = "Numeric value";
+            words[0] = "Numeric value";
+            words[1] = attr[j];
             break;
             
           case 8:
-            words = "Mirrored";
+            words[0] = "Mirrored";
+            words[1] = attr[j];
             break;
             
           case 10:
-            words = "Comment";
+            words[0] = "Comment";
+            words[1] = attr[j];
             break;
           
           case 11:
-            words = "Uppercase mapping";
+            words[0] = "Uppercase mapping";
+            words[1] = attr[j];
             break;
             
           case 12:
-            words = "Lowercase mapping";
+            words[0] = "Lowercase mapping";
+            words[1] = attr[j];
             break;
             
           case 13:
-            words = "Titlecase mapping";
+            words[0] = "Titlecase mapping";
+            words[1] = attr[j];
             break;
         }
-        s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words + ": " + attr[j];
+        s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
       }
       s += "<br>"
     }
@@ -162,6 +180,71 @@
     displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
+  }
+  
+  function setupVerboseData() {
+    gcStrings = {};
+    gcStrings["Lu"] = "Letter, Uppercase";
+    gcStrings["Ll"] = "Letter, Lowercase";
+    gcStrings["Lt"] = "Letter, Titlecase";
+    gcStrings["Mn"] = "Mark, Non-Spacing";
+    gcStrings["Mc"] = "Mark, Spacing Combining";
+    gcStrings["Me"] = "Mark, Enclosing";
+    gcStrings["Nd"] = "Number, Decimal Digit";
+    gcStrings["Nl"] = "Number, Letter";
+    gcStrings["No"] = "Number, Other";
+    gcStrings["Zs"] = "Separator, Space";
+    gcStrings["Zl"] = "Separator, Line";
+    gcStrings["Zp"] = "Separator, Paragraph";
+    gcStrings["Cc"] = "Other, Control";
+    gcStrings["Cf"] = "Other, Format";
+    gcStrings["Cs"] = "Other, Surrogate";
+    gcStrings["Co"] = "Other, Private Use";
+    ccStrings = {};
+    ccStrings["0"] = "Not reordered";
+    ccStrings["1"] = "Overlays and interior";
+    ccStrings["7"] = "Nuktas";
+    ccStrings["8"] = "Hiragana/Katakana voicing marks";
+    ccStrings["9"] = "Viramas";
+    ccStrings["200"] = "Below left attached";
+    ccStrings["202"] = "Below attached";
+    ccStrings["204"] = "Below right attached";
+    ccStrings["208"] = "Left attached";
+    ccStrings["210"] = "Right attached";
+    ccStrings["212"] = "Above left attached";
+    ccStrings["214"] = "Above attached";
+    ccStrings["216"] = "Above right attached";
+    ccStrings["218"] = "Below left";
+    ccStrings["220"] = "Below";
+    ccStrings["222"] = "Below right";
+    ccStrings["224"] = "Left";
+    ccStrings["226"] = "Right";
+    ccStrings["228"] = "Above left";
+    ccStrings["230"] = "Above";
+    ccStrings["232"] = "Above right";
+    ccStrings["233"] = "Double below";
+    ccStrings["234"] = "Double above";
+    ccStrings["240"] = "Below (iota subscript)";
+    bcStrings = {};
+    bcStrings["L"] = "Left-to-Right";
+    bcStrings["LRE"] = "Left-to-Right Embedding";
+    bcStrings["LRO"] = "Left-to-Right Override";
+    bcStrings["R"] = "Right-to-Left";
+    bcStrings["AL"] = "Right-to-Left Arabic";
+    bcStrings["RLE"] = "Right-to-Left Embedding";
+    bcStrings["RLO"] = "Right-to-Left Override";
+    bcStrings["PDF"] = "Pop Directional Format";
+    bcStrings["EN"] = "European Number";
+    bcStrings["ES"] = "European Number Separator";
+    bcStrings["ET"] = "European Number Terminator";
+    bcStrings["AN"] = "Arabic Number";
+    bcStrings["CS"] = "Common Number Separator";
+    bcStrings["NSM"] = "Non-Spacing Mark";
+    bcStrings["BN"] = "Boundary Neutral";
+    bcStrings["B"] = "Paragraph Separator";
+    bcStrings["S"] = "Segment Separator";
+    bcStrings["WS"] = "Whitespace";
+    bcStrings["ON"] = "Other Neutrals";
   }
   
   function isCheckboxTicked(yn) {
