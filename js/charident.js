@@ -41,6 +41,6 @@
     processText();
   }
   
-  startup();
+  addEventListener("DOMContentLoaded", startup);
   
 }).call();
