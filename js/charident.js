@@ -1,6 +1,6 @@
 (function() {
   
-  var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData;
+  var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing;
   
   function startup() {
     setupVerboseData();
@@ -35,6 +35,16 @@
     displayMsg("Ready");
     buttonEnabled(true);
     checkboxEnabled(true);
+    processing = false;
+    ticker = setInterval(tickText, 100);
+  }
+  
+  function tickText() {
+    var text = document.getElementById("txt").value;
+    if (!processing && text && text != storedValue) {
+      readText();
+    }
+    storedValue = text;
   }
   
   function readText() {
@@ -47,6 +57,8 @@
     displayMsg("Processing...")
     textareaEnabled(false);
     buttonEnabled(false);
+    processing = true;
+    clearInterval(ticker);
     if (isCheckboxTicked()) {
       processTextVerbose(text);
     }
@@ -95,6 +107,8 @@
     displayRes(s);
     textareaEnabled(true);
     buttonEnabled(true);
+    processing = false;
+    ticker = setInterval(tickText, 100);
   }
   
   function processTextVerbose(text) {
@@ -779,6 +793,8 @@
     hsStrings["C170"] = "SYE"
   }
   
+  storedValue = "";
+  processing = true;
   addEventListener("DOMContentLoaded", startup);
   
 }).call();
