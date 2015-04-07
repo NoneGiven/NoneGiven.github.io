@@ -1,5 +1,16 @@
 (function() {
-  window.submitText = function() {
-    console.log(document.getElementById("txt"));
+  
+  function processText() {
+    var text;
+    if (!text = document.getElementById("txt").value) {
+      alert("Enter some text, stupid");
+      return;
+    }
+    alert("text");
   }
+  
+  window.submitText = function() {
+    processText();
+  }
+  
 }).call();
