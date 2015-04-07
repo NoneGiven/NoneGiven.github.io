@@ -1,14 +1,22 @@
 #txt {
   width: 80em;
   height: 25em;
-  display: block;
   margin-bottom: 5px;
 }
 
+.block {
+  display: block;
+}
+
 .msg {
+  font-family: Arial;
+}
+
+.res {
   color: gray;
   margin-left: 20px;
   font-family: Courier;
+  margin-top: 4px;
 }
 
 .good {
