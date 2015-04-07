@@ -21,19 +21,19 @@
     }
     if (e.keyCode == 65 && !lInt) { // A
       shiftImg("lr", -1);
-      lInt = window.setInterval(function() { shiftImg("lr", -1); }, 500);
+      lInt = window.setInterval(function() { shiftImg("lr", -1); }, 50);
     }
     else if (e.keyCode == 68 && !rInt) { // D
       shiftImg("lr", 1);
-      rInt = window.setInterval(function() { shiftImg("lr", 1); }, 500);
+      rInt = window.setInterval(function() { shiftImg("lr", 1); }, 50);
     }
     else if (e.keyCode == 87 && !uInt) { // W
       shiftImg("ud", -1);
-      uInt = window.setInterval(function() { shiftImg("ud", -1); }, 500);
+      uInt = window.setInterval(function() { shiftImg("ud", -1); }, 50);
     }
     else if (e.keyCode == 83 && !dInt) { // S
       shiftImg("ud", 1);
-      dInt = window.setInterval(function() { shiftImg("ud", 1); }, 500);
+      dInt = window.setInterval(function() { shiftImg("ud", 1); }, 50);
     }
   }
   
