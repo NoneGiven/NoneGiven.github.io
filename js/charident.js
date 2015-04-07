@@ -91,10 +91,10 @@
   function checkboxEnabled(yn) {
     var chk = document.getElementById("chk");
     if (yn) {
-      chk.removeAttribute("readonly");
+      chk.removeAttribute("disabled");
     }
     else {
-      chk.setAttribute("readonly", "");
+      chk.setAttribute("disabled", "");
     }
   }
   
