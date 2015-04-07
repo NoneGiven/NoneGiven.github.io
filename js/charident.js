@@ -196,7 +196,7 @@
     var part = "";
     console.log(unicodeData[code]);
     if (unicodeData[code][2] != "0") {
-      part = "FUCK;"
+      part = "&nbsp;;"
     }
     return String.fromCharCode(parseInt(code, 16)) + part + "&nbsp;- U+" + code;
   }
