@@ -100,7 +100,7 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + text.charAt(i) + buildCodeString(attr[0]);
+        s += "<br>" + text.charAt(i) + buildCodeString(hex) + " - " + attr[0];
       }
       for (var j = 1; j < 14; j++) {
         if (j == 9 || attr[j] == "") {
@@ -195,7 +195,7 @@
   function buildCodeString(code) {
     var part = "";
     if (unicodeData[code][2] != "0") {
-      part = "&nbsp;;"
+      part = "&nbsp;"
     }
     return String.fromCharCode(parseInt(code, 16)) + part + "&nbsp;- U+" + code;
   }
