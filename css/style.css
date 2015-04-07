@@ -3,6 +3,10 @@ body, body a {
   color: black;
 }
 
+h2 {
+  color: white;
+}
+
 .title {
   font-size: 24px;
 }
