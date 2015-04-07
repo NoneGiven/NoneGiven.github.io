@@ -60,9 +60,11 @@
       console.log(hex);
       attr = unicodeData[hex];
       if (attr[0] == "&lt;control&gt;") {
-        console.log(attr);
+        s += "<br>  - U+" + hex + " - " + attr[9] + "&lt;control&gt;";
       }
-      s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
+      else {
+        s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attr[0];
+      }
     }
     //happyMsg("Done.")
     displayMsg(s);
