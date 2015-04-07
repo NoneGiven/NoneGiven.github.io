@@ -193,7 +193,7 @@
   }
   
   function buildCodeString(code) {
-    return String.fromCharCode(parseInt(code, 16)) + " &nbsp;- U+" + code;
+    return String.fromCharCode(parseInt(code, 16)) + "&nbsp;- U+" + code;
   }
   
   function setupVerboseData() {
