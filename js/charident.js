@@ -22,6 +22,7 @@
   }
   
   function parseData(data) {
+    data = data.replace(">", "&gt;").replace("<", "&lt;");
     var lines, splits;
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
@@ -47,7 +48,7 @@
   }
   
   function processText(text) {
-    var hex, attrs, s;
+    var hex, attr, s;
     s = "";
     for (var i = 0; i < text.length; i++) {
       hex = text.charCodeAt(i).toString(16).toUpperCase();
@@ -55,8 +56,11 @@
         hex = "0" + hex;
       }
       console.log(hex);
-      attrs = unicodeData[hex];
-      s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + attrs[0];
+      attr = unicodeData[hex];
+      if (attr[0] == "&lt;control&gt;") {
+        attr
+      }
+      s += "<br>" + text.charAt(i) + " - U+" + hex + " - " + (attr[0] == "&lt;control&gt;" ? attr[9] : attr[0]);
     }
     //happyMsg("Done.")
     displayMsg(s);
