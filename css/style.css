@@ -3,6 +3,10 @@ body, body a {
   color: black;
 }
 
+.title {
+  font-size: 24px;
+}
+
 .home, .home a {
   color: gray;
 }
