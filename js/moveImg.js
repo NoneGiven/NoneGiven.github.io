@@ -1,5 +1,5 @@
 (function() {
-  var theImg;
+  var theImg = null;
   function shiftImage(dir, amt) {
     var pos;
     if (dir == "lr") {
@@ -37,19 +37,21 @@
     if (theImg) {
       theImg.style.left = "0px";
       theImg.style.top = "0px";
+      console.log(theImg);
       return true;
     }
+    console.log("retry");
     return false;
   }
   
   function grabImgLoop() {
     if (!grabImg()) {
-      setTimeout(grabImgLoop, 10);
+      window.setTimeout(grabImgLoop, 10);
     }
   }
   
   if (!grabImg()) {
-    setTimeout(grabImgLoop, 10);;
+    window.setTimeout(grabImgLoop, 10);;
   }
   document.addEventListener("keydown", keyCheck);
   
