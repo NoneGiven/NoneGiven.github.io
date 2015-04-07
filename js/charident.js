@@ -106,6 +106,7 @@
       while (hex.length < 4) {
         hex = "0" + hex;
       }
+      pa = parseInt(hex, 16);
       if ((pa >= 13312 && pa <= 19893) || (pa >= 19968 && pa <= 40908) || (pa >= 131072 && pa <= 173782) || (pa >= 173824 && pa <= 177972) || (pa >= 177984 && pa <= 178205)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
