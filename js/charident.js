@@ -80,24 +80,48 @@
     }
   }
   
+  function handleSurrogates(code1, i, text) {
+    if (i >= text.length - 1) {
+      return null;
+    }
+    var hex, code2;
+    code2 = text.charCodeAt(i + 1);
+    if (!(code2 >= 0xD800 && code2 <= 0xDFFF)) {
+      return null;
+    }
+    hex = ((code1 - 0xD800) * 0x400 + code2 - 0xDC00 + 0x10000).toString(16).toUpperCase();
+    while (hex.length < 4) {
+      hex = "0" + hex;
+    }
+    return "<br>" + String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
+  }
+  
   function processText(text) {
-    var hex, attr, s, pa;
+    var hex, attr, s, ss, code;
     s = "";
     for (var i = 0; i < text.length; i++) {
-      hex = text.charCodeAt(i).toString(16).toUpperCase();
+      code = text.charCodeAt(i);
+      hex = code.toString(16).toUpperCase();
       while (hex.length < 4) {
         hex = "0" + hex;
       }
-      pa = parseInt(hex, 16);
-      if ((pa >= 13312 && pa <= 19893) || (pa >= 19968 && pa <= 40908) || (pa >= 131072 && pa <= 173782) || (pa >= 173824 && pa <= 177972) || (pa >= 177984 && pa <= 178205)) {
+      if (code >= 0xD800 && code <= 0xDFFF) {
+        ss = handleSurrogates(code, i, text);
+        if (ss !== null) {
+          s += ss;
+          i++;
+          continue;
+        }
+      }
+      if ((code >= 0x3400 && code <= 0x4DB5) || (code >= 0x4E00 && code <= 0x9FCC) || (code >= 0x20000 && code <= 0x2A6D6) || (code >= 0x2A700 && code <= 0x2B734) || (code >= 0x2B740 && code <= 0x2B81D)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex;
         continue;
       }
-      if (pa >= 44032 && pa <= 55203) {
+      if (code >= 0xAC00 && code <= 0xD7A3) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "")
         continue;
       }
-      if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
+      if ((code >= 0xD800 && code <= 0xF8FF) || (code >= 0xF0000 && code <= 0x10FFFD)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE";
         continue;
       }
@@ -105,9 +129,6 @@
       if (attr == null) {
         s += "<br>Could not find data for U+" + hex + ".";
         continue;
-      }
-      if (parseInt(hex, 16) >= 13312 && parseInt(hex, 16) <= 19893) {
-        
       }
       if (attr[0] == "&lt;control&gt;") {
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
@@ -131,24 +152,24 @@
     s = "";
     words = [];
     for (var i = 0; i < text.length; i++) {
-      hex = text.charCodeAt(i).toString(16).toUpperCase();
+      pa = text.charCodeAt(i);
+      hex = pa.toString(16).toUpperCase();
       while (hex.length < 4) {
         hex = "0" + hex;
       }
-      pa = parseInt(hex, 16);
-      if ((pa >= 13312 && pa <= 19893) || (pa >= 19968 && pa <= 40908) || (pa >= 131072 && pa <= 173782) || (pa >= 173824 && pa <= 177972) || (pa >= 177984 && pa <= 178205)) {
+      if ((pa >= 0x3400 && pa <= 0x4DB5) || (pa >= 0x4E00 && pa <= 0x9FCC) || (pa >= 0x20000 && pa <= 0x2A6D6) || (pa >= 0x2A700 && pa <= 0x2B734) || (pa >= 0x2B740 && pa <= 0x2B81D)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
-      if (pa >= 44032 && pa <= 55203) {
+      if (pa >= 0xAC00 && pa <= 0xD7A3) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "") +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
-      if ((pa >= 55296 && pa <= 63743) || (pa >= 983040 && pa <= 1114109)) {
+      if ((pa >= 0xD800 && pa <= 0xF8FF) || (pa >= 0xF0000 && pa <= 0x10FFFD)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" +
           "<br>No further data available<br>";
         continue;
