@@ -129,7 +129,7 @@
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>" + (s === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
+        s += "<br>" + (ss === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
@@ -192,7 +192,7 @@
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>" + (s === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
+        s += "<br>" + (ss === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
