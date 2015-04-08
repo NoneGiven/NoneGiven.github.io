@@ -180,7 +180,7 @@
             if (pa2 == 0) {
               continue;
             }
-            else if (pa2 >= 10 && pa2 <= 199) {
+            if (pa2 >= 10 && pa2 <= 199) {
               words[1] = "Fixed position [" + attr[j] + "]";
             }
             else {
@@ -203,6 +203,7 @@
               w += a[0];
             }
             for (k; k < a.length; k++) {
+              console.log(a[k]);
               w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + buildCodeString(a[k]);
             }
             words[1] = w;
