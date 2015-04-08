@@ -11,9 +11,17 @@ a::-moz-focus-inner {
   border: 0;
 }
 
-#info {
+#infoLink {
   text-decoration: underline;
   cursor: pointer;
+}
+
+#infoPanel {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  z-index: 9001;
+  border: 2px black;
 }
 
 .header {
