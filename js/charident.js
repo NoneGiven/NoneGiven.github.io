@@ -43,7 +43,8 @@
     if (ta.value == "") {
       splits = document.URL.split("?chars=");
       if (splits.length > 1) {
-        ta.value = splits[1];
+        ta.value = decodeURIComponent(splits[1]);
+        updateLocation(ta.value);
       }
     }
     if (ta.value) {
