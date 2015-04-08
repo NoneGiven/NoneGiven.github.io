@@ -431,7 +431,7 @@
       document.getElementById("infoPanel").style.display = "inline-block";
   }
   
-  function hideInfo {
+  function hideInfo() {
     infoShowing = false;
     document.getElementById("infoPanel").style.display = "none";
   }
