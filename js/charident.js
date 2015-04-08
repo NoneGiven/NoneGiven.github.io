@@ -198,7 +198,7 @@
             var a = attr[j].split(" ");
             var w = "";
             var k = 0;
-            if (a[0].substring(0,4) == "&gt") {
+            if (a[0].substring(0,4) == "&gt;") {
               k = 1;
               w += a[0];
             }
