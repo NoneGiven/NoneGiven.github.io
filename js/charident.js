@@ -257,7 +257,6 @@
               w += a[0];
             }
             for (k; k < a.length; k++) {
-              console.log(a[k]);
               w += "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + buildCodeString(a[k]);
             }
             words[1] = w;
@@ -447,7 +446,7 @@
   }
   
   function clickCheck(e) {
-    if (e.target == document.getElementById("infoOverlay") /*or info close span*/) {
+    if (e.target == document.getElementById("infoOverlay")) {
       hideInfo();
     }
   }
