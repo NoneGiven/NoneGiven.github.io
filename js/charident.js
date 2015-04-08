@@ -96,7 +96,8 @@
     }
     s += "<br>" + String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
     if (verbose) {
-      
+      //add things
+      return [s, hex];
     }
     return s;
   }
@@ -157,6 +158,7 @@
     s = "";
     words = [];
     for (var i = 0; i < text.length; i++) {
+      ss = null;
       code = text.charCodeAt(i);
       hex = code.toString(16).toUpperCase();
       while (hex.length < 4) {
@@ -164,39 +166,41 @@
       }
       if (code >= 0xD800 && code <= 0xDFFF) {
         ss = handleSurrogates(code, i, text, true);
-        if (ss !== null) {
-          s += ss;
-          i++;
-          continue;
-        }
       }
-      if ((code >= 0x3400 && code <= 0x4DB5) || (code >= 0x4E00 && code <= 0x9FCC) || (code >= 0x20000 && code <= 0x2A6D6) || (code >= 0x2A700 && code <= 0x2B734) || (code >= 0x2B740 && code <= 0x2B81D)) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
-        continue;
-      }
-      if (code >= 0xAC00 && code <= 0xD7A3) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "") +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
-          "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
-        continue;
-      }
-      if ((code >= 0xD800 && code <= 0xF8FF) || (code >= 0xF0000 && code <= 0x10FFFD)) {
-        s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" +
-          "<br>No further data available<br>";
-        continue;
-      }
-      attr = unicodeData[hex];
-      if (attr == null) {
-        s += "<br>Could not find data for U+" + hex + ".<br>";
-        continue;
-      }
-      if (attr[0] == "&lt;control&gt;") {
-        s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
+      if (ss !== null) {
+        s += ss[0];
+        attr = unicodeData[ss[1]];
+        i++;
       }
       else {
-        s += "<br>" + buildCodeString(hex)/* + " - " + attr[0]*/;
+        if ((code >= 0x3400 && code <= 0x4DB5) || (code >= 0x4E00 && code <= 0x9FCC) || (code >= 0x20000 && code <= 0x2A6D6) || (code >= 0x2A700 && code <= 0x2B734) || (code >= 0x2B740 && code <= 0x2B81D)) {
+          s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
+            "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
+            "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
+          continue;
+        }
+        if (code >= 0xAC00 && code <= 0xD7A3) {
+          s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "") +
+            "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
+            "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
+          continue;
+        }
+        if ((code >= 0xD800 && code <= 0xF8FF) || (code >= 0xF0000 && code <= 0x10FFFD)) {
+          s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" +
+            "<br>No further data available<br>";
+          continue;
+        }
+        attr = unicodeData[hex];
+        if (attr == null) {
+          s += "<br>Could not find data for U+" + hex + ".<br>";
+          continue;
+        }
+        if (attr[0] == "&lt;control&gt;") {
+          s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
+        }
+        else {
+          s += "<br>" + buildCodeString(hex)/* + " - " + attr[0]*/;
+        }
       }
       for (var j = 1; j < 14; j++) {
         if (j == 9 || attr[j] == "") {
