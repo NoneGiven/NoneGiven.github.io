@@ -18,6 +18,8 @@ a::-moz-focus-inner {
 
 #infoPanel {
   position: fixed;
+  width: 300px;
+  height: 150px;
   top: 25%;
   left: 25%;
   z-index: 9001;
