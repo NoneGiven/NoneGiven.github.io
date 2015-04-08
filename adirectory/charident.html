@@ -20,8 +20,16 @@
 <input id="auto" checked="" type="checkbox" title="Read text automatically" value="Auto" onclick=autoboxToggle()>
 <input id="chk" disabled="" type="checkbox" title="Detailed results" value="Detailed" onclick=checkboxToggle()>
 <span id="msg-line" class="msg"></span>
-<noscript><span id="msg-res" class="msg res block">This page will not work without Javascript enabled!</span></noscript>
+<noscript>
+<span id="msg-res" class="msg res block">This page will not work without Javascript enabled!</span>
+</noscript>
 <pre><span id="msg-res" class="msg res block"></span></pre>
 <div id="infoOverlay" style="display:none;"></div>
-<div id="infoPanel" style="display:none;">Info</div>
+<div id="infoPanel" style="display:none;">Unicode Character Identifier<br>
+Enter characters in the text field and click Submit to display character identification results. If the first checkbox
+is ticked, the text will be processed automatically as you type. If the second checkbox is ticked, the output will
+include much more information about each character.<br><br>
+The basic output looks like this:<br>
+a - U+0061 - LATIN SMALL LETTER A
+</div>
 </html>
