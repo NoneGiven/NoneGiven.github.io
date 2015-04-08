@@ -129,18 +129,18 @@
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>Could not find data for U+" + hex + ".";
+        s += "<br>" + (s === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        if (ss !== null) {
-          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
+        if (ss === null) {
+          s += "<br>" + buildCodeString(hex);
         }
         else {
-          s += "<br>" + buildCodeString(hex);
+          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
         }
       }
     }
@@ -192,18 +192,18 @@
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>Could not find data for U+" + hex + ".<br>";
+        s += "<br>" + (s === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        if (ss !== null) {
-          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
+        if (ss === null) {
+          s += "<br>" + buildCodeString(hex);
         }
         else {
-          s += "<br>" + buildCodeString(hex);
+          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
         }
       }
       for (var j = 1; j < 14; j++) {
@@ -323,8 +323,16 @@
     return String.fromCharCode(parseInt(hex, 16)) + part + "&nbsp;- U+" + hex + " - " + name;
   }
   
+  function buildFailedCodeString(hex) {
+    return s += "Could not find data for U+" + hex + ". (" + String.fromCharCode(parseInt(hex, 16)) + ")<br>";
+  }
+  
   function buildCodeStringPoints(hex, code1, code2) {
     return String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
+  }
+  
+  function buildFailedCodeStringPoints(hex, code1, code2) {
+    return s += "Could not find data for U+" + hex + ". (" + String.fromCharCode(code1, code2) + ")<br>";
   }
   
   function isCheckboxTicked() {
