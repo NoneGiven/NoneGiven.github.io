@@ -192,7 +192,7 @@
       }
       attr = unicodeData[hex];
       if (attr == null) {
-        s += "<br>" + (ss === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2]));
+        s += "<br>" + (ss === null ? buildFailedCodeString(hex) : buildFailedCodeStringPoints(hex, ss[1], ss[2])) + "<br>";
         continue;
       }
       if (attr[0] == "&lt;control&gt;") {
@@ -324,7 +324,7 @@
   }
   
   function buildFailedCodeString(hex) {
-    return "Could not find data for U+" + hex + ". (" + String.fromCharCode(parseInt(hex, 16)) + ")<br>";
+    return "Could not find data for U+" + hex + " -&nbsp;" + String.fromCharCode(parseInt(hex, 16));
   }
   
   function buildCodeStringPoints(hex, code1, code2) {
@@ -332,7 +332,7 @@
   }
   
   function buildFailedCodeStringPoints(hex, code1, code2) {
-    return "Could not find data for U+" + hex + ". (" + String.fromCharCode(code1, code2) + ")<br>";
+    return "Could not find data for U+" + hex + " -&nbsp;" + String.fromCharCode(code1, code2);
   }
   
   function isCheckboxTicked() {
