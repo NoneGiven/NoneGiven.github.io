@@ -3,6 +3,8 @@
   var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing, infoShowing, baseURL;
   
   function startup() {
+    addEventListener("click", clickCheck);
+    addEventListener("keydown", keyCheck);
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
@@ -436,6 +438,18 @@
     infoShowing = false;
     document.getElementById("infoOverlay").style.display = "none";
     document.getElementById("infoPanel").style.display = "none";
+  }
+  
+  function clickCheck(e) {
+    if (e.target == document.getElementById("infoOverlay") /*or info close span*/) {
+      hideInfo();
+    }
+  }
+  
+  function keyCheck(e) {
+    if (e.keyCode == 7) { // Esc
+      hideInfo();
+    }
   }
   
   function setupVerboseData() {
