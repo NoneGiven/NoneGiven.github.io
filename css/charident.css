@@ -29,17 +29,18 @@ a::-moz-focus-inner {
 #infoPanel {
   position: fixed;
   width: 500px;
-  height: 300px;
-  top: 50%;
+  height: 700px;
+  top: 0%;
   left: 50%;
   margin-left: -250px;
-  margin-top: -150px;
   text-align: center;
   padding-top: 12px;
   padding-left: 8px;
   padding-right: 8px;
   z-index: 9002;
   background: white;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .header {
