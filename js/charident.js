@@ -117,6 +117,7 @@
         ss = handleSurrogates(code, i, text, false);
         if (ss !== null) {
           hex = ss;
+          code = parseInt(hex, 16);
           i++;
         }
       }
@@ -169,6 +170,7 @@
         ss = handleSurrogates(code, i, text, true);
         if (ss !== null) {
           hex = ss;
+          code = parseInt(hex, 16);
           i++;
         }
       }
