@@ -25,11 +25,33 @@
 </noscript>
 <pre><span id="msg-res" class="msg res block"></span></pre>
 <div id="infoOverlay" style="display:none;"></div>
-<div id="infoPanel" style="display:none;">Unicode Character Identifier<br>
+<div id="infoPanel" style="display:none;">Unicode Character Identifier<br><br>
 Enter characters in the text field and click Submit to display character identification results. If the first checkbox
-is ticked, the text will be processed automatically as you type. If the second checkbox is ticked, the output will
-include much more information about each character.<br><br>
+is ticked, the text will be processed automatically as you input it. If the second checkbox is ticked, the output will
+include much more detailed information about each character.<br><br>
 The basic output looks like this:<br>
-a - U+0061 - LATIN SMALL LETTER A
+a - U+0061 - LATIN SMALL LETTER A<br>
+[character] - [Unicode value] - [name]<br><br>
+In the detailed output, there are a number of character attributes that may displayed. Some, but not all, of these
+are present on a given character. In some cases an attribute field may be omitted from the output because<br>
+it is missing, or because it has the "normal" or default value, as explained below.<br><br>
+General category: One of several classifications for a character.<br><br>
+Canonical combining classes: This attribute indicates how a combining character is ordered with the character
+it combines with. Most characters do not have this attribute.<br><br>
+Bidrectional category: Indicates the character's text directionality, such as left-to-right for Latin
+characters.<br><br>
+Character decomposition mapping: Some characters can be represented by two or more "combining" characters, such as
+an accented letter being represented by the unaccented letter plus the accent character. The codes for any such
+characters appear in this field if it exists.<br><br>
+Decimal/digit/numeric value: If a character has an associated numeric value, it is indicated in one or more of
+these attributes, with each accepting a broader interpretation of numeric value. Many characters do not have these
+attributes.<br><br>
+Mirrored: Whether a character is considered a mirrored form of another character (such as ">"). This attribute
+always exists but is only shown in the output if the chracter is mirrored.<br><br>
+Comment: ISO-10646 comment field.<br><br>
+Lowercase mapping: The code for the lowercase equivalent of a character appears in this field if it exists.<br><br>
+Uppercase mapping: The code for the uppercase equivalent of a character appears in this field if it exists.<br><br>
+Titlecase mapping: The code for the titlecase equivalent of a character appears in this field if it exists. This
+attribute is only shown in the output if it is different from the "Uppercase mapping" attribute.
 </div>
 </html>
