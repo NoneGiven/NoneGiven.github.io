@@ -269,7 +269,7 @@
   function buildCodeString(code) {
     var part, name;
     part = "";
-    if ((name = unicodeData[code][1]) == "&lt;control&gt;") {
+    if ((name = unicodeData[code][0]) == "&lt;control&gt;") {
       name = unicodeData[code][9] + " &lt;control&gt;";
     }
     if (unicodeData[code][2] != "0") {
