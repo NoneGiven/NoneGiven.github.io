@@ -439,7 +439,7 @@
       document.getElementById("infoPanel").style.display = "inline-block";
   }
   
-  function hideInfo() {
+  window.hideInfo = function() {
     infoShowing = false;
     document.getElementById("infoOverlay").style.display = "none";
     document.getElementById("infoPanel").style.display = "none";
@@ -447,13 +447,13 @@
   
   function clickCheck(e) {
     if (e.target == document.getElementById("infoOverlay")) {
-      hideInfo();
+      window.hideInfo();
     }
   }
   
   function keyCheck(e) {
     if (e.keyCode == 27) { // Esc
-      hideInfo();
+      window.hideInfo();
     }
   }
   
