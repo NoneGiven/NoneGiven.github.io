@@ -428,11 +428,13 @@
   
   window.showInfo = function() {
       infoShowing = true;
+      document.getElementById("infoOverlay").style.display = "inline-block";
       document.getElementById("infoPanel").style.display = "inline-block";
   }
   
   function hideInfo() {
     infoShowing = false;
+    document.getElementById("infoOverlay").style.display = "none";
     document.getElementById("infoPanel").style.display = "none";
   }
   
