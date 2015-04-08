@@ -447,7 +447,7 @@
   }
   
   function keyCheck(e) {
-    if (e.keyCode == 7) { // Esc
+    if (e.keyCode == 27) { // Esc
       hideInfo();
     }
   }
