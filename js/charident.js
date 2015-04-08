@@ -22,7 +22,7 @@
   }
   
   function parseData(data) {
-    var lines, splits;
+    var lines, splits, ta;
     lines = data.match(/[^\r\n]+/g);
     unicodeData = {};
     for (var i = 0; i < lines.length; i++) {
@@ -39,7 +39,14 @@
     if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
     }
-    if (document.getElementById("txt").value) {
+    ta = document.getElementById("txt");
+    if (ta.value == "") {
+      splits = document.URL.split("?chars=");
+      if (splits.length > 1) {
+        ta.value = splits[1];
+      }
+    }
+    if (ta.value) {
       readText();
     }
   }
