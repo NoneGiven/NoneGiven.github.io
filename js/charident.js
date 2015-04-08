@@ -168,7 +168,7 @@
       if (code >= 0xD800 && code <= 0xDFFF) {
         ss = handleSurrogates(code, i, text, true);
         if (ss !== null) {
-          hex = ss;
+          hex = ss[0];
           code = parseInt(hex, 16);
           i++;
         }
