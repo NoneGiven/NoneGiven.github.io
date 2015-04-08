@@ -23,7 +23,8 @@ a::-moz-focus-inner {
   top: 25%;
   left: 25%;
   z-index: 9001;
-  border: 2px black;
+  border: 2px solid black;
+  background: white;
 }
 
 .header {
