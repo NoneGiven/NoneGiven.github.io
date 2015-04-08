@@ -270,7 +270,7 @@
     var part, name;
     part = "";
     if ((name = unicodeData[code][1]) == "&lt;control&gt;") {
-      name = unicodeData[code][9];
+      name = unicodeData[code][9] + " &lt;control&gt;";
     }
     if (unicodeData[code][2] != "0") {
       part = "&nbsp;"
