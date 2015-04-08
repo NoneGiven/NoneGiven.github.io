@@ -1,6 +1,6 @@
 (function() {
   
-  var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing, baseURL;
+  var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing, infoShowing, baseURL;
   
   function startup() {
     setupVerboseData();
@@ -424,6 +424,16 @@
     if (isAutoboxTicked()) {
       ticker = setInterval(tickText, 100);
     }
+  }
+  
+  window.showInfo = function() {
+      infoShowing = true;
+      document.getElementById("infoPanel").style.display = "inline-block";
+  }
+  
+  function hideInfo {
+    infoShowing = false;
+    document.getElementById("infoPanel").style.display = "none";
   }
   
   function setupVerboseData() {
@@ -904,9 +914,10 @@
     hsStrings["C170"] = "SYE"
   }
   
-  baseURL = location.protocol + "//nonegiven.github.io/adirectory/charident";
   storedValue = "";
   processing = true;
+  infoShowing = false;
+  baseURL = location.protocol + "//nonegiven.github.io/adirectory/charident";
   addEventListener("DOMContentLoaded", startup);
   
 }).call();
