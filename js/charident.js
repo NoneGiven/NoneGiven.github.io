@@ -80,11 +80,12 @@
     }
   }
   
-  function handleSurrogates(code1, i, text) {
+  function handleSurrogates(code1, i, text, verbose) {
     if (i >= text.length - 1) {
       return null;
     }
-    var hex, code2;
+    var s, code2, hex;
+    s = ""
     code2 = text.charCodeAt(i + 1);
     if (!(code2 >= 0xD800 && code2 <= 0xDFFF)) {
       return null;
@@ -93,7 +94,11 @@
     while (hex.length < 4) {
       hex = "0" + hex;
     }
-    return "<br>" + String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
+    s += "<br>" + String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
+    if (verbose) {
+      
+    }
+    return s;
   }
   
   function processText(text) {
@@ -106,7 +111,7 @@
         hex = "0" + hex;
       }
       if (code >= 0xD800 && code <= 0xDFFF) {
-        ss = handleSurrogates(code, i, text);
+        ss = handleSurrogates(code, i, text, false);
         if (ss !== null) {
           s += ss;
           i++;
@@ -148,28 +153,36 @@
   }
   
   function processTextVerbose(text) {
-    var hex, attr, s, words, pa, pa2;
+    var hex, attr, s, words, code, code2;
     s = "";
     words = [];
     for (var i = 0; i < text.length; i++) {
-      pa = text.charCodeAt(i);
-      hex = pa.toString(16).toUpperCase();
+      code = text.charCodeAt(i);
+      hex = code.toString(16).toUpperCase();
       while (hex.length < 4) {
         hex = "0" + hex;
       }
-      if ((pa >= 0x3400 && pa <= 0x4DB5) || (pa >= 0x4E00 && pa <= 0x9FCC) || (pa >= 0x20000 && pa <= 0x2A6D6) || (pa >= 0x2A700 && pa <= 0x2B734) || (pa >= 0x2B740 && pa <= 0x2B81D)) {
+      if (code >= 0xD800 && code <= 0xDFFF) {
+        ss = handleSurrogates(code, i, text, true);
+        if (ss !== null) {
+          s += ss;
+          i++;
+          continue;
+        }
+      }
+      if ((code >= 0x3400 && code <= 0x4DB5) || (code >= 0x4E00 && code <= 0x9FCC) || (code >= 0x20000 && code <= 0x2A6D6) || (code >= 0x2A700 && code <= 0x2B734) || (code >= 0x2B740 && code <= 0x2B81D)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - CJK UNIFIED IDEOGRAPH-" + hex +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
-      if (pa >= 0xAC00 && pa <= 0xD7A3) {
+      if (code >= 0xAC00 && code <= 0xD7A3) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - HANGUL SYLLABLE" + (hsStrings[hex] ? " " + hsStrings[hex] : "") +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; General category: " + gcStrings["Lo"] + " [Lo]" +
           "<br>&nbsp;&nbsp;&nbsp;&nbsp; Bidirectional category: " + bcStrings["L"] + " [L]<br>";
         continue;
       }
-      if ((pa >= 0xD800 && pa <= 0xF8FF) || (pa >= 0xF0000 && pa <= 0x10FFFD)) {
+      if ((code >= 0xD800 && code <= 0xF8FF) || (code >= 0xF0000 && code <= 0x10FFFD)) {
         s += "<br>" + text.charAt(i) + " - U+" + hex + " - SURROGATE/PRIVATE USE" +
           "<br>No further data available<br>";
         continue;
@@ -197,11 +210,11 @@
             
           case 2:
             words[0] = "Canonical combining classes";
-            pa2 = parseInt(attr[j]);
-            if (pa2 == 0) {
+            code2 = parseInt(attr[j]);
+            if (code2 == 0) {
               continue;
             }
-            if (pa2 >= 10 && pa2 <= 199) {
+            if (code2 >= 10 && code2 <= 199) {
               words[1] = "Fixed position [" + attr[j] + "]";
             }
             else {
