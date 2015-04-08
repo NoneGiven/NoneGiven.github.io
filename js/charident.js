@@ -75,6 +75,7 @@
     displayRes("");
     if (!(text = document.getElementById("txt").value)) {
       complainMsg("No text entered.");
+      updateLocation("");
       return;
     }
     displayMsg("Processing...")
@@ -408,7 +409,12 @@
   }
   
   function updateLocation(text) {
-    history.replaceState(null, document.title, baseURL + "?chars=" + encodeURIComponent(text));
+    if (text == "") {
+      history.replaceState(null, document.title, baseURL);
+    }
+    else {
+      history.replaceState(null, document.title, baseURL + "?chars=" + encodeURIComponent(text));
+    }
   }
   
   window.submitText = function() {
