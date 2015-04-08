@@ -80,7 +80,7 @@
     }
   }
   
-  function handleSurrogates(code1, i, text, verbose) {
+  function handleSurrogates(code1, i, text) {
     if (i >= text.length - 1) {
       return null;
     }
@@ -94,13 +94,7 @@
     while (hex.length < 4) {
       hex = "0" + hex;
     }
-    return hex;
-    /*s += "<br>" + String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
-    if (verbose) {
-      //add things
-      return [s, hex];
-    }
-    return s;*/
+    return [hex, code1, code2];
   }
   
   function processText(text) {
@@ -114,9 +108,9 @@
         hex = "0" + hex;
       }
       if (code >= 0xD800 && code <= 0xDFFF) {
-        ss = handleSurrogates(code, i, text, false);
+        ss = handleSurrogates(code, i, text);
         if (ss !== null) {
-          hex = ss;
+          hex = ss[0];
           code = parseInt(hex, 16);
           i++;
         }
@@ -142,7 +136,12 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + buildCodeString(hex)/* + " - " + attr[0]*/;
+        if (ss !== null) {
+          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
+        }
+        else {
+          s += "<br>" + buildCodeString(hex);
+        }
       }
     }
     happyMsg("Done.")
@@ -200,7 +199,12 @@
         s += "<br>&nbsp;&nbsp;- U+" + hex + " - " + attr[9] + " &lt;control&gt;";
       }
       else {
-        s += "<br>" + buildCodeString(hex)/* + " - " + attr[0]*/;
+        if (ss !== null) {
+          s += "<br>" + buildCodeStringPoints(hex, ss[1], ss[2]);
+        }
+        else {
+          s += "<br>" + buildCodeString(hex);
+        }
       }
       for (var j = 1; j < 14; j++) {
         if (j == 9 || attr[j] == "") {
@@ -288,6 +292,9 @@
           case 13:
             words[0] = "Titlecase mapping";
             words[1] = buildCodeString(attr[j]);
+            if (words[1] == buildCodeString(attr[j - 2])) {
+              continue;
+            }
             break;
         }
         s += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + words[0] + ": " + words[1];
@@ -304,16 +311,20 @@
     }
   }
   
-  function buildCodeString(code) {
+  function buildCodeString(hex) {
     var part, name;
     part = "";
-    if ((name = unicodeData[code][0]) == "&lt;control&gt;") {
-      name = unicodeData[code][9] + " &lt;control&gt;";
+    if ((name = unicodeData[hex][0]) == "&lt;control&gt;") {
+      name = unicodeData[hex][9] + " &lt;control&gt;";
     }
-    if (unicodeData[code][2] != "0") {
+    if (unicodeData[hex][2] != "0") {
       part = "&nbsp;"
     }
-    return String.fromCharCode(parseInt(code, 16)) + part + "&nbsp;- U+" + code + " - " + name;
+    return String.fromCharCode(parseInt(hex, 16)) + part + "&nbsp;- U+" + hex + " - " + name;
+  }
+  
+  function buildCodeStringPoints(hex, code1, code2) {
+    return String.fromCharCode(code1, code2) + "&nbsp;- U+" + hex + " - " + unicodeData[hex][0];
   }
   
   function isCheckboxTicked() {
