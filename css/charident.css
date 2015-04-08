@@ -16,13 +16,23 @@ a::-moz-focus-inner {
   cursor: pointer;
 }
 
+#infoOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  z-index: 9001;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 #infoPanel {
   position: fixed;
   width: 300px;
   height: 150px;
   top: 25%;
   left: 25%;
-  z-index: 9001;
+  z-index: 9002;
   border: 2px solid black;
   background: white;
 }
