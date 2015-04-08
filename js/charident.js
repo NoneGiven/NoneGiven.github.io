@@ -324,7 +324,7 @@
   }
   
   function buildFailedCodeString(hex) {
-    return s += "Could not find data for U+" + hex + ". (" + String.fromCharCode(parseInt(hex, 16)) + ")<br>";
+    return "Could not find data for U+" + hex + ". (" + String.fromCharCode(parseInt(hex, 16)) + ")<br>";
   }
   
   function buildCodeStringPoints(hex, code1, code2) {
@@ -332,7 +332,7 @@
   }
   
   function buildFailedCodeStringPoints(hex, code1, code2) {
-    return s += "Could not find data for U+" + hex + ". (" + String.fromCharCode(code1, code2) + ")<br>";
+    return "Could not find data for U+" + hex + ". (" + String.fromCharCode(code1, code2) + ")<br>";
   }
   
   function isCheckboxTicked() {
