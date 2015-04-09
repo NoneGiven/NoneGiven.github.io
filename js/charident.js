@@ -938,7 +938,7 @@
   storedValue = "";
   processing = true;
   infoShowing = false;
-  baseURL = location.protocol + "//nonegiven.github.io/adirectory/charident";
+  baseURL = location.protocol + "//nonegiven.github.io/charident";
   addEventListener("DOMContentLoaded", startup);
   
 }).call();
