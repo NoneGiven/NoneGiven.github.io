@@ -13,7 +13,8 @@
 </head>
 <body>
 <span class="header"><span class="title">Unicode Character Identifier (Javascript)</span>
-<span class="home"><span id="infoLink" onclick=showInfo()>info</span> | <a href="/">home</a> | sources: 
+<span class="home"><span id="infoLink" title="Open info overlay" onclick=showInfo()>info</span> |
+<a href="/">home</a> | sources: 
 <a target="_blank" href="https://github.com/NoneGiven/NoneGiven.github.io/blob/master/adirectory/charident.html">
 html</a> - 
 <a target="_blank"href="https://github.com/NoneGiven/NoneGiven.github.io/blob/master/css/charident.css">css</a> - 
@@ -46,13 +47,13 @@ it combines with. Characters with a default value of 0 here do not display this 
 <u>Bidrectional category</u>: Indicates the character's text directionality, such as left-to-right for Latin
 characters.<br><br>
 <u>Character decomposition mapping</u>: Some characters can be represented by two or more "combining" characters, such
-as an accented letter being represented by the unaccented letter plus the accent character. The codes for any such
-characters appear in this field.<br><br>
+as an accented letter being represented by the unaccented letter plus the accent character. Other characters have a
+single "normalized" form associated with them, such as full-width letters associated with their ordinary Latin
+counterparts. The codes for any such characters appear in this field.<br><br>
 <u>Decimal/digit/numeric value</u>: If a character has an associated numeric value, it is indicated in one or more of
 these attributes, with each accepting a different interpretation of a numeric value.<br><br>
 <u>Mirrored</u>: Whether a character is considered a mirrored form of another character (such as ">"). This attribute
 always exists but is only shown in the output if the chracter is mirrored.<br><br>
-<u>Comment</u>: ISO-10646 comment field.<br><br>
 <u>Lowercase mapping</u>: The code for the lowercase equivalent of a character appears in this field.<br><br>
 <u>Uppercase mapping</u>: The code for the uppercase equivalent of a character appears in this field.<br><br>
 <u>Titlecase mapping</u>: The code for the titlecase equivalent of a character appears in this field.
