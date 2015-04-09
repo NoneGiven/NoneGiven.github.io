@@ -43,7 +43,7 @@
     }
     ta = document.getElementById("txt");
     if (ta.value == "") {
-      splits = document.URL.split("?chars=");
+      splits = document.URL.split("#chars=");
       if (splits.length > 1) {
         ta.value = decodeURIComponent(splits[1]);
         updateLocation(ta.value);
@@ -412,7 +412,7 @@
       history.replaceState(null, document.title, baseURL);
     }
     else {
-      history.replaceState(null, document.title, baseURL + "?chars=" + encodeURIComponent(text));
+      history.replaceState(null, document.title, baseURL + "#chars=" + encodeURIComponent(text));
     }
   }
   
