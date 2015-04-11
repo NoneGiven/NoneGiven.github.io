@@ -96,8 +96,7 @@
     if (i >= text.length - 1) {
       return null;
     }
-    var s, code2, hex;
-    s = ""
+    var code2, hex;
     code2 = text.charCodeAt(i + 1);
     if (!(code2 >= 0xD800 && code2 <= 0xDFFF)) {
       return null;
