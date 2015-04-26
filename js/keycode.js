@@ -26,8 +26,8 @@
         else if (e.keyCode >= 65 && e.keyCode <= 90) {
           name = name.toUpperCase();
         }
-        displayKey(e.keyCode, name);
       }
+      displayKey(e.keyCode, name);
     }
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
