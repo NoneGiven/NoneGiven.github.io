@@ -42,6 +42,13 @@
   }
   
   function keyUpCheck(e) {
+    if (e.keyCode == 44) {
+      var name = "";
+      if (e.key != undefined) {
+        name = e.key;
+      }
+      displayKey(e.keyCode, name);
+    }
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
