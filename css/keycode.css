@@ -15,6 +15,10 @@ a::-moz-focus-inner {
   color: gray;
 }
 
+#blockCheckbox {
+  margin-top: 1em;
+}
+
 #keydisplay {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
