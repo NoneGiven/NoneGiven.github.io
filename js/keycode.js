@@ -14,7 +14,17 @@
   
   function keyCheck(e) {
     if (e.keyCode != 16 && e.keyCode != 17 && e.keyCode != 18) {
-      displayKey(e.keyCode, (e.keyCode >= 96 && e.keyCode <= 105 ? "Numpad " : "") + e.key);
+      var name = e.key;
+      if (e.keyCode >= 96 && e.keyCode <= 105) {
+        name = "Numpad " + name;
+      }
+      else if (e.keyCode >= 48 && e.keyCode <= 57) {
+        name = "Digit " + name;
+      }
+      else if (e.keyCode >= 65 && e.keyCode <= 90) {
+        name = name.toUpperCase();
+      }
+      displayKey(e.keyCode, name);
     }
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
