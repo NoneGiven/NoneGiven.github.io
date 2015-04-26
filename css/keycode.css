@@ -30,6 +30,10 @@ a::-moz-focus-inner {
   font-size: 3em;
 }
 
+.label {
+  font-size: 90%;
+}
+
 .off {
   color: #DDD;
 }
