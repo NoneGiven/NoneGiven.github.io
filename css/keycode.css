@@ -17,6 +17,7 @@ a::-moz-focus-inner {
 
 #blockCheckbox {
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #keydisplay {
