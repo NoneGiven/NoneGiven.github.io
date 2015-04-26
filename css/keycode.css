@@ -17,6 +17,7 @@ a::-moz-focus-inner {
 
 #keydisplay {
   font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
   font-size: 4.5em;
 }
 
