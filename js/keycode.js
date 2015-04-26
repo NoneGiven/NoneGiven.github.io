@@ -19,7 +19,9 @@
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
     //modifier(metaSpan, e.metaKey);
-    e.preventDefault();
+    if (checkboxIsChecked()) {
+      e.preventDefault();
+    }
   }
   
   function keyUpCheck(e) {
@@ -27,7 +29,9 @@
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
     //modifier(metaSpan, e.metaKey);
-    e.preventDefault();
+    if (checkboxIsChecked()) {
+      e.preventDefault();
+    }
   }
   
   function displayKey(code) {
@@ -41,6 +45,10 @@
     else {
       elem.className = "off";
     }
+  }
+  
+  function checkboxIsChecked() {
+    return document.getElementById("blockCheckbox").checked;
   }
   
   document.addEventListener("DOMContentLoaded", startup);
