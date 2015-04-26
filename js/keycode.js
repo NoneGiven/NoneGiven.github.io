@@ -15,7 +15,7 @@
   function keyCheck(e) {
     if (e.keyCode != 16 && e.keyCode != 17 && e.keyCode != 18) {
       var name = "";
-      if (e.key == undefined) {
+      if (e.key != undefined) {
         name = e.key;
         if (e.keyCode >= 96 && e.keyCode <= 105) {
           name = "Numpad " + name;
