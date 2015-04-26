@@ -19,6 +19,7 @@
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
     //modifier(metaSpan, e.metaKey);
+    e.preventDefault();
   }
   
   function keyUpCheck(e) {
@@ -26,6 +27,7 @@
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
     //modifier(metaSpan, e.metaKey);
+    e.preventDefault();
   }
   
   function displayKey(code) {
