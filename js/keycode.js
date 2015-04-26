@@ -26,6 +26,9 @@
         else if (e.keyCode >= 65 && e.keyCode <= 90) {
           name = name.toUpperCase();
         }
+        else if (e.key == " ") {
+          name = "Space"
+        }
       }
       displayKey(e.keyCode, name);
     }
