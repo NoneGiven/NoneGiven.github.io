@@ -1,12 +1,12 @@
 (function() {
-  var mainSpan, shiftSpan, ctrlSpan, altSpan, metaSpan;
+  var mainSpan, shiftSpan, ctrlSpan, altSpan; //, metaSpan
   
   function startup() {
     mainSpan = document.getElementById("keydisplay");
     shiftSpan = document.getElementById("shiftkey");
     ctrlSpan = document.getElementById("ctrlkey");
     altSpan = document.getElementById("altkey");
-    metaSpan = document.getElementById("metakey");
+    //metaSpan = document.getElementById("metakey");
     document.addEventListener("keydown", keyCheck);
     document.addEventListener("keyup", keyUpCheck);
   }
@@ -18,15 +18,14 @@
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
-    modifier(metaSpan, e.metaKey);
-    
+    //modifier(metaSpan, e.metaKey);
   }
   
   function keyUpCheck(e) {
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
     modifier(altSpan, e.altKey);
-    modifier(metaSpan, e.metaKey);
+    //modifier(metaSpan, e.metaKey);
   }
   
   function displayKey(code) {
