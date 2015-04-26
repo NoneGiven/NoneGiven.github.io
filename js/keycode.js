@@ -18,7 +18,7 @@
       if (e.keyCode >= 96 && e.keyCode <= 105) {
         name = "Numpad " + name;
       }
-      else if (e.keyCode >= 48 && e.keyCode <= 57) {
+      else if (!e.shiftKey && e.keyCode >= 48 && e.keyCode <= 57) {
         name = "Digit " + name;
       }
       else if (e.keyCode >= 65 && e.keyCode <= 90) {
