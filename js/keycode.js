@@ -14,7 +14,7 @@
   
   function keyCheck(e) {
     if (e.keyCode != 16 && e.keyCode != 17 && e.keyCode != 18) {
-      displayKey(e.keyCode, e.key);
+      displayKey(e.keyCode, (e.keyCode >= 96 && e.keyCode <= 105 ? "Numpad " : "") + e.key);
     }
     modifier(shiftSpan, e.shiftKey);
     modifier(ctrlSpan, e.ctrlKey);
