@@ -17,11 +17,11 @@ a::-moz-focus-inner {
 
 #keydisplay {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 3em;
+  font-size: 4.5em;
 }
 
 #lowerdisplay {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .off {
