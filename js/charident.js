@@ -78,6 +78,7 @@
       updateLocation("");
       return;
     }
+    updateCharCount(text.length);
     displayMsg("Processing...")
     textareaEnabled(false);
     buttonEnabled(false);
@@ -453,6 +454,15 @@
   function keyCheck(e) {
     if (e.keyCode == 27) { // Esc
       window.hideInfo();
+    }
+  }
+  
+  function updateCharCount(chars) {
+    if (chars && chars > 0) {
+      document.getElementById("charcount").innerHTML = chars
+    }
+    else {
+      document.getElementById("charcount").innerHTML = "0";
     }
   }
   
