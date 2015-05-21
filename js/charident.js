@@ -462,8 +462,8 @@
   
   function updateCharCount(e) {
     var chars = document.getElementById("txt").value;
-    if (chars && chars > 0) {
-      document.getElementById("charcount").innerHTML = chars
+    if (chars && chars.length > 0) {
+      document.getElementById("charcount").innerHTML = chars.length;
     }
     else {
       document.getElementById("charcount").innerHTML = "0";
