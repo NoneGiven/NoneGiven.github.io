@@ -3,8 +3,10 @@
   var gcStrings, ccStrings, bcStrings, hsStrings, unicodeData, ticker, storedValue, processing, infoShowing, baseURL;
   
   function startup() {
-    addEventListener("click", clickCheck);
-    addEventListener("keydown", keyCheck);
+    document.removeEventListener("DOMContentLoaded", startup);
+    document.addEventListener("click", clickCheck);
+    document.addEventListener("keydown", keyCheck);
+    document.getElementById("txt").addEventListener("keydown", updateCharCount);
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
@@ -78,7 +80,6 @@
       updateLocation("");
       return;
     }
-    updateCharCount(text.length);
     displayMsg("Processing...")
     textareaEnabled(false);
     buttonEnabled(false);
@@ -457,7 +458,8 @@
     }
   }
   
-  function updateCharCount(chars) {
+  function updateCharCount(e) {
+    var chars = this.value.length;
     if (chars && chars > 0) {
       document.getElementById("charcount").innerHTML = chars
     }
@@ -948,6 +950,6 @@
   processing = true;
   infoShowing = false;
   baseURL = location.protocol + "//nonegiven.github.io/charident";
-  addEventListener("DOMContentLoaded", startup);
+  document.addEventListener("DOMContentLoaded", startup);
   
 }).call();
