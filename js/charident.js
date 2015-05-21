@@ -6,7 +6,6 @@
     document.removeEventListener("DOMContentLoaded", startup);
     document.addEventListener("click", clickCheck);
     document.addEventListener("keydown", keyCheck);
-    document.getElementById("txt").addEventListener("keydown", updateCharCount);
     setupVerboseData();
     displayMsg("Fetching <span class='good'>UnicodeData.txt</span>...")
     var xhr = new XMLHttpRequest();
@@ -51,6 +50,7 @@
         updateLocation(ta.value);
       }
     }
+    updateCharCount();
     if (ta.value) {
       readText();
     }
@@ -63,6 +63,7 @@
       return;
     }
     text = ta.value;
+    updateCharCount();
     if (!processing && text && text != storedValue) {
       readText();
     }
@@ -75,6 +76,7 @@
     }
     var text;
     displayRes("");
+    updateCharCount();
     if (!(text = document.getElementById("txt").value)) {
       complainMsg("No text entered.");
       updateLocation("");
@@ -459,7 +461,7 @@
   }
   
   function updateCharCount(e) {
-    var chars = this.value.length;
+    var chars = document.getElementById("txt").value;
     if (chars && chars > 0) {
       document.getElementById("charcount").innerHTML = chars
     }
