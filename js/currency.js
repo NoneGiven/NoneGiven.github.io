@@ -38,7 +38,7 @@
   function submit() {
     var amt = parseInt(amount.value);
     if (amt !== NaN) {
-      result.value = trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value));
+      result.value = trunc(convert(amt, from[from.selectedIndex].value, to[to.selectedIndex].value));
     }
   }
   document.addEventListener("DOMContentLoaded", setup);
