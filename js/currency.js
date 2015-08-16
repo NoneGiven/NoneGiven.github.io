@@ -24,7 +24,7 @@
   }
   function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
-      return amt / parseInt(conversions.rates[from]) * parseInt(conversions.rates[to]);
+      return amt / parseFloat(conversions.rates[from]) * parseFloat(conversions.rates[to]);
     }
   }
   function trunc(amt) {
@@ -39,7 +39,7 @@
     return split[0] + "." + split[1];
   }
   function submit() {
-    var amt = parseInt(amount.value);
+    var amt = parseFloat(amount.value);
     if (!isNaN(amt)) {
       var res = trunc(convert(amt, from[from.selectedIndex].value, to[to.selectedIndex].value));
       if (!isNaN(res)) {
