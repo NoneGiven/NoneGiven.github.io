@@ -33,14 +33,14 @@
     return split[0] + "." + split[1];
   }
   function submit() {
-    if (conversions !== null && amount.value) {
+    //if (conversions !== null && amount.value) {
       alert(amount.value);
       alert(from.selectedIndex);
       alert(from[from.selectedIndex].value);
       alert(to.selectedIndex);
       alert(to[to.selectedIndex].value);
       alert(trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value)));
-    }
+    //}
   }
   document.addEventListener("DOMContentLoaded", setup);
 }).call();
