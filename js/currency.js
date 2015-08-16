@@ -8,7 +8,7 @@
     document.removeEventListener("DOMContentLoaded", setup);
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.fixer.io/latest");
-    xhr.onload = (function() { x = this.response });
+    xhr.onload = (function() { x = JSON.parse(this.responseText); });
     xhr.send();
     (amount = document.getElementById("amt-input")) && amount.addEventListener("keydown", submit);
     amount && amount.addEventListener("keyup", submit);
