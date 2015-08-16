@@ -34,7 +34,12 @@
   }
   function submit() {
     if (conversions !== null && amount.value) {
-      result.value = trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value));
+      alert(amount.value);
+      alert(from.selectedIndex);
+      alert(from[from.selectedIndex].value);
+      alert(to.selectedIndex);
+      alert(to[to.selectedIndex].value);
+      alert(trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value)));
     }
   }
   document.addEventListener("DOMContentLoaded", setup);
