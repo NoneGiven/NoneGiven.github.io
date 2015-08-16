@@ -25,8 +25,11 @@
     }
   }
   function trunc(amt) {
-    var trunc = Math.round(amt * 100) / 100;
-    var split = trunc.toString().split(".");
+    var trunc = (Math.round(amt * 100) / 100).toString();;
+    if (trunc.indexOf(".") == -1) {
+      return trunc;
+    }
+    var split = trunc.split(".");
     while (split[1].length < 2) {
       split[1] += "0";
     }
