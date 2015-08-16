@@ -8,7 +8,7 @@
     document.removeEventListener("DOMContentLoaded", setup);
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.fixer.io/latest");
-    xhr.onload = (function() { x = JSON.parse(this.responseText); });
+    xhr.onload = (function() { conversions = JSON.parse(this.responseText); });
     xhr.send();
     (amount = document.getElementById("amt-input")) && amount.addEventListener("keyup", submit);
     (from = document.getElementById("from")) && from.addEventListener("change", submit);
@@ -21,11 +21,6 @@
   }
   function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
-      window.c = conversions;
-      alert(conversions.rates[from]);
-      alert(conversions.rates[to]);
-      alert(parseInt(conversions.rates[from]));
-      alert(parseInt(conversions.rates[to]));
       return amt / parseInt(conversions.rates[from]) * parseInt(conversions.rates[to]);
     }
   }
