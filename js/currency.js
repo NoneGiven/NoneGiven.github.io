@@ -25,9 +25,17 @@
       return amount / conversions.rates[from] * conversions.rates[to];
     }
   }
+  function trunc(amount) {
+    var trunc = Math.round(amount * 100) / 100;
+    var split = trunc.toString.split(".");
+    while (split[1].length < 2) {
+      split[1] += "0";
+    }
+    return split[0] + "." + split[1];
+  }
   function submit() {
     if (conversions !== null && amount.value) {
-      result.innerHTML = convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value);
+      result.value = trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value));
     }
   }
   document.addEventListener("DOMContentLoaded", setup);
