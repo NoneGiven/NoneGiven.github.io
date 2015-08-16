@@ -10,7 +10,7 @@
     xhr.open("GET", "https://api.fixer.io/latest");
     xhr.onload = (function() { x = JSON.parse(this.responseText); });
     xhr.send();
-    (amount = document.getElementById("amt-input")) && amount.addEventListener("keydown", submit);
+    (amount = document.getElementById("amt-input")) && amount.addEventListener("keyup", submit);
     (from = document.getElementById("from")) && from.addEventListener("change", submit);
     (to = document.getElementById("to")) && to.addEventListener("change", submit);
     result = document.getElementById("amt-result");
@@ -26,7 +26,7 @@
   }
   function trunc(amt) {
     var trunc = Math.round(amt * 100) / 100;
-    var split = trunc.toString.split(".");
+    var split = trunc.toString().split(".");
     while (split[1].length < 2) {
       split[1] += "0";
     }
@@ -34,11 +34,11 @@
   }
   function submit() {
     //if (conversions !== null && amount.value) {
-      alert(amount.value);
-      alert(from.selectedIndex);
-      alert(from[from.selectedIndex].value);
-      alert(to.selectedIndex);
-      alert(to[to.selectedIndex].value);
+      //alert(amount.value);
+      //alert(from.selectedIndex);
+      //alert(from[from.selectedIndex].value);
+      //alert(to.selectedIndex);
+      //alert(to[to.selectedIndex].value);
       alert(trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value)));
     //}
   }
