@@ -40,8 +40,11 @@
   }
   function submit() {
     var amt = parseInt(amount.value);
-    if (amt !== NaN) {
-      result.value = trunc(convert(amt, from[from.selectedIndex].value, to[to.selectedIndex].value));
+    if (!isNaN(amt)) {
+      var res = trunc(convert(amt, from[from.selectedIndex].value, to[to.selectedIndex].value));
+      if (!isNaN(res)) {
+        result.value = res;
+      }
     }
   }
   document.addEventListener("DOMContentLoaded", setup);
