@@ -21,11 +21,11 @@
   }
   function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
-      return amt / conversions.rates[from] * conversions.rates[to];
+      return amt / parseInt(conversions.rates[from]) * parseInt(conversions.rates[to]);
     }
   }
   function trunc(amt) {
-    var trunc = (Math.round(amt * 100) / 100).toString();;
+    var trunc = (Math.round(amt * 100) / 100).toString();
     if (trunc.indexOf(".") == -1) {
       return trunc;
     }
@@ -36,14 +36,10 @@
     return split[0] + "." + split[1];
   }
   function submit() {
-    //if (conversions !== null && amount.value) {
-      //alert(amount.value);
-      //alert(from.selectedIndex);
-      //alert(from[from.selectedIndex].value);
-      //alert(to.selectedIndex);
-      //alert(to[to.selectedIndex].value);
-      alert(trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value)));
-    //}
+    var amt = parseInt(amount.value);
+    if (amt !== NaN) {
+      result.value = trunc(convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value));
+    }
   }
   document.addEventListener("DOMContentLoaded", setup);
 }).call();
