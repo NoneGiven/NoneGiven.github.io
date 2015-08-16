@@ -21,16 +21,13 @@
     to.innerHTML = from.innerHTML;
   }
   function convert(amount, from, to) {
-    if (conversions === null) {
-      return;
-    }
-    if (from in conversions.rates && to in conversions.rates) {
+    if (conversions !== null && from in conversions.rates && to in conversions.rates) {
       return amount / conversions.rates[from] * conversions.rates[to];
     }
   }
   function submit() {
     if (conversions !== null && amount.value) {
-      result.innerHTML = convert(parseInt(amount.value), from[from.selectedIndex], to[to.selectedIndex]);
+      result.innerHTML = convert(amount.value, from[from.selectedIndex].value, to[to.selectedIndex].value);
     }
   }
   document.addEventListener("DOMContentLoaded", setup);
