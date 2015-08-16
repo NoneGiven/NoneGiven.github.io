@@ -11,7 +11,6 @@
     xhr.onload = (function() { x = JSON.parse(this.responseText); });
     xhr.send();
     (amount = document.getElementById("amt-input")) && amount.addEventListener("keydown", submit);
-    amount && amount.addEventListener("keyup", submit);
     (from = document.getElementById("from")) && from.addEventListener("change", submit);
     (to = document.getElementById("to")) && to.addEventListener("change", submit);
     result = document.getElementById("amt-result");
@@ -20,13 +19,13 @@
   function clone() {
     to.innerHTML = from.innerHTML;
   }
-  function convert(amount, from, to) {
+  function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
-      return amount / conversions.rates[from] * conversions.rates[to];
+      return amt / conversions.rates[from] * conversions.rates[to];
     }
   }
-  function trunc(amount) {
-    var trunc = Math.round(amount * 100) / 100;
+  function trunc(amt) {
+    var trunc = Math.round(amt * 100) / 100;
     var split = trunc.toString.split(".");
     while (split[1].length < 2) {
       split[1] += "0";
