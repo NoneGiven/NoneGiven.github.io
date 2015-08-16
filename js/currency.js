@@ -21,6 +21,11 @@
   }
   function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
+      window.c = conversions;
+      alert(conversions.rates[from]);
+      alert(conversions.rates[to]);
+      alert(parseInt(conversions.rates[from]));
+      alert(parseInt(conversions.rates[to]));
       return amt / parseInt(conversions.rates[from]) * parseInt(conversions.rates[to]);
     }
   }
