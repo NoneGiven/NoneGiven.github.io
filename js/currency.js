@@ -15,6 +15,9 @@
     (to = document.getElementById("to")) && to.addEventListener("change", submit);
     result = document.getElementById("amt-result");
     clone();
+    from.selectedIndex = 28;
+    to.selectedIndex = 5;
+    amount.focus();
   }
   function clone() {
     to.innerHTML = from.innerHTML;
