@@ -30,7 +30,7 @@
   function trunc(amt) {
     var trunc = (Math.round(amt * 100) / 100).toString();
     if (trunc.indexOf(".") == -1) {
-      return trunc;
+      return trunc + ".00";
     }
     var split = trunc.split(".");
     while (split[1].length < 2) {
