@@ -66,10 +66,10 @@
     downCount++;
     content.style.top = "-" + downCount * bannersPerColumn * bannerHeight + "px";
     var imgs = document.getElementsByTagName("img");
-    for (let elem of imgs) {
+    for (var elem of imgs) {
       imgs.innerHTML = placeholder;
     }
-    for (let i = 0; i < bannersPerWindow; i++) {
+    for (var i = 0; i < bannersPerWindow; i++) {
        if (!getBanner()) {
          if (checkAllTheWayDown()) {
           break;
@@ -102,7 +102,7 @@
   }
   
   function doFirst() {
-    for (let i = 0; i < 2 * bannersPerWindow; i++) {
+    for (var i = 0; i < 2 * bannersPerWindow; i++) {
       if (!getBanner()) {
         if (checkAllTheWayDown()) {
           break;
