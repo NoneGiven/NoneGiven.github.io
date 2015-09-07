@@ -15,7 +15,7 @@
   var extensions = ["jpg", "gif", "png"];
   var extensionPointer = 0;
   var maxExtension = extensions.length;
-  var baseUrl = "http://s.4cdn.org/image/title/";
+  var baseUrl = "//s.4cdn.org/image/title/";
   var downCount = 0;
   var allTheWayFor = [false, false, false];
   var allTheWayDown = false;
