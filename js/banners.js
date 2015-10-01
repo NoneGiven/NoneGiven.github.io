@@ -67,7 +67,7 @@
     content.style.top = "-" + downCount * bannersPerColumn * bannerHeight + "px";
     var imgs = document.getElementsByTagName("img");
     for (var i = 0; i < imgs.length; i++) {
-      imgs.innerHTML = placeholder;
+      imgs[i].innerHTML = placeholder;
     }
     for (var i = 0; i < bannersPerWindow; i++) {
        if (!getBanner()) {
