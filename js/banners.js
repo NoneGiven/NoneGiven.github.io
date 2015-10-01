@@ -66,7 +66,7 @@
     downCount++;
     content.style.top = "-" + downCount * bannersPerColumn * bannerHeight + "px";
     var imgs = document.getElementsByTagName("img");
-    for (var elem of imgs) {
+    for (var i = 0; i < imgs.length; i++) {
       imgs.innerHTML = placeholder;
     }
     for (var i = 0; i < bannersPerWindow; i++) {
@@ -114,8 +114,8 @@
   
   function checkAllTheWayDown() {
     var allTheWay = true;
-    for (var way of allTheWayFor) {
-      if (!way) {
+    for (var i = 0; i < allTheWayFor.length; i++) {
+      if (!allTheWayFor[i]) {
         allTheWay = false;
         break;
       }
