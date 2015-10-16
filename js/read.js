@@ -185,6 +185,7 @@
   
   function buildPageSwitchBar() {
     pageSwitchBarElement.innerHTML = "";
+    pageSwitchBarElement.setAttribute("data-selected", 1;)
     var pageBlock;
     var padTo = 1;
     if (chapterSize >= 100) {
@@ -195,12 +196,23 @@
     }
     for (var i = 1; i <= chapterSize; i++) {
       pageBlock = document.createElement("span");
-      pageBlock.className = "page";
+      pageBlock.className = "page hand";
+      pageBlock.setAttribute("data-page", i);
       pageBlock.innerHTML = i;
       while (pageBlock.innerHTML.length < padTo) {
         pageBlock.innerHTML = "0" + pageBlock.innerHTML;
       }
       pageSwitchBarElement.appendChild(pageBlock);
+    }
+  }
+  
+  function pageSwitchClick(e) {
+    var page = parseInt(e.target.getAttribute("data-page"));
+    if (!isNaN(page)) {
+      pageSwitchBarElement.children[pageSwitchBarElement.getAttribute("data-selected")].classList.remove("selected");
+      e.target.classList.add("selected");
+      pageSwitchBarElement.setAttribute("data-selected", page);
+      loadPage(page);
     }
   }
   
@@ -247,6 +259,7 @@
     navbarElement.addEventListener("mouseout", hideNavbar);
     pageSwitchBarElement.addEventListener("mouseover", showPageSwitchBar);
     pageSwitchBarElement.addEventListener("mouseout", hidePageSwitchBar);
+    pageSwitchBarElement.addEventListener("click", pageSwitchClick);
     chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
     document.getElementById("fitButton").addEventListener("click", toggleFit);
