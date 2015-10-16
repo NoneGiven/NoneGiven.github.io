@@ -3,12 +3,12 @@
   display: inline-block;
 }
 
-#image .fit {
+#image.fit {
   max-height: 1600px;
   width: auto;
 }
 
-#image .nofit {
+#image.nofit {
   max-height: none;
   max-width: none;
 }
