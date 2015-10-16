@@ -17,15 +17,20 @@
   var hashChanging = false;
   
   function switchChapter(chapterIndex, pageIndex) {
-    currentChapter = chapterIndex;
-    currentExtension = chapterInfo[currentChapter].extension;
-    currentTitle = chapterInfo[currentChapter].title;
-    currentNumber = chapterInfo[currentChapter].number;
-    chapterSize = chapterInfo[currentChapter].pages.length - 1;
-    loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
+    if (chapterIndex <= lastChapter) {
+      currentChapter = chapterIndex;
+      currentExtension = chapterInfo[currentChapter].extension;
+      currentTitle = chapterInfo[currentChapter].title;
+      currentNumber = chapterInfo[currentChapter].number;
+      chapterSize = chapterInfo[currentChapter].pages.length - 1;
+      loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
+    }
   }
   
   function loadPage(pageIndex) {
+    if (pageIndex > chapterSize) {
+      pageIndex = chapterSize;
+    }
     startLoading();
     currentPage = pageIndex;
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
