@@ -51,7 +51,7 @@
     xhr.responseType = "arraybuffer";
     xhr.onprogress = function(data) {
       var percentDisplay = (data.loaded / data.total * 100).toFixed(2);
-      loadingElement.innerHTML = "Loading..." + percentDisplay + "%";
+      loadingElement.innerHTML = "Loading... " + percentDisplay + "%";
     };
     xhr.onload = function(data) {
       loadingElement.innerHTML = "Loading... 100.00%";
