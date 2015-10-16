@@ -44,22 +44,18 @@
   }
   
   function loadPage(pageIndex) {
-    showLoading();
-    imageElement.className = "image hidden";
+    startLoading();
     currentPage = pageIndex;
     imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
   }
   
-  function imageLoaded() {
-    this.className = "image";
-    hideLoading();
-  }
-  
-  function showLoading() {
+  function startLoading() {
+    imageElement.className = "hidden";
     loadingElement.className = "";
   }
   
-  function hideLoading() {
+  function stopLoading() {
+    imageElement.className = "";
     loadingElement.className = "hidden";
   }
   
@@ -101,7 +97,7 @@
     document.getElementById("left").addEventListener("click", pageBack);
     document.getElementById("right").addEventListener("click", pageForward);
     document.addEventListener("keydown", keyCheck);
-    imageElement.addEventListener("load", imageLoaded);
+    imageElement.addEventListener("load", stopLoading);
     switchChapter(1);
   }
   
