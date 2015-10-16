@@ -2,6 +2,8 @@
 (function() {
   var baseURL = "https://dl.dropboxusercontent.com/s/";
   
+  var lastVolume = 1;
+  var currentVolume = -1;
   var currentChapter = -1;
   var currentTitle = "";
   var currentNumber = "";
@@ -15,6 +17,15 @@
   var rightElement = null;
   
   var hashChanging = false;
+  
+  function setCurrentVolume(chapterIndex) {
+    //if (chapterIndex <= 9) {
+    currentVolume = 1;
+  }
+  
+  function getVolumeInfo() {
+    
+  }
   
   function switchChapter(chapterIndex, pageIndex) {
     if (chapterIndex <= lastChapter) {
