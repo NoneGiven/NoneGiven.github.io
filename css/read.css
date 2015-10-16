@@ -106,6 +106,7 @@
 
 .page.selected {
   background-color: gray;
+  cursor: default;
 }
 
 .page:hover {
