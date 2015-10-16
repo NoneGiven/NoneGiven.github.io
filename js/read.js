@@ -73,7 +73,7 @@
       loadingElement.innerHTML = "Loading... 100.00%";
       var blob = new Blob([xhr.response], {type: "image/jpg"});
       image.src = window.URL.createObjectURL(blob);
-      stopLoading();
+      //stopLoading();
     };
     xhr.send();
   }
@@ -126,7 +126,7 @@
     rightElement = document.getElementById("right");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
-    //imageElement.addEventListener("load", stopLoading);
+    imageElement.addEventListener("load", stopLoading);
     document.addEventListener("keydown", keyCheck);
     switchChapter(1);
   }
