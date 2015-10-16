@@ -55,6 +55,7 @@
     startLoading();
     currentPage = pageIndex;
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
+    hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
     currentPageURL = baseURL + path;
