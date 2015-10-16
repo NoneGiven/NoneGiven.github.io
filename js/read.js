@@ -16,6 +16,7 @@
   var leftElement = null;
   var rightElement = null;
   var titleElement = null;
+  var navbarElement = null;
   
   var hashChanging = false;
   
@@ -147,12 +148,12 @@
     console.log(e);
   }
   
-  function navbarMouseover(e) {
-    e.target.className = "header";
+  function showNavbar() {
+    navbarElement.className = "header";
   }
   
-  function navbarMouseout(e) {
-    e.target.className = "header transparent";
+  function hideNavbar() {
+    navbarElement.className = "header transparent";
   }
   
   function setup() {
@@ -163,14 +164,14 @@
     leftElement = document.getElementById("left")
     rightElement = document.getElementById("right");
     titleElement = document.getElementById("title");
+    navbarElement = document.getElementById("navbar");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
-    document.addEventListener("keydown", keyCheck);
+    navbarElement.addEventListener("mouseover", showNavbar);
+    navbarElement.addEventListener("mouseout", hideNavbar);
     document.getElementById("chapterSwitcher").addEventListener("change", chapterSwitcherChange);
-    var navbarElement = document.getElementById("navbar");
-    navbarElement.addEventListener("mouseover", navbarMouseover);
-    navbarElement.addEventListener("mouseout", navbarMouseout);
+    document.addEventListener("keydown", keyCheck);
     if (window.location.hash === "") {
       switchChapter(1);
     }
