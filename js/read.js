@@ -1,7 +1,7 @@
 "use strict";
 (function() {
   var baseURL = "https://dl.dropboxusercontent.com/s/";
-  var chapterInfo = [
+  var chapterInfo = [{},
     {
       "number": "1",
       "title": "One Punch",
@@ -28,11 +28,11 @@
     }
   ]
   
-  var lastChapter = chapterInfo.length;
+  var lastChapter = chapterInfo.length - 1;
   
-  var currentChapter = 1;
-  var currentPage = 1;
-  var chapterSize = 1;
+  var currentChapter = -1;
+  var currentPage = -1;
+  var chapterSize = -1;
   
   var imageElement = null;
   
@@ -84,7 +84,7 @@
     document.getElementById("left").addEventListener("click", pageBack);
     document.getElementById("right").addEventListener("click", pageForward);
     document.addEventListener("keydown", keyCheck);
-    loadPage(1);
+    switchChapter(1);
   }
   
   document.addEventListener("DOMContentLoaded", setup);
