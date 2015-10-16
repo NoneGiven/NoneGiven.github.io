@@ -43,19 +43,20 @@
   var leftElement = null;
   var rightElement = null;
   
-  function switchChapter(chapterIndex) {
+  function switchChapter(chapterIndex, pageIndex) {
     currentChapter = chapterIndex;
     currentExtension = "." + chapterInfo[currentChapter].extension;
     currentTitle = chapterInfo[currentChapter].title;
     currentNumber = chapterInfo[currentChapter].number;
     chapterSize = chapterInfo[currentChapter].pages.length - 1;
-    loadPage(1);
+    loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
   }
   
   function loadPage(pageIndex) {
     startLoading();
     currentPage = pageIndex;
-    document.title = seriesTitle + "Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
+    document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
+    setFragment();
     var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
@@ -125,6 +126,17 @@
     }
   }
   
+  function setFragment() {
+    window.location.hash = currentChapter + "," + currentPage;
+  }
+  
+  function parseFragment() {
+    var split = window.location.hash.split("#")[1].split(",");
+    var chapterIndex = split[0] ? split[0] : 1;
+    var pageIndex = split[1] ? split[1] : 1;
+    switchChpater(chapterIndex, pageIndex);
+  }
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     imageElement = document.getElementById("image");
@@ -135,7 +147,12 @@
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
     document.addEventListener("keydown", keyCheck);
-    switchChapter(1);
+    if (window.location.hash === "") {
+      switchChapter(1);
+    }
+    else {
+      parseFragment();
+    }
   }
   
   document.addEventListener("DOMContentLoaded", setup);
