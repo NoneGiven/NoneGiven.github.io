@@ -5,7 +5,7 @@
     {
       "number": "1",
       "title": "One Punch",
-      "pages": [
+      "pages": ["",
         "cadz9o1zrnftgjd/OPM_1_01.jpg",
         "tm10u82i6fisd8c/OPM_1_02-03.jpg",
         "dnccp9idmwlbj82/OPM_1_04.jpg",
@@ -38,7 +38,7 @@
   
   function switchChapter(chapterIndex) {
     currentChapter = chapterIndex;
-    chapterSize = chapterInfo[currentChapter].pages.length;
+    chapterSize = chapterInfo[currentChapter].pages.length - 1;
     loadPage(1);
   }
   
