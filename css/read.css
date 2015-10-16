@@ -84,8 +84,9 @@
   background-color: gray;
   border-radius: 2px;
   margin-left: -4px;
-  min-width: 21px;
+  min-width: 17px;
   text-align: center;
+  display: inline-block;
 }
 
 #pageSwitchBar {
