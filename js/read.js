@@ -9,7 +9,6 @@
   var currentNumber = "";
   var currentPage = -1;
   var chapterSize = -1;
-  var currentExtension = "";
   
   var imageElement = null;
   var loadingElement = null;
@@ -37,7 +36,6 @@
         getVolumeInfo();
       }
       currentChapter = chapterIndex;
-      currentExtension = chapterInfo[currentChapter].extension;
       currentTitle = chapterInfo[currentChapter].title;
       currentNumber = chapterInfo[currentChapter].number;
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
@@ -55,7 +53,9 @@
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
     hashChanging = true;
     setFragment();
-    var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
+    var path = chapterInfo[currentChapter].pages[currentPage];
+    var newURL = baseURL + path;
+    var extension = path.substr(path.lastIndexOf(".") + 1);
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
     }
@@ -79,7 +79,7 @@
     xhr.onload = function(data) {
       hashChanging = false;
       loadingElement.innerHTML = "Loading... 100.00%";
-      var blob = new Blob([this.response], {type: "image/" + currentExtension});
+      var blob = new Blob([this.response], {type: "image/" + extension});
       imageElement.src = window.URL.createObjectURL(blob);
     };
     xhr.send();
