@@ -38,6 +38,7 @@
   right: 0px;
   min-height: 2em;
   background-color: black;
+  z-index: 9500;
 }
 
 #loading {
@@ -45,6 +46,7 @@
   left: 4px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
+  z-index: 10001;
 }
 
 .hidden {
