@@ -141,7 +141,7 @@
   }
   
   function clickCheck(e) {
-    if (e.target.id !== "infoPanel") {
+    if (e.target.id !== "infoPanel" && e.target.id !== "infoButton") {
       hideInfo();
     }
   }
