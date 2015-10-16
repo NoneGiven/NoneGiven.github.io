@@ -102,7 +102,7 @@
       loadingElement.innerHTML = "Loading..." + percentDisplay + "%";
     };
     xhr.onload = function(data) {
-      if (this.status === "304") {
+      if (this.status === 304) {
         imageElement.src = newURL;
       }
       else {
