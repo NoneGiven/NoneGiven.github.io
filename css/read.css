@@ -36,9 +36,21 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  min-height: 2em;
+  height: 1.4em;
+  padding-top: 10px;
   background-color: black;
   z-index: 9500;
+}
+
+#chapterSwitcher {
+  position: absolute;
+  top: 1.4em;
+  left: 22.5em;
+}
+
+#title {
+  position: absolute;
+  left: 18em;
 }
 
 #loading {
@@ -51,4 +63,8 @@
 
 .hidden {
   display: none;
+}
+
+.transparent {
+  opacity: 0;
 }
