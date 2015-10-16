@@ -77,5 +77,40 @@
     "pages": ["",
       ""
     ]
+  },
+  "5": {
+    "number": "5",
+    "title": "Itch Explosion",
+    "pages": ["",
+      ""
+    ]
+  },
+  "6": {
+    "number": "6",
+    "title": "Saitama",
+    "pages": ["",
+      ""
+    ]
+  },
+  "7": {
+    "number": "7",
+    "title": "Mysterious Raid",
+    "pages": ["",
+      ""
+    ]
+  },
+  "8": {
+    "number": "8",
+    "title": "You Mean This Guy",
+    "pages": ["",
+      ""
+    ]
+  },
+  "9": {
+    "number": "EX1",
+    "title": "200 Yen",
+    "pages": ["",
+      ""
+    ]
   }
 }
