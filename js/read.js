@@ -43,7 +43,7 @@
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
       titleElement.innerHTML = "Ch " + currentNumber + ": " + currentTitle;
       hashChanging = true;
-      chapterSwitcherElement.selectedIndex = currentChapter;
+      chapterSwitcherElement.selectedIndex = currentChapter - 1;
       loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
     }
   }
