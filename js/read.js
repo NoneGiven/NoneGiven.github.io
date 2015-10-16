@@ -185,7 +185,7 @@
   
   function buildPageSwitchBar() {
     pageSwitchBarElement.innerHTML = "";
-    pageSwitchBarElement.setAttribute("data-selected", "1");
+    pageSwitchBarElement.setAttribute("data-selected", "0");
     var pageBlock;
     var padTo = 1;
     if (chapterSize >= 100) {
@@ -210,11 +210,14 @@
   }
   
   function pageSwitchClick(e) {
+    if (e.target.classList.contains("selected")) {
+      return;
+    }
     var page = parseInt(e.target.getAttribute("data-page"));
     if (!isNaN(page)) {
       pageSwitchBarElement.children[pageSwitchBarElement.getAttribute("data-selected")].classList.remove("selected");
       e.target.classList.add("selected");
-      pageSwitchBarElement.setAttribute("data-selected", page);
+      pageSwitchBarElement.setAttribute("data-selected", page - 1);
       loadPage(page);
     }
   }
