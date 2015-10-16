@@ -116,6 +116,7 @@
   function stopLoading() {
     imageElement.className = "";
     loadingElement.className = "hidden";
+    window.scrollTo(0, 0);
   }
   
   function pageBack() {
