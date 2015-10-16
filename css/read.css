@@ -97,6 +97,7 @@
   width: 4.2em;
   height: 100%;
   padding-top: 2.7em;
+  z-index: 9200;
 }
 
 .page {
