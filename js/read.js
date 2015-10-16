@@ -23,6 +23,7 @@
   var navbarElement = null;
   var pageSwitchBarElement = null;
   var chapterSwitcherElement = null;
+  var infoPanelElement = null;
   
   var hashChanging = false;
   
@@ -139,8 +140,17 @@
     }
   }
   
+  function clickCheck(e) {
+    if (e.target.id !== "infoPanel") {
+      hideInfo();
+    }
+  }
+  
   function keyCheck(e) {
-    if (!e.ctrlKey) {
+    if (e.keyCode === 27) { // Esc
+      hideInfo();
+    }
+    else if (!e.ctrlKey) {
       if (e.keyCode === 37) { // Left Arrow
         if (e.shiftKey) {
           if (currentChapter > 1) {
@@ -252,6 +262,14 @@
     }
   }
   
+  function showInfo() {
+    infoPanelElement.classList.remove("hidden");
+  }
+  
+  function hideInfo() {
+    infoPanelElement.classList.remove("add");
+  }
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     window.addEventListener("hashchange", parseFragment);
@@ -263,6 +281,7 @@
     navbarElement = document.getElementById("navbar");
     pageSwitchBarElement = document.getElementById("pageSwitchBar");
     chapterSwitcherElement = document.getElementById("chapterSwitcher");
+    infoPanelElement = document.getElementById("infoPanel");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
@@ -274,7 +293,9 @@
     chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
     document.getElementById("fitButton").addEventListener("click", toggleFit);
+    document.getElementById("infoButton").addEventListener("click", showInfo);
     document.addEventListener("keydown", keyCheck);
+    document.addEventListener("click", clickCheck);
     if (window.location.hash === "") {
       switchChapter(1);
     }
