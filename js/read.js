@@ -185,7 +185,7 @@
   
   function buildPageSwitchBar() {
     pageSwitchBarElement.innerHTML = "";
-    pageSwitchBarElement.setAttribute("data-selected", 1;)
+    pageSwitchBarElement.setAttribute("data-selected", "1");
     var pageBlock;
     var padTo = 1;
     if (chapterSize >= 100) {
@@ -197,6 +197,9 @@
     for (var i = 1; i <= chapterSize; i++) {
       pageBlock = document.createElement("span");
       pageBlock.className = "page hand";
+      if (i === 1) {
+        pageBlock.classList.add("selected");
+      }
       pageBlock.setAttribute("data-page", i);
       pageBlock.innerHTML = i;
       while (pageBlock.innerHTML.length < padTo) {
