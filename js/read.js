@@ -102,14 +102,9 @@
       loadingElement.innerHTML = "Loading..." + percentDisplay + "%";
     };
     xhr.onload = function(data) {
-      if (this.status === 304) {
-        imageElement.src = newURL;
-      }
-      else {
-        loadingElement.innerHTML = "Loading... 100.00%";
-        var blob = new Blob([this.response], {type: "image/" + currentExtension});
-        imageElement.src = window.URL.createObjectURL(blob);
-      }
+      loadingElement.innerHTML = "Loading... 100.00%";
+      var blob = new Blob([this.response], {type: "image/" + currentExtension});
+      imageElement.src = window.URL.createObjectURL(blob);
     };
     xhr.send();
   }
