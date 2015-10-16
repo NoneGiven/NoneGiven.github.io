@@ -64,17 +64,17 @@
     loadingElement.innerHTML = "Loading... 0.00%";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", newURL);
+    xhr.responseType = "arraybuffer";
     xhr.onprogress = function(data) {
       var percentDisplay = (data.loaded / data.total * 100).toFixed(2);
       loadingElement.innerHTML = "Loading..." + percentDisplay;
     };
-    xhr.onload = function() {
+    xhr.onload = function(data) {
       loadingElement.innerHTML = "Loading... 100.00%";
-      imageElement.src = newURL;
+      var blob = new Blob([xhr.response], {type: "image/jpg"});
+      image.src = window.URL.createObjectURL(blob);
       stopLoading();
     };
-    xhr.setRequestHeader("Pragma", "");
-    xhr.setRequestHeader("Cache-Control", "");
     xhr.send();
   }
   
