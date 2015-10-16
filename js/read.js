@@ -50,7 +50,6 @@
   }
   
   function startLoading() {
-    imageElement.className = "hidden";
     loadingElement.className = "";
   }
   
