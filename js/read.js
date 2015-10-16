@@ -15,12 +15,15 @@
   var loadingElement = null;
   var leftElement = null;
   var rightElement = null;
+  var titleElement = null;
   
   var hashChanging = false;
   
-  function setCurrentVolume(chapterIndex) {
+  function changeCurrentVolume(chapterIndex) {
+    var oldVolume = currentVolume;
     //if (chapterIndex <= 9) {
     currentVolume = 1;
+    return oldVolume !== currentVolume;
   }
   
   function getVolumeInfo() {
@@ -29,7 +32,9 @@
   
   function switchChapter(chapterIndex, pageIndex) {
     if (chapterIndex <= lastChapter) {
-      currentChapter = chapterIndex;
+      if (changeCurrentVolume(chapterIndex)) {
+        getVolumeInfo();
+      }
       currentExtension = chapterInfo[currentChapter].extension;
       currentTitle = chapterInfo[currentChapter].title;
       currentNumber = chapterInfo[currentChapter].number;
@@ -137,6 +142,18 @@
     }
   }
   
+  function chapterSwitcherChange(e) {
+    console.log(e);
+  }
+  
+  function navbarMouseover(e) {
+    e.target.className = "header";
+  }
+  
+  function navbarMouseout(e) {
+    e.target.className = "header transparent";
+  }
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     window.addEventListener("hashchange", parseFragment);
@@ -144,10 +161,15 @@
     loadingElement = document.getElementById("loading");
     leftElement = document.getElementById("left")
     rightElement = document.getElementById("right");
+    titleElement = document.getElementById("title");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
     document.addEventListener("keydown", keyCheck);
+    document.getElementById("chapterSwitcher").addEventListener("change", chapterSwitcherChange);
+    var navbarElement = document.getElementById("navbar");
+    navbarElement.addEventListener("mouseover", navbarMouseover);
+    navbarElement.addEventListener("mouseout", navbarMouseout);
     if (window.location.hash === "") {
       switchChapter(1);
     }
