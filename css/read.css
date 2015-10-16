@@ -1,3 +1,7 @@
+#imageContainer {
+  position: relative;
+}
+
 .side {
   position: absolute;
   top: 0px;
