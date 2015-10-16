@@ -203,14 +203,7 @@
   function buildPageSwitchBar() {
     pageSwitchBarElement.innerHTML = "";
     pageSwitchBarElement.setAttribute("data-selected", "0");
-    var pageBlock;
-    var padTo = 1;
-    if (chapterSize >= 100) {
-      padTo = 3
-    }
-    else if (chapterSize >= 10) {
-      padTo = 2;
-    }
+    var pageBlock, split;
     for (var i = 1; i <= chapterSize; i++) {
       pageBlock = document.createElement("span");
       pageBlock.className = "page hand";
@@ -218,10 +211,8 @@
         pageBlock.classList.add("selected");
       }
       pageBlock.setAttribute("data-page", i);
-      pageBlock.innerHTML = i;
-      while (pageBlock.innerHTML.length < padTo) {
-        pageBlock.innerHTML = "0" + pageBlock.innerHTML;
-      }
+      split = chapterInfo[currentChapter].pages[i].split("_");
+      pageBlock.innerHTML = split[split.length - 1].split(".")[0];
       pageSwitchBarElement.appendChild(pageBlock);
     }
   }
