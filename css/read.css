@@ -113,6 +113,10 @@
   background-color: lightgray;
 }
 
+.page.selected:hover {
+  color: gray;
+}
+
 .hidden {
   display: none;
 }
