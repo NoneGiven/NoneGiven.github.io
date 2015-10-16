@@ -183,8 +183,8 @@
       ]
     },
     {
-      "number": "2",
-      "title": "Crab & Job Hunting",
+      "number": "3",
+      "title": "A Disastrous Being",
       "extension": "jpg",
       "pages": ["",
         "iqwvj5nna8f56k2/OPM_3_01.jpg",
