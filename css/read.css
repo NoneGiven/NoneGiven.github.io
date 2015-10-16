@@ -101,6 +101,7 @@
 
 .page {
   display: block;
+  text-align: center;
 }
 
 .page.selected {
