@@ -21,6 +21,7 @@
   var rightElement = null;
   var titleElement = null;
   var navbarElement = null;
+  var pageSwitchBarElement = null;
   var chapterSwitcherElement = null;
   
   var hashChanging = false;
@@ -57,6 +58,7 @@
       titleElement.innerHTML = "Ch " + currentNumber + ": " + currentTitle;
       hashChanging = true;
       chapterSwitcherElement.selectedIndex = currentChapter - 1;
+      buildPageSwitchBar();
       loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
     }
   }
@@ -181,6 +183,35 @@
     navbarElement.classList.add("transparent");
   }
   
+  function buildPageSwitchBar() {
+    pageSwitchBarElement.innerHTML = "";
+    var pageBlock;
+    var padTo = 1;
+    if (chapterSize >= 100) {
+      padTo = 3
+    }
+    else if (chapterSize >= 10) {
+      padTo = 2;
+    }
+    for (var i = 1; i <= chapterSize; i++) {
+      pageBlock = document.createElement("span");
+      pageBlock.className = "page";
+      pageBlock.innerHTML = i;
+      while (pageBlock.innerHTML.length < padTo) {
+        pageBlock.innerHTML = "0" + pageBlock.innerHTML;
+      }
+      pageSwitchBarElement.appendChild(pageBlock);
+    }
+  }
+  
+  function showPageSwitchBar() {
+    pageSwitchBarElement.classList.remove("transparent");
+  }
+  
+  function hidePageSwitchBar() {
+    pageSwitchBarElement.classList.add("transparent");
+  }
+  
   function downloadPage() {
     if (currentPageURL) {
       window.open(currentPageURL, "_blank");
@@ -207,12 +238,15 @@
     rightElement = document.getElementById("right");
     titleElement = document.getElementById("title");
     navbarElement = document.getElementById("navbar");
+    pageSwitchBarElement = document.getElementById("pageSwitchBar");
     chapterSwitcherElement = document.getElementById("chapterSwitcher");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
     navbarElement.addEventListener("mouseover", showNavbar);
     navbarElement.addEventListener("mouseout", hideNavbar);
+    pageSwitchBarElement.addEventListener("mouseover", showPageSwitchBar);
+    pageSwitchBarElement.addEventListener("mouseout", hidePageSwitchBar);
     chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
     document.getElementById("fitButton").addEventListener("click", toggleFit);
