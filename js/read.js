@@ -132,9 +132,15 @@
   
   function parseFragment() {
     var split = window.location.hash.split("#")[1].split(",");
-    var chapterIndex = split[0] ? split[0] : 1;
-    var pageIndex = split[1] ? split[1] : 1;
-    switchChpater(chapterIndex, pageIndex);
+    var chapterIndex = parseInt(split[0]);
+    if (isNaN(chapterIndex)) {
+      chapterIndex = 1;
+    }
+    var pageIndex = parseInt(split[1]);
+    if (isNaN(pageIndex)) {
+      pageIndex = 1;
+    }
+    switchChapter(chapterIndex, pageIndex);
   }
   
   function setup() {
