@@ -79,11 +79,13 @@
 
 .button {
   padding: 2px;
-  font-size: 0.4em;
+  font-size: 13px;
   font-weight: bold;
   background-color: gray;
   border-radius: 2px;
   margin-left: -4px;
+  min-width: 21px;
+  text-align: center;
 }
 
 #pageSwitchBar {
