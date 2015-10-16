@@ -73,8 +73,8 @@
       imageElement.src = newURL;
       stopLoading();
     };
-    req.setRequestHeader("Pragma", "");
-    req.setRequestHeader("Cache-Control", "");
+    xhr.setRequestHeader("Pragma", "");
+    xhr.setRequestHeader("Cache-Control", "");
     xhr.send();
   }
   
