@@ -146,7 +146,7 @@
   }
   
   function chapterSwitcherChange(e) {
-    console.log(e);
+    switchChapter(parseInt(e.target[e.target.selectedIndex].value));
   }
   
   function showNavbar() {
