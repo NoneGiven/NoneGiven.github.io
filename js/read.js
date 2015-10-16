@@ -35,6 +35,7 @@
   var chapterSize = -1;
   
   var imageElement = null;
+  var loadingElement = null;
   
   function switchChapter(chapterIndex) {
     currentChapter = chapterIndex;
@@ -43,8 +44,23 @@
   }
   
   function loadPage(pageIndex) {
+    showLoading();
+    imageElement.className = "image hidden";
     currentPage = pageIndex;
     imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
+  }
+  
+  function imageLoaded() {
+    this.className = "image";
+    hideLoading();
+  }
+  
+  function showLoading() {
+    loadingElement.className = "";
+  }
+  
+  function hideLoading() {
+    loadingElement.className = "hidden";
   }
   
   function pageBack() {
@@ -81,9 +97,11 @@
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     imageElement = document.getElementById("image");
+    loadingElement = document.getElementById("loading");
     document.getElementById("left").addEventListener("click", pageBack);
     document.getElementById("right").addEventListener("click", pageForward);
     document.addEventListener("keydown", keyCheck);
+    imageElement.addEventListener("load", imageLoaded);
     switchChapter(1);
   }
   
