@@ -8,6 +8,7 @@
   var currentTitle = "";
   var currentNumber = "";
   var currentPage = -1;
+  var currentPageURL = "";
   var chapterSize = -1;
   
   var imageElement = null;
@@ -54,7 +55,7 @@
     hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
-    var newURL = baseURL + path;
+    currentPageURL = baseURL + path;
     var extension = path.substr(path.lastIndexOf(".") + 1);
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
@@ -70,7 +71,7 @@
     }
     loadingElement.innerHTML = "Loading... 0.00%";
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", newURL);
+    xhr.open("GET", currentPageURL);
     xhr.responseType = "arraybuffer";
     xhr.onprogress = function(data) {
       var percentDisplay = (data.loaded / data.total * 100).toFixed(2);
