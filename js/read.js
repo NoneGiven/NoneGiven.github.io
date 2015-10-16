@@ -36,7 +36,6 @@
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
     hashChanging = true;
     setFragment();
-    hashChanging = false;
     var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
@@ -59,6 +58,7 @@
       loadingElement.innerHTML = "Loading... " + percentDisplay + "%";
     };
     xhr.onload = function(data) {
+      hashChanging = false;
       loadingElement.innerHTML = "Loading... 100.00%";
       var blob = new Blob([this.response], {type: "image/" + currentExtension});
       imageElement.src = window.URL.createObjectURL(blob);
