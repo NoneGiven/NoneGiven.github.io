@@ -68,6 +68,9 @@
       pageIndex = chapterSize;
     }
     startLoading();
+    pageSwitchBarElement.children[pageSwitchBarElement.getAttribute("data-selected")].classList.remove("selected");
+    pageSwitchBarElement.children[pageIndex - 1].classList.add("selected");
+    pageSwitchBarElement.setAttribute("data-selected", pageIndex - 1);
     currentPage = pageIndex;
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
     hashChanging = true;
@@ -229,9 +232,6 @@
     }
     var page = parseInt(e.target.getAttribute("data-page"));
     if (!isNaN(page)) {
-      pageSwitchBarElement.children[pageSwitchBarElement.getAttribute("data-selected")].classList.remove("selected");
-      e.target.classList.add("selected");
-      pageSwitchBarElement.setAttribute("data-selected", page - 1);
       loadPage(page);
     }
   }
