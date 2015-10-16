@@ -135,11 +135,13 @@
   }
   
   function keyCheck(e) {
-    if (e.keyCode === 37) { // Left Arrow
-      pageBack();
-    }
-    else if (e.keyCode === 39) { // Right Arrow
-      pageForward();
+    if (!e.ctrlKey) {
+      if (e.keyCode === 37) { // Left Arrow
+        pageBack();
+      }
+      else if (e.keyCode === 39) { // Right Arrow
+        pageForward();
+      }
     }
   }
   
