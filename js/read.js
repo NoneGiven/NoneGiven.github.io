@@ -74,16 +74,16 @@
     currentPageURL = baseURL + path;
     var extension = path.substr(path.lastIndexOf(".") + 1);
     if (currentPage < 2 && currentChapter < 2) {
-      leftElement.className = "side";
+      leftElement.classList.remove("hand");
     }
     else {
-      leftElement.className = "side hand";
+      leftElement.classList.add("hand");
     }
     if (currentPage >= chapterSize && currentChapter >= lastChapter) {
-      rightElement.className = "side";
+      rightElement.classList.remove("hand");
     }
     else {
-      rightElement.className = "side hand";
+      rightElement.classList.add("hand");
     }
     loadingElement.innerHTML = "Loading... 0.00%";
     var xhr = new XMLHttpRequest();
@@ -103,12 +103,12 @@
   }
   
   function startLoading() {
-    loadingElement.className = "header";
+    loadingElement.classList.remove("hidden");
   }
   
   function stopLoading() {
-    imageElement.className = "";
-    loadingElement.className = "header hidden";
+    imageElement.classList.remove("hidden");
+    loadingElement.classList.add("hidden");
     window.scrollTo(0, 0);
   }
   
@@ -172,11 +172,11 @@
   }
   
   function showNavbar() {
-    navbarElement.className = "header";
+    navbarElement.classList.remove("transparent");
   }
   
   function hideNavbar() {
-    navbarElement.className = "header transparent";
+    navbarElement.classList.add("transparent");
   }
   
   function downloadPage() {
@@ -186,11 +186,13 @@
   }
   
   function toggleFit() {
-    if (imageElement.className.indexOf("nofit") !== -1) {
-      imageElement.className = imageElement.className.replace("nofit", "fit");
+    if (imageElement.classList.contains("nofit")) {
+      imageElement.classList.remove("nofit");
+      imageElement.classList.add("fit");
     }
     else {
-      imageElement.className = imageElement.className.replace("fit", "nofit");
+      imageElement.classList.remove("fit");
+      imageElement.classList.add("nofit");
     }
   }
   
