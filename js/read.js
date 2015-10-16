@@ -36,6 +36,8 @@
   
   var imageElement = null;
   var loadingElement = null;
+  var leftElement = null;
+  var rightElement = null;
   
   function switchChapter(chapterIndex) {
     currentChapter = chapterIndex;
@@ -47,6 +49,18 @@
     startLoading();
     currentPage = pageIndex;
     imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
+    if (currentPage < 2 && currentChapter < 2) {
+      leftElem.className = "side";
+    }
+    else {
+      leftElem.className = "side hand";
+    }
+    if (currentPage >= chapterSize && currentChapter >= lastChapter) {
+      rightElem.className = "side";
+    }
+    else {
+      righttElem.className = "side hand";
+    }
   }
   
   function startLoading() {
@@ -93,10 +107,12 @@
     document.removeEventListener("DOMContentLoaded", setup);
     imageElement = document.getElementById("image");
     loadingElement = document.getElementById("loading");
-    document.getElementById("left").addEventListener("click", pageBack);
-    document.getElementById("right").addEventListener("click", pageForward);
-    document.addEventListener("keydown", keyCheck);
+    leftElement = document.getElementById("left")
+    rightElement = document.getElementById("right");
+    leftElement.addEventListener("click", pageBack);
+    rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
+    document.addEventListener("keydown", keyCheck);
     switchChapter(1);
   }
   
