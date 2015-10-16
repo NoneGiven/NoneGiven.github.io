@@ -93,11 +93,12 @@
   font-size: 1.2em;
   position: fixed;
   top: 0px;
+  bottom: 0px;
   right: 0px;
   width: 4.2em;
-  height: 100%;
   padding-top: 2.7em;
   z-index: 9200;
+  overflow-y: auto;
 }
 
 .page {
