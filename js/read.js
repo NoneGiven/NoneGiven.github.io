@@ -42,7 +42,7 @@
     loadPage(1);
   }
   
-  function loadPage(pageIdex) {
+  function loadPage(pageIndex) {
     currentPage = pageIndex;
     imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
   }
