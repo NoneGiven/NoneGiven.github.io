@@ -158,6 +158,10 @@
     navbarElement.className = "header transparent";
   }
   
+  function downloadPage() {
+    window.open(currentPageURL, "_blank");
+  }
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     window.addEventListener("hashchange", parseFragment);
@@ -173,6 +177,7 @@
     navbarElement.addEventListener("mouseover", showNavbar);
     navbarElement.addEventListener("mouseout", hideNavbar);
     document.getElementById("chapterSwitcher").addEventListener("change", chapterSwitcherChange);
+    document.getElementById("downloadButton").addEventListener("click", downloadPage);
     document.addEventListener("keydown", keyCheck);
     if (window.location.hash === "") {
       switchChapter(1);
