@@ -68,7 +68,7 @@
   
   function switchChapter(chapterIndex, pageIndex) {
     currentChapter = chapterIndex;
-    currentExtension = "." + chapterInfo[currentChapter].extension;
+    currentExtension = chapterInfo[currentChapter].extension;
     currentTitle = chapterInfo[currentChapter].title;
     currentNumber = chapterInfo[currentChapter].number;
     chapterSize = chapterInfo[currentChapter].pages.length - 1;
