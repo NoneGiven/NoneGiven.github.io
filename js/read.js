@@ -14,6 +14,8 @@
   var leftElement = null;
   var rightElement = null;
   
+  var hashChanging = false;
+  
   function switchChapter(chapterIndex, pageIndex) {
     currentChapter = chapterIndex;
     currentExtension = chapterInfo[currentChapter].extension;
@@ -27,7 +29,9 @@
     startLoading();
     currentPage = pageIndex;
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
+    hashChanging = true;
     setFragment();
+    hashChanging = false;
     var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
@@ -103,20 +107,23 @@
   }
   
   function parseFragment() {
-    var split = window.location.hash.split("#")[1].split(",");
-    var chapterIndex = parseInt(split[0]);
-    if (isNaN(chapterIndex)) {
-      chapterIndex = 1;
+    if (!hashChanging) {
+      var split = window.location.hash.split("#")[1].split(",");
+      var chapterIndex = parseInt(split[0]);
+      if (isNaN(chapterIndex)) {
+        chapterIndex = 1;
+      }
+      var pageIndex = parseInt(split[1]);
+      if (isNaN(pageIndex)) {
+        pageIndex = 1;
+      }
+      switchChapter(chapterIndex, pageIndex);
     }
-    var pageIndex = parseInt(split[1]);
-    if (isNaN(pageIndex)) {
-      pageIndex = 1;
-    }
-    switchChapter(chapterIndex, pageIndex);
   }
   
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
+    window.addEventListener("hashchange", parseFragment);
     imageElement = document.getElementById("image");
     loadingElement = document.getElementById("loading");
     leftElement = document.getElementById("left")
