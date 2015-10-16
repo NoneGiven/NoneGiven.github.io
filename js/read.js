@@ -6,7 +6,6 @@
   var lastChapter = 3;
   
   var chapterInfo = {};
-  var chapterInfoIndex = -1;
   
   var currentVolume = -1;
   var currentChapter = -1;
@@ -38,7 +37,6 @@
     xhr.open("GET", infoURL.replace("NUM", currentVolume));
     xhr.onload = function(data) {
       chapterInfo = JSON.parse(this.responseText);
-      chapterInfoIndex = 0;
       if (chapterIndex !== undefined) {
         switchChapter(chapterIndex, pageIndex)
       }
@@ -53,9 +51,9 @@
         return;
       }
       currentChapter = chapterIndex;
-      currentTitle = chapterInfo[chapterInfoIndex].title;
-      currentNumber = chapterInfo[chapterInfoIndex].number;
-      chapterSize = chapterInfo[chapterInfoIndex].pages.length - 1;
+      currentTitle = chapterInfo[currentChapter].title;
+      currentNumber = chapterInfo[currentChapter].number;
+      chapterSize = chapterInfo[currentChapter].pages.length - 1;
       titleElement.innerHTML = "Ch " + currentNumber + ": " + currentTitle;
       hashChanging = true;
       chapterSwitcherElement.selectedIndex = currentChapter - 1;
@@ -72,7 +70,7 @@
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
     hashChanging = true;
     setFragment();
-    var path = chapterInfo[chapterInfoIndex].pages[currentPage];
+    var path = chapterInfo[currentChapter].pages[currentPage];
     currentPageURL = baseURL + path;
     var extension = path.substr(path.lastIndexOf(".") + 1);
     if (currentPage < 2 && currentChapter < 2) {
@@ -117,7 +115,6 @@
   function pageBack() {
     if (currentPage < 2) {
       if (currentChapter > 1) {
-        chapterInfoIndex--;
         switchChapter(currentChapter - 1);
       }
     }
@@ -129,7 +126,6 @@
   function pageForward() {
     if (currentPage >= chapterSize) {
       if (currentChapter < lastChapter) {
-        chapterInfoIndex++;
         switchChapter(currentChapter + 1);
       }
     }
@@ -168,7 +164,10 @@
   
   function chapterSwitcherChange(e) {
     if (!hashChanging) {
-      switchChapter(parseInt(e.target[e.target.selectedIndex].value));
+      var chapter = parseInt(e.target[e.target.selectedIndex].value);
+      if (chapter !== currentChapter) {
+        switchChapter(chapter);
+      }
     }
   }
   
