@@ -185,6 +185,15 @@
     }
   }
   
+  function toggleFit() {
+    if (imageElement.className.indexOf("nofit") !== -1) {
+      imageElement.className = imageElement.className.replace("nofit", "fit");
+    }
+    else {
+      imageElement.className = imageElement.className.replace("fit", "nofit");
+    }
+  }
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     window.addEventListener("hashchange", parseFragment);
@@ -202,6 +211,7 @@
     navbarElement.addEventListener("mouseout", hideNavbar);
     chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
+    document.getElementById("fitButton").addEventListener("click", toggleFit);
     document.addEventListener("keydown", keyCheck);
     if (window.location.hash === "") {
       switchChapter(1);
