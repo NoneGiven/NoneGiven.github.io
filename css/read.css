@@ -86,6 +86,31 @@
   margin-left: -4px;
 }
 
+#pageSwitchBar {
+  color: white;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 4.2em;
+  height: 100%;
+  padding-top: 2.7em;
+}
+
+.page {
+  display: block;
+}
+
+.page.selected {
+  background-color: gray;
+}
+
+.page:hover {
+  background-color: lightgray;
+}
+
 .hidden {
   display: none;
 }
