@@ -73,7 +73,7 @@
     pageSwitchBarElement.children[pageIndex - 1].classList.add("selected");
     pageSwitchBarElement.setAttribute("data-selected", pageIndex - 1);
     currentPage = pageIndex;
-    document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
+    document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle;
     hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
