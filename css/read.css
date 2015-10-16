@@ -1,1 +1,17 @@
+.side {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9001;
+  cursor: pointer;
+}
 
+#left {
+  left: 0px;
+  right: 50%;
+}
+
+#right {
+  right: 0px;
+  left: 50%;
+}
