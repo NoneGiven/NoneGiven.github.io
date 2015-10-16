@@ -48,7 +48,7 @@
   function loadPage(pageIndex) {
     startLoading();
     currentPage = pageIndex;
-    imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
+    var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
     }
@@ -61,6 +61,19 @@
     else {
       rightElement.className = "side hand";
     }
+    loadingElement.innerHTML = "Loading... 0.00%";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", newURL);
+    xhr.onprogress = function(data) {
+      var percentDisplay = (data.loaded / data.total * 100).toFixed(2);
+      loadingElement.innerHTML = "Loading..." + percentDisplay;
+    };
+    xhr.onload = function() {
+      loadingElement.innerHTML = "Loading... 100.00%";
+      imageElement.src = newURL;
+      stopLoading();
+    };
+    xhr.send();
   }
   
   function startLoading() {
@@ -111,7 +124,7 @@
     rightElement = document.getElementById("right");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
-    imageElement.addEventListener("load", stopLoading);
+    //imageElement.addEventListener("load", stopLoading);
     document.addEventListener("keydown", keyCheck);
     switchChapter(1);
   }
