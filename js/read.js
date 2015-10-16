@@ -5,6 +5,7 @@
     {
       "number": "1",
       "title": "One Punch",
+      "extension": "jpg",
       "pages": ["",
         "cadz9o1zrnftgjd/OPM_1_01.jpg",
         "tm10u82i6fisd8c/OPM_1_02-03.jpg",
@@ -31,8 +32,11 @@
   var lastChapter = chapterInfo.length - 1;
   
   var currentChapter = -1;
+  var currentTitle = "";
+  var currentNumber = "";
   var currentPage = -1;
   var chapterSize = -1;
+  var currentExtension = "";
   
   var imageElement = null;
   var loadingElement = null;
@@ -41,6 +45,9 @@
   
   function switchChapter(chapterIndex) {
     currentChapter = chapterIndex;
+    currentExtension = "." + chapterInfo[currentChapter].extension;
+    currentTitle = chapterInfo[currentChapter].title;
+    currentNumber = chapterInfo[currentChapter].number;
     chapterSize = chapterInfo[currentChapter].pages.length - 1;
     loadPage(1);
   }
@@ -48,6 +55,7 @@
   function loadPage(pageIndex) {
     startLoading();
     currentPage = pageIndex;
+    document.title = seriesTitle + "Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
     var newURL = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.className = "side";
@@ -71,9 +79,8 @@
     };
     xhr.onload = function(data) {
       loadingElement.innerHTML = "Loading... 100.00%";
-      var blob = new Blob([xhr.response], {type: "image/jpg"});
-      image.src = window.URL.createObjectURL(blob);
-      //stopLoading();
+      var blob = new Blob([this.response], {type: "image/" + currentExtension});
+      imageElement.src = window.URL.createObjectURL(blob);
     };
     xhr.send();
   }
@@ -132,4 +139,6 @@
   }
   
   document.addEventListener("DOMContentLoaded", setup);
+  var seriesTitle = "One-Punch Man";
+  document.title = seriesTitle;
 }).call(this);
