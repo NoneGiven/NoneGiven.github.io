@@ -17,6 +17,7 @@
   var rightElement = null;
   var titleElement = null;
   var navbarElement = null;
+  var chapterSwitcherElement = null;
   
   var hashChanging = false;
   
@@ -41,6 +42,8 @@
       currentNumber = chapterInfo[currentChapter].number;
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
       titleElement.innerHTML = "Ch " + currentNumber + ": " + currentTitle;
+      hashChanging = true;
+      chapterSwitcherElement.selectedIndex = currentChapter;
       loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
     }
   }
@@ -52,7 +55,6 @@
     startLoading();
     currentPage = pageIndex;
     document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle + " p" + currentPage;
-    hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
     currentPageURL = baseURL + path;
@@ -147,7 +149,9 @@
   }
   
   function chapterSwitcherChange(e) {
-    switchChapter(parseInt(e.target[e.target.selectedIndex].value));
+    if (!hashChanging) {
+      switchChapter(parseInt(e.target[e.target.selectedIndex].value));
+    }
   }
   
   function showNavbar() {
@@ -159,7 +163,9 @@
   }
   
   function downloadPage() {
-    window.open(currentPageURL, "_blank");
+    if (currentPageURL) {
+      window.open(currentPageURL, "_blank");
+    }
   }
   
   function setup() {
@@ -171,12 +177,13 @@
     rightElement = document.getElementById("right");
     titleElement = document.getElementById("title");
     navbarElement = document.getElementById("navbar");
+    chapterSwitcherElement = document.getElementById("chapterSwitcher");
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
     navbarElement.addEventListener("mouseover", showNavbar);
     navbarElement.addEventListener("mouseout", hideNavbar);
-    document.getElementById("chapterSwitcher").addEventListener("change", chapterSwitcherChange);
+    chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
     document.addEventListener("keydown", keyCheck);
     if (window.location.hash === "") {
