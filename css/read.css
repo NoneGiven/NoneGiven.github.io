@@ -122,6 +122,17 @@
   color: gray;
 }
 
+#infoPanel {
+  background-color: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 11000;
+}
+
 .hidden {
   display: none;
 }
