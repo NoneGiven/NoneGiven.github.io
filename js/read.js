@@ -27,7 +27,7 @@
   }
   
   function getVolumeInfo() {
-    
+    console.log("fetching volume info");
   }
   
   function switchChapter(chapterIndex, pageIndex) {
@@ -35,6 +35,7 @@
       if (changeCurrentVolume(chapterIndex)) {
         getVolumeInfo();
       }
+      currentChapter = chapterIndex;
       currentExtension = chapterInfo[currentChapter].extension;
       currentTitle = chapterInfo[currentChapter].title;
       currentNumber = chapterInfo[currentChapter].number;
