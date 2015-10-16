@@ -3,6 +3,16 @@
   display: inline-block;
 }
 
+#image .nofit {
+  max-height: 1600px;
+  width: auto;
+}
+
+#image .fit {
+  max-height: none;
+  max-width: none;
+}
+
 .side {
   position: absolute;
   top: 0px;
