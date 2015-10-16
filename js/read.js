@@ -267,7 +267,7 @@
   }
   
   function hideInfo() {
-    infoPanelElement.classList.remove("add");
+    infoPanelElement.classList.add("hidden");
   }
   
   function setup() {
