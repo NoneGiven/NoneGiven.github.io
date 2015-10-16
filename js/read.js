@@ -67,12 +67,12 @@
   }
   
   function startLoading() {
-    loadingElement.className = "";
+    loadingElement.className = "header";
   }
   
   function stopLoading() {
     imageElement.className = "";
-    loadingElement.className = "hidden";
+    loadingElement.className = "header hidden";
     window.scrollTo(0, 0);
   }
   
