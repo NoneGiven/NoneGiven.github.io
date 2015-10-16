@@ -1,5 +1,5 @@
 {
-  1: {
+  "1": {
     "number": "1",
     "title": "One Punch",
     "pages": ["",
@@ -23,7 +23,7 @@
       "9gsjxzy85na9h0q/OPM_1_22.jpg"
     ]
   },
-  2: {
+  "2": {
     "number": "2",
     "title": "Crab & Job Hunting",
     "pages": ["",
@@ -45,7 +45,7 @@
       "w8ttwgqdb8mqe5y/OPM_2_16.jpg"
     ]
   },
-  3: {
+  "3": {
     "number": "3",
     "title": "A Disastrous Being",
     "pages": ["",
@@ -71,7 +71,7 @@
       "jhy2ngyxmz1v425/OPM_3_22.jpg"
     ]
   },
-  4: {
+  "4": {
     "number": "4",
     "title": "Dark Undergrounders",
     "pages": ["",
