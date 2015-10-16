@@ -43,14 +43,14 @@
 }
 
 #chapterSwitcher {
-  position: absolute;
-  top: 1.4em;
-  left: 22.5em;
+  float: left;
+  margin-left; 22.5em;
+  margin-top: 0.6em;
 }
 
 #title {
-  position: absolute;
-  left: 18em;
+  float: left;
+  margin-left: 18px;
 }
 
 #loading {
