@@ -50,16 +50,16 @@
     currentPage = pageIndex;
     imageElement.src = baseURL + chapterInfo[currentChapter].pages[currentPage];
     if (currentPage < 2 && currentChapter < 2) {
-      leftElem.className = "side";
+      leftElement.className = "side";
     }
     else {
-      leftElem.className = "side hand";
+      leftElement.className = "side hand";
     }
     if (currentPage >= chapterSize && currentChapter >= lastChapter) {
-      rightElem.className = "side";
+      rightElement.className = "side";
     }
     else {
-      righttElem.className = "side hand";
+      rightElement.className = "side hand";
     }
   }
   
