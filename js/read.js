@@ -139,10 +139,24 @@
   function keyCheck(e) {
     if (!e.ctrlKey) {
       if (e.keyCode === 37) { // Left Arrow
-        pageBack();
+        if (e.shiftKey) {
+          if (currentChapter > 1) {
+            switchChapter(currentChapter - 1);
+          }
+        }
+        else {
+          pageBack();
+        }
       }
       else if (e.keyCode === 39) { // Right Arrow
-        pageForward();
+        if (e.shiftKey) {
+          if (currentChapter < lastChapter) {
+            switchChapter(currentChapter + 1);
+          }
+        }
+        else {
+          pageForward();
+        }
       }
     }
   }
