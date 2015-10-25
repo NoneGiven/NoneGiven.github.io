@@ -3,7 +3,7 @@
   var baseURL = "https://dl.dropboxusercontent.com/s/";
   var infoURL = "https://nonegiven.github.io/res/opm/vNUM.json"
   
-  var lastChapter = 17;
+  var lastChapter = 23;
   
   var chapterInfo = {};
   
