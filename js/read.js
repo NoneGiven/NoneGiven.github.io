@@ -30,6 +30,9 @@
   function changeCurrentVolume(chapterIndex) {
     var oldVolume = currentVolume;
     if (chapterIndex > 9) {
+      currentVolume = 2;
+    }
+    else {
       currentVolume = 1;
     }
     return oldVolume !== currentVolume;
