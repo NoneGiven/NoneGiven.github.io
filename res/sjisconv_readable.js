@@ -7045,3 +7045,7 @@ sjisconv["\uff5c"] = "\u0081b";
 sjisconv["\uff5d"] = "\u0081p";
 sjisconv["\uffe3"] = "\u0081P";
 sjisconv["\uffe5"] = "\u0081\u008f";
+
+var e = document.createEvent("Event");
+e.initEvent("sjisconvDone", false, false);
+document.dispatchEvent(e);
