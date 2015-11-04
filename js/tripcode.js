@@ -7,6 +7,13 @@
   var passInput = null;
   var tripInput = null;
   
+  var suffix = "H.";
+  var saltTable =
+  ".............................................../0123456789ABCDEF" +
+	"GABCDEFGHIJKLMNOPQRSTUVWXYZabcdefabcdefghijklmnopqrstuvwxyz....." +
+	"................................................................" +
+	"................................................................";
+  
   function sjisEncode(pass) {
     var conv = "";
     var char = null;
@@ -20,8 +27,20 @@
     return conv;
   }
   
+  function htmlEntitiesEncode(pass) {
+    return pass.replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;").replace('"', "&quot;");
+  }
+  
   function makeTripcode(pass) {
-    return sjisEncode(pass);
+    pass = sjisEncode(htmlEntitiesEncode(pass));
+    if (!pass) {
+      return "";
+    }
+    var salt = "";
+    for (var i = 1; i < 3; i++) {
+      salt += salt_table[(pass + suffix).charCodeAt(i) % 256];
+    }
+    return window.javacrypt.crypt(salt, pass)[0].substring(3);
   }
   
   function listenTick() {
@@ -33,7 +52,7 @@
     if (currentPass.length > 8) {
       currentPass = currentPass.substr(0, 8);
     }
-    tripInput.value = "!" + makeTripcode(currentPass);
+    tripInput.value = makeTripcode(currentPass);
   }
   
   function startListening() {
