@@ -3,7 +3,7 @@ window.sjisconv = {};
 //same
 sjisconv[" "] = " ";
 sjisconv["!"] = "!";
-sjisconv['"'] = '\';
+sjisconv['"'] = '"';
 sjisconv["#"] = "#";
 sjisconv["$"] = "$";
 sjisconv["%"] = "%";
