@@ -33,7 +33,7 @@
     if (currentPass.length > 8) {
       currentPass = currentPass.substr(0, 8);
     }
-    tripInput.value = "!" + makeTripcode(currentPass;)
+    tripInput.value = "!" + makeTripcode(currentPass);
   }
   
   function startListening() {
