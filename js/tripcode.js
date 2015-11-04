@@ -42,15 +42,15 @@
     tickIntervalContainer = setInterval(listenTick, tickInterval);
   }
   
-  function onDOMContentLoaded() {
-    document.removeEventListener("DOMContentLoaded", addListeners);
+  function onSjisconvDone() {
+    document.removeEventListener("sjisconvDone", onSjisconvDone);
     if (++readyCount > 1) {
       startListening();
     }
   }
   
-  function onSjisconvDone() {
-    document.removeEventListener("sjisconvDone", setReady);
+  function onDOMContentLoaded() {
+    document.removeEventListener("DOMContentLoaded", onDOMContentLoaded);
     if (++readyCount > 1) {
       startListening();
     }
