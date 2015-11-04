@@ -11,7 +11,7 @@
     var conv = "";
     var char = null;
     for (var i = 0; i < pass.length; i++) {
-      char = window.sjisconv[pass];
+      char = window.sjisconv[pass[i]];
       if (char === undefined) {
         char = "?";
       }
