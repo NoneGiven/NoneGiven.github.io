@@ -55,7 +55,10 @@
     currentPass = passInput.value;
     passCount.className = "";
     if (!currentPass) {
+      replInput.value = "";
       tripInput.value = "";
+      replCount.className = "";
+      replCount.innerHTML = "0";
       passCount.innerHTML = "0";
       return;
     }
