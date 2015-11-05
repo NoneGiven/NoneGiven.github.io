@@ -71,8 +71,8 @@
     passInput = document.getElementById("pass");
     tripInput = document.getElementById("trip");
     replInput = document.getElementById("repl");
-    passCount = document.getElementById("count1");
-    replCount = document.getElementById("count2");
+    passCount = document.getElementById("chars1");
+    replCount = document.getElementById("chars2");
     tickIntervalContainer = setInterval(listenTick, tickInterval);
   }
   
