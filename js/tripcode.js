@@ -40,7 +40,7 @@
     for (var i = 1; i < 3; i++) {
       salt += salt_table[(pass + suffix).charCodeAt(i) % 256];
     }
-    return window.javacrypt.crypt(salt, pass)[0].substring(3);
+    return window.Javacrypt.crypt(salt, pass)[0].substring(3);
   }
   
   function listenTick() {
@@ -63,18 +63,26 @@
   
   function onSjisconvDone() {
     document.removeEventListener("sjisconvDone", onSjisconvDone);
-    if (++readyCount > 1) {
+    if (++readyCount > 2) {
+      startListening();
+    }
+  }
+  
+  function onJavacryptDone() {
+    document.removeEventListener("sjisconvDone", onJavacryptDone);
+    if (++readyCount > 2) {
       startListening();
     }
   }
   
   function onDOMContentLoaded() {
     document.removeEventListener("DOMContentLoaded", onDOMContentLoaded);
-    if (++readyCount > 1) {
+    if (++readyCount > 2) {
       startListening();
     }
   }
   
   document.addEventListener("sjisconvDone", onSjisconvDone);
+  document.addEventListener("javacryptDone", onJavacryptDone);
   document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
 }).call(this);
