@@ -8,6 +8,14 @@ input, .mono {
   font-family: "Courier New", Courier, monospace;
 }
 
+div {
+  margin-top: 8px;
+}
+
+ul {
+  margin-top: 4px;
+}
+
 .bad {
   color: red;
 }
