@@ -77,6 +77,7 @@
     passCount = document.getElementById("chars1");
     replCount = document.getElementById("chars2");
     tickIntervalContainer = setInterval(listenTick, tickInterval);
+    passInput.focus();
   }
   
   function onSjisconvDone() {
