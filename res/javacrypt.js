@@ -1,4 +1,3 @@
-*/
 /***************************************************************
  *                                                             *
  *      JAVACRYPT: CLIENT-SIDE crypt(3) USING JAVASCRIPT       *
