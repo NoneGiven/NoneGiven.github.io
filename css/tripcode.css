@@ -1,3 +1,7 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 table {
   border-spacing: 8px 4px;
   border-collapse: separate;
