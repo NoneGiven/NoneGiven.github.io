@@ -37,9 +37,9 @@
   
   function makeTripcode(pass) {
     var conv = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
-    replInput.value = pass;
-    replCount.innerHTML = pass.length;
-    if (pass.length > 8) {
+    replInput.value = conv;
+    replCount.innerHTML = conv.length;
+    if (conv.length > 8) {
       replCount.className = "bad";
     }
     else {
@@ -53,9 +53,9 @@
     }
     var salt = "";
     for (var i = 1; i < 3; i++) {
-      salt += saltTable[(pass + suffix).charCodeAt(i) % 256];
+      salt += saltTable[(conv + suffix).charCodeAt(i) % 256];
     }
-    return window.Javacrypt.crypt(salt, pass)[0].substring(3);
+    return window.Javacrypt.crypt(salt, conv)[0].substring(3);
   }
   
   function listenTick() {
