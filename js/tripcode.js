@@ -38,7 +38,7 @@
     }
     var salt = "";
     for (var i = 1; i < 3; i++) {
-      salt += salt_table[(pass + suffix).charCodeAt(i) % 256];
+      salt += saltTable[(pass + suffix).charCodeAt(i) % 256];
     }
     return window.Javacrypt.crypt(salt, pass)[0].substring(3);
   }
