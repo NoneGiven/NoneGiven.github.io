@@ -28,7 +28,7 @@
   }
   
   function htmlEntitiesEncode(pass) {
-    return pass.replace("&", "&amp;").replace(">", "&gt;").replace("<", "&lt;").replace('"', "&quot;");
+    return pass.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   }
   
   function makeTripcode(pass) {
