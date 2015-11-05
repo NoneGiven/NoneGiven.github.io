@@ -10,9 +10,9 @@
   var suffix = "H.";
   var saltTable =
   ".............................................../0123456789ABCDEF" +
-	"GABCDEFGHIJKLMNOPQRSTUVWXYZabcdefabcdefghijklmnopqrstuvwxyz....." +
-	"................................................................" +
-	"................................................................";
+  "GABCDEFGHIJKLMNOPQRSTUVWXYZabcdefabcdefghijklmnopqrstuvwxyz....." +
+  "................................................................" +
+  "................................................................";
   
   function sjisEncode(pass) {
     var conv = "";
@@ -36,7 +36,7 @@
     if (pass.length > 8) {
       pass = pass.substr(0, 8);
     }
-    pass = sjisEncode();
+    pass = sjisEncode(pass);
     if (!pass) {
       return "";
     }
