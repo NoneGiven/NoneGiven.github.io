@@ -9,6 +9,7 @@
   var tripInput = null;
   var replInput = null;
   var replCount = null;
+  var charDiff = null;
   
   var suffix = "H.";
   var saltTable =
@@ -35,7 +36,7 @@
   }
   
   function makeTripcode(pass) {
-    pass = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
+    var conv = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
     replInput.value = pass;
     replCount.innerHTML = pass.length;
     if (pass.length > 8) {
@@ -43,6 +44,12 @@
     }
     else {
       replCount.className = "";
+    }
+    if (conv === pass) {
+      charDiff.className = "";
+    }
+    else {
+      charDiff.className = "different";
     }
     var salt = "";
     for (var i = 1; i < 3; i++) {
@@ -60,6 +67,7 @@
       replCount.className = "";
       replCount.innerHTML = "0";
       passCount.innerHTML = "0";
+      charDiff.className = "";
       return;
     }
     passCount.innerHTML = currentPass.length;
@@ -76,6 +84,7 @@
     replInput = document.getElementById("repl");
     passCount = document.getElementById("chars1");
     replCount = document.getElementById("chars2");
+    charDiff = document.getElementById("diff");
     tickIntervalContainer = setInterval(listenTick, tickInterval);
     passInput.focus();
   }
