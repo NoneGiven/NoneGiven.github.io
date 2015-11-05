@@ -11,6 +11,9 @@
   var replCount = null;
   var charDiff = null;
   
+  /* stuff actually needed for tripcode generation is BELOW THIS LINE */
+  // also, Javacrypt and sjisconv objects need to be set up
+  
   var suffix = "H.";
   var saltTable =
   ".............................................../0123456789ABCDEF" +
@@ -37,6 +40,17 @@
   
   function makeTripcode(pass) {
     var conv = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
+    updatePrettyStuff(conv, pass); // not part of tripcode generation!
+    var salt = "";
+    for (var i = 1; i < 3; i++) {
+      salt += saltTable[(conv + suffix).charCodeAt(i) % 256];
+    }
+    return window.Javacrypt.crypt(salt, conv)[0].substring(3);
+  }
+  
+  /* stuff actually needed for tripcode generation is ABOVE THIS LINE */
+  
+  function updatePrettyStuff(conv, pass) {
     replInput.value = conv;
     replCount.innerHTML = conv.length;
     if (conv.length > 8) {
@@ -51,11 +65,6 @@
     else {
       charDiff.className = "different";
     }
-    var salt = "";
-    for (var i = 1; i < 3; i++) {
-      salt += saltTable[(conv + suffix).charCodeAt(i) % 256];
-    }
-    return window.Javacrypt.crypt(salt, conv)[0].substring(3);
   }
   
   function listenTick() {
