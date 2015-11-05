@@ -5,7 +5,10 @@
   var tickIntervalContainer = null;
   var currentPass = "";
   var passInput = null;
+  var passCount = null;
   var tripInput = null;
+  var replInput = null;
+  var replCount = null;
   
   var suffix = "H.";
   var saltTable =
@@ -33,6 +36,14 @@
   
   function makeTripcode(pass) {
     pass = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
+    replInput.value = pass;
+    replCount.innerHTML = pass.length;
+    if (pass.length > 8) {
+      replCount.className = "bad";
+    }
+    else {
+      replCount.className = "";
+    }
     var salt = "";
     for (var i = 1; i < 3; i++) {
       salt += saltTable[(pass + suffix).charCodeAt(i) % 256];
@@ -42,11 +53,15 @@
   
   function listenTick() {
     currentPass = passInput.value;
+    passCount.className = "";
     if (!currentPass) {
       tripInput.value = "";
+      passCount.innerHTML = "0";
       return;
     }
+    passCount.innerHTML = currentPass.length;
     if (currentPass.length > 8) { // cut off here since crypt won't be affected by any characters past 8
+      passCount.className = "bad";
       currentPass = currentPass.substr(0, 8);
     }
     tripInput.value = makeTripcode(currentPass);
@@ -55,6 +70,9 @@
   function startListening() {
     passInput = document.getElementById("pass");
     tripInput = document.getElementById("trip");
+    replInput = document.getElementById("repl");
+    passCount = document.getElementById("count1");
+    replCount = document.getElementById("count2");
     tickIntervalContainer = setInterval(listenTick, tickInterval);
   }
   
