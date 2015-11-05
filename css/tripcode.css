@@ -1,4 +1,9 @@
-body {
+table {
+  border-spacing: 8px 4px;
+  border-collapse: separate;
+}
+
+input {
   white-space: pre;
   font-family: "Courier New", Courier, monospace;
 }
