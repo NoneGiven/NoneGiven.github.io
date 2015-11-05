@@ -32,7 +32,11 @@
   }
   
   function makeTripcode(pass) {
-    pass = sjisEncode(htmlEntitiesEncode(pass));
+    pass = htmlEntitiesEncode(pass);
+    if (pass.length > 8) {
+      pass = pass.substr(0, 8);
+    }
+    pass = sjisEncode();
     if (!pass) {
       return "";
     }
