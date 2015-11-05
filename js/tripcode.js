@@ -32,14 +32,7 @@
   }
   
   function makeTripcode(pass) {
-    pass = htmlEntitiesEncode(pass);
-    if (pass.length > 8) {
-      pass = pass.substr(0, 8);
-    }
-    pass = sjisEncode(pass);
-    if (!pass) {
-      return "";
-    }
+    pass = sjisEncode(htmlEntitiesEncode(pass)); // don't replace apostrophes with HTML entities
     var salt = "";
     for (var i = 1; i < 3; i++) {
       salt += saltTable[(pass + suffix).charCodeAt(i) % 256];
@@ -53,7 +46,7 @@
       tripInput.value = "";
       return;
     }
-    if (currentPass.length > 8) {
+    if (currentPass.length > 8) { // cut off here since crypt won't be affected by any characters past 8
       currentPass = currentPass.substr(0, 8);
     }
     tripInput.value = makeTripcode(currentPass);
