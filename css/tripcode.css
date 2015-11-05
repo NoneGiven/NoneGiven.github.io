@@ -3,7 +3,7 @@ table {
   border-collapse: separate;
 }
 
-input {
+input, .mono {
   white-space: pre;
   font-family: "Courier New", Courier, monospace;
 }
