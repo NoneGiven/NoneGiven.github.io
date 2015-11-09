@@ -22,6 +22,7 @@
   var rightElement = null;
   var titleElement = null;
   var navbarElement = null;
+  var fitButtonElement = null;
   var pageSwitchBarElement = null;
   var chapterSwitcherElement = null;
   var infoPanelElement = null;
@@ -286,6 +287,7 @@
       imageElement.className = "nofit";
       imageContainerElement.className = "nofit";
     }
+    fitButtonElement.innerHTML = "&lt;" + (fitMode + 1) + "&gt;";
     localStorage.setItem("reader-fit-mode", fitMode.toString());
   }
   
@@ -302,7 +304,6 @@
     window.addEventListener("hashchange", parseFragment);
     imageElement = document.getElementById("image");
     imageContainerElement = document.getElementById("imageContainer");
-    setFit(parseInt(localStorage.getItem("reader-fit-mode")));
     loadingElement = document.getElementById("loading");
     leftElement = document.getElementById("left")
     rightElement = document.getElementById("right");
@@ -311,6 +312,8 @@
     pageSwitchBarElement = document.getElementById("pageSwitchBar");
     chapterSwitcherElement = document.getElementById("chapterSwitcher");
     infoPanelElement = document.getElementById("infoPanel");
+    fitButtonElement = document.getElementById("fitButton");
+    setFit(parseInt(localStorage.getItem("reader-fit-mode")));
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
@@ -320,8 +323,8 @@
     pageSwitchBarElement.addEventListener("mouseout", hidePageSwitchBar);
     pageSwitchBarElement.addEventListener("click", pageSwitchClick);
     chapterSwitcherElement.addEventListener("change", chapterSwitcherChange);
+    fitButtonElement.addEventListener("click", toggleFit);
     document.getElementById("downloadButton").addEventListener("click", downloadPage);
-    document.getElementById("fitButton").addEventListener("click", toggleFit);
     document.getElementById("infoButton").addEventListener("click", showInfo);
     document.addEventListener("keydown", keyCheck);
     document.addEventListener("click", clickCheck);
