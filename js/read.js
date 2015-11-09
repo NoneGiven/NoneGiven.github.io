@@ -18,6 +18,7 @@
   var imageElement = null;
   var imageContainerElement = null;
   var loadingElement = null;
+  var messageElement = null;
   var leftElement = null;
   var rightElement = null;
   var titleElement = null;
@@ -29,6 +30,8 @@
   
   var fitMode = 0; // 0 - nofit, 1 - resize, 2 - fitwidth
   var hashChanging = false;
+  var messageHideTimeoutContainer = null;
+  var messageHideTimeout = 2000;
   
   function changeCurrentVolume(chapterIndex) {
     var oldVolume = currentVolume;
@@ -221,6 +224,24 @@
     }
   }
   
+  function showMessage(msg) {
+    if (messageHideTimeoutContainer !== null) {
+      clearTimeout("messageHideTimeoutContainer");
+    }
+    if (!msg) {
+      msg = "Empty message!"
+    }
+    messageElement.innerHTML = msg;
+    messageElement.classList.remove("hidden");
+    messageHideTimeoutContainer = setTimeout(hideMessage, messageHideTimeout);
+  }
+  
+  function hideMessage() {
+    messageElement.classList.add("hidden");
+    messageElement.innerHTML = "";
+    messageHideTimeoutContainer = null;
+  }
+  
   function showNavbar() {
     navbarElement.classList.remove("transparent");
   }
@@ -275,26 +296,28 @@
   }
   
   function setFit(mode) {
-    // todo: message
+    var msg;
     fitMode = mode;
     if (fitMode === 1) {
       imageElement.className = "resize";
       imageContainerElement.className = "resize";
-      fitButtonElement.title = "Resized";
+      msg = "Resized";
     }
     else if (fitMode === 2) {
       imageElement.className = "fitwidth";
       imageContainerElement.className = "fitwidth";
-      fitButtonElement.title = "Fit width";
+      msg = "Fit width";
     }
     else {
       fitMode = 0;
       imageElement.className = "nofit";
       imageContainerElement.className = "nofit";
-      fitButtonElement.title = "Full size";
+      msg = "Full size";
     }
-    fitButtonElement.innerHTML = "&lt;" + (fitMode + 1) + "&gt;";
     localStorage.setItem("reader-fit-mode", fitMode.toString());
+    fitButtonElement.title = msg;
+    fitButtonElement.innerHTML = "&lt;" + (fitMode + 1) + "&gt;";
+    showMessage(msg);
   }
   
   function showInfo() {
@@ -311,6 +334,7 @@
     imageElement = document.getElementById("image");
     imageContainerElement = document.getElementById("imageContainer");
     loadingElement = document.getElementById("loading");
+    messageElement = document.getElementById("message");
     leftElement = document.getElementById("left")
     rightElement = document.getElementById("right");
     titleElement = document.getElementById("title");
