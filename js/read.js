@@ -16,6 +16,7 @@
   var chapterSize = -1;
   
   var imageElement = null;
+  var imageContainerElement = null;
   var loadingElement = null;
   var leftElement = null;
   var rightElement = null;
@@ -25,6 +26,7 @@
   var chapterSwitcherElement = null;
   var infoPanelElement = null;
   
+  var fitMode = 0; // 0 - nofit, 1 - resize, 2 - fitwidth
   var hashChanging = false;
   
   function changeCurrentVolume(chapterIndex) {
@@ -75,7 +77,7 @@
       buildPageSwitchBar();
       loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
     }
-  }
+  }f
   
   function loadPage(pageIndex) {
     if (pageIndex > chapterSize) {
@@ -265,14 +267,26 @@
   }
   
   function toggleFit() {
-    if (imageElement.classList.contains("nofit")) {
-      imageElement.classList.remove("nofit");
-      imageElement.classList.add("fit");
+    setFit((fitMode + 1) % 3);
+  }
+  
+  function setFit(mode) {
+    // todo: message
+    fitMode = mode;
+    if (fitMode === 1) {
+      imageElement.className = "resize";
+      imageContainerElement.className = "resize";
+    }
+    else if (fitMode === 2) {
+      imageElement.className = "fitwidth";
+      imageContainerElement.className = "fitwidth";
     }
     else {
-      imageElement.classList.remove("fit");
-      imageElement.classList.add("nofit");
+      fitMode = 0;
+      imageElement.className = "nofit";
+      imageContainerElement.className = "nofit";
     }
+    localStorage.setItem("reader-fit-mode", fitMode.toString());
   }
   
   function showInfo() {
@@ -287,6 +301,8 @@
     document.removeEventListener("DOMContentLoaded", setup);
     window.addEventListener("hashchange", parseFragment);
     imageElement = document.getElementById("image");
+    imageContainerElement = document.getElementById("imageContainer");
+    setFit(parseInt(localStorage.getItem("reader-fit-mode")));
     loadingElement = document.getElementById("loading");
     leftElement = document.getElementById("left")
     rightElement = document.getElementById("right");
