@@ -280,15 +280,18 @@
     if (fitMode === 1) {
       imageElement.className = "resize";
       imageContainerElement.className = "resize";
+      fitButtonElement.title = "Resized";
     }
     else if (fitMode === 2) {
       imageElement.className = "fitwidth";
       imageContainerElement.className = "fitwidth";
+      fitButtonElement.title = "Fit width";
     }
     else {
       fitMode = 0;
       imageElement.className = "nofit";
       imageContainerElement.className = "nofit";
+      fitButtonElement.title = "Full size";
     }
     fitButtonElement.innerHTML = "&lt;" + (fitMode + 1) + "&gt;";
     localStorage.setItem("reader-fit-mode", fitMode.toString());
