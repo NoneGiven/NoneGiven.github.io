@@ -78,7 +78,7 @@
       buildPageSwitchBar();
       loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
     }
-  }f
+  }
   
   function loadPage(pageIndex) {
     if (pageIndex > chapterSize) {
