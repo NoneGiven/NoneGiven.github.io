@@ -3,7 +3,7 @@
   var baseURL = "https://dl.dropboxusercontent.com/s/";
   var infoURL = "https://nonegiven.github.io/res/opm/vNUM.json"
   
-  var lastChapter = 60; // update this and the volume switch below when adding chapters
+  var lastChapter = 71; // update this and the volume switch below when adding chapters
   
   var chapterInfo = {};
   
@@ -35,7 +35,10 @@
   
   function changeCurrentVolume(chapterIndex) {
     var oldVolume = currentVolume;
-    if (chapterIndex > 52) {
+    if (chapterIndex > 60) {
+      currentVolume = 10;
+    }
+    else if (chapterIndex > 52) {
       currentVolume = 9;
     }
     else if (chapterIndex > 46) {
