@@ -32,7 +32,7 @@
     if (chapterIndex > 24) {
       currentVolume = 4;
     }
-    if (chapterIndex > 17) {
+    else if (chapterIndex > 17) {
       currentVolume = 3;
     }
     else if (chapterIndex > 9) {
