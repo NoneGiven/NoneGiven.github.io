@@ -167,7 +167,7 @@
   
   function keyCheck(e) {
     if (e.keyCode > 48 && e.keyCode < 52) { // 1, 2, 3
-      toggleFit(e.keyCode - 49);
+      setFit(e.keyCode - 49);
     }
     else if (e.keyCode === 27) { // Esc
       hideInfo();
