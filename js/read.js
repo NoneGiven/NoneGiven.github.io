@@ -54,19 +54,21 @@
   function buildChapterSwitcher() {
     var html = "";
     var vol = 0;
-    var group = false;
+    var optgroup = false;
     for (var i = 0; i < seriesInfo.contents.length; i++) {
       if (seriesInfo.index.indexOf(i) !== -1) {
+        if (optgroup) {
+          html += '</optgroup>';
+        }
         vol++;
         html += '<optgroup label="Volume ' + vol + '">'
-        group = true;
+        optgroup = true;
       }
       var ch = seriesInfo.contents[i];
       html += '<option value="' + (i + 1) + '">' + ch.num + ': ' + convertHtmlEntities(ch.title) + '</option>';
-      if (group) {
-        html += '</optgroup>';
-        group = false;
-      }
+    }
+    if (optgroup) {
+      html += '</optgroup>';
     }
     chapterSwitcherElement.innerHTML = html;
   }
@@ -112,8 +114,8 @@
         return;
       }
       currentChapter = chapterIndex;
-      currentTitle = seriesInfo.contents[currentChapter].title;
-      currentNumber = seriesInfo.contents[currentChapter].num;
+      currentTitle = seriesInfo.contents[currentChapter - 1].title;
+      currentNumber = seriesInfo.contents[currentChapter - 1].num;
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
       titleElement.innerHTML = "Ch " + currentNumber + ": " + convertHtmlEntities(currentTitle);
       hashChanging = true;
