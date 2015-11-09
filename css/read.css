@@ -3,14 +3,14 @@
   display: inline-block;
 }
 
-#image.fit {
-  max-height: 1600px;
-  width: auto;
+#imageContainer.fitwidth, #image.fitwidth {
+  max-width: 100%;
+  height: auto;
 }
 
-#image.nofit {
-  max-height: none;
-  max-width: none;
+#imageContainer.resize, #image.resize {
+  max-height: 1200px;
+  width: auto;
 }
 
 .side {
