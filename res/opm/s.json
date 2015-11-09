@@ -1,6 +1,8 @@
 {
   "title": "One-Punch Man",
   "author": "Yusuke Murata",
+  "imageURL": "https://dl.dropboxusercontent.com/s/",
+  "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
   "chapters": 71,
   "index": [60, 52, 46, 40, 34, 29, 24, 17, 9],
   "contents": {
