@@ -5,97 +5,77 @@
   "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
   "chapters": 71,
   "index": [60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
-  "contents": {
-    "Volume 1": {
-      "1": "One Punch",
-      "2": "Crab & Job Hunting",
-      "3": "A Disastrous Being",
-      "4": "Dark Undergrounders",
-      "5": "Itch Explosion",
-      "6": "Saitama",
-      "7": "Mysterious Raid",
-      "8": "You Mean This Guy",
-      "EX1": "200 Yen"
-    },
-    "Volume 2": {
-      "9": "House of Evolution",
-      "10": "Modern Art",
-      "11": "The Key to His Power",
-      "12": "Paradise Group",
-      "13": "Speed",
-      "14": "Don't Know You",
-      "15": "Hobby & Work",
-      "EX2": "Brushing Up Yourself"
-    },
-    "Volume 3": {
-      "16": "Passed the Exam",
-      "17": "Sparring",
-      "18": "Business Activity",
-      "19": "No Time for This",
-      "20": "Rumor",
-      "EX3A": "Recollection of a Summer",
-      "EX3B": "A New Wind Blows"
-    },
-    "Volume 4": {
-      "21": "Giant Meteor",
-      "22": "Voices",
-      "23": "Threat from the Sea",
-      "24": "Deep Sea King",
-      "EX4": "Prison"
-    },
-    "Volume 5": {
-      "25": "Glimmer of Hope",
-      "26": "Beat-up but Shining",
-      "27": "Because it's Raining",
-      "28": "B-Class",
-      "EX5": "Things One Cannot Buy"
-    },
-    "Volume 6": {
-      "29": "S-Class",
-      "30": "Great Prophecy",
-      "31": "From Space...",
-      "32": "Guys Who Don't Listen",
-      "33": "Are You Stupid",
-      "EX6": "Salmon"
-    },
-    "Volume 7": {
-      "34": "The Fight",
-      "35": "The Power of Boros",
-      "36": "Crash",
-      "EX7A": "Big Construction",
-      "EX7B": "A Top Pupil&apos;s Reminiscense",
-      "YJ1": "Young Jump Special 1"
-    },
-    "Volume 8": {
-      "37": "King",
-      "38": "That Person",
-      "39": "Outlaw",
-      "EX8A": "Lost Cat",
-      "EX8B": "Lobster",
-      "OM8": "Volume 8 Omake"
-    },
-    "Volume 9": {
-      "40": "The Man Who Wants to be a Monster",
-      "41": "Blizzard Group",
-      "42": "Don't Look Down On It",
-      "43": "Accelerate",
-      "44": "Hero Name",
-      "45": "Hero Hunt",
-      "46": "Technique",
-      "EX9": "Struggle of the Blizzard Group"
-    },
-    "Volume 10": {
-      "47": "Banana",
-      "48": "I'm Bored Anyway",
-      "49": "Cover",
-      "50": "Don't Put It Back",
-      "51": "Waiting Room",
-      "52": "Centipede",
-      "53": "Fighting Spirit",
-      "54": "Meddling",
-      "EX10": "Taste",
-      "YJ2": "Young Jump Special 2",
-      "YJ3": "Young Jump Special 3"
-    }
-  }
+  "contents": [
+    {"num": "1", "title": "One Punch"},
+    {"num": "2", "title": "Crab & Job Hunting"},
+    {"num": "3", "title": "A Disastrous Being"},
+    {"num": "4", "title": "Dark Undergrounders"},
+    {"num": "5", "title": "Itch Explosion"},
+    {"num": "6", "title": "Saitama"},
+    {"num": "7", "title": "Mysterious Raid"},
+    {"num": "8", "title": "You Mean This Guy"},
+    {"num": "EX1", "title": "200 Yen"
+    {"num": "9", "title": "House of Evolution"},
+    {"num": "10", "title": "Modern Art"},
+    {"num": "11", "title": "The Key to His Power"},
+    {"num": "12", "title": "Paradise Group"},
+    {"num": "13", "title": "Speed"},
+    {"num": "14", "title": "Don't Know You"},
+    {"num": "15", "title": "Hobby & Work"},
+    {"num": "EX2", "title": "Brushing Up Yourself"
+    {"num": "16", "title": "Passed the Exam"},
+    {"num": "17", "title": "Sparring"},
+    {"num": "18", "title": "Business Activity"},
+    {"num": "19", "title": "No Time for This"},
+    {"num": "20", "title": "Rumor"},
+    {"num": "EX3A", "title": "Recollection of a Summer"},
+    {"num": "EX3B", "title": "A New Wind Blows"
+    {"num": "21", "title": "Giant Meteor"},
+    {"num": "22", "title": "Voices"},
+    {"num": "23", "title": "Threat from the Sea"},
+    {"num": "24", "title": "Deep Sea King"},
+    {"num": "EX4", "title": "Prison"
+    {"num": "25", "title": "Glimmer of Hope"},
+    {"num": "26", "title": "Beat-up but Shining"},
+    {"num": "27", "title": "Because it's Raining"},
+    {"num": "28", "title": "B-Class"},
+    {"num": "EX5", "title": "Things One Cannot Buy"
+    {"num": "29", "title": "S-Class"},
+    {"num": "30", "title": "Great Prophecy"},
+    {"num": "31", "title": "From Space..."},
+    {"num": "32", "title": "Guys Who Don't Listen"},
+    {"num": "33", "title": "Are You Stupid"},
+    {"num": "EX6", "title": "Salmon"
+    {"num": "34", "title": "The Fight"},
+    {"num": "35", "title": "The Power of Boros"},
+    {"num": "36", "title": "Crash"},
+    {"num": "EX7A", "title": "Big Construction"},
+    {"num": "EX7B", "title": "A Top Pupil&apos;s Reminiscense"},
+    {"num": "YJ1", "title": "Young Jump Special 1"
+    {"num": "37", "title": "King"},
+    {"num": "38", "title": "That Person"},
+    {"num": "39", "title": "Outlaw"},
+    {"num": "EX8A", "title": "Lost Cat"},
+    {"num": "EX8B", "title": "Lobster"},
+    {"num": "OM8", "title": "Volume 8 Omake"
+    {"num": "40", "title": "The Man Who Wants to be a Monster"},
+    {"num": "41", "title": "Blizzard Group"},
+    {"num": "42", "title": "Don't Look Down On It"},
+    {"num": "43", "title": "Accelerate"},
+    {"num": "44", "title": "Hero Name"},
+    {"num": "45", "title": "Hero Hunt"},
+    {"num": "46", "title": "Technique"},
+    {"num": "EX9", "title": "Struggle of the Blizzard Group"
+    {"num": "47", "title": "Banana"},
+    {"num": "48", "title": "I'm Bored Anyway"},
+    {"num": "49", "title": "Cover"},
+    {"num": "50", "title": "Don't Put It Back"},
+    {"num": "51", "title": "Waiting Room"},
+    {"num": "52", "title": "Centipede"},
+    {"num": "53", "title": "Fighting Spirit"},
+    {"num": "54", "title": "Meddling"},
+    {"num": "EX10", "title": "Taste"},
+    {"num": "YJ2", "title": "Young Jump Special 2"},
+    {"num": "YJ3", "title": "Young Jump Special 3"}
+  ]
 }
