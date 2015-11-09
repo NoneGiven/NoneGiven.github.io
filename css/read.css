@@ -52,6 +52,14 @@
   z-index: 9500;
 }
 
+select optgroup {
+  padding-left: 2px;
+}
+
+select option {
+  padding-right: 2px;
+}
+
 #chapterSwitcher {
   float: left;
   margin-left: 22.5em;
