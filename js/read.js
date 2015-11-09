@@ -374,6 +374,10 @@
     document.getElementById("infoButton").addEventListener("click", showInfo);
     document.addEventListener("keydown", keyCheck);
     document.addEventListener("click", clickCheck);
+    if (localStorage.getItem("first-visit") === null) {
+      showInfo();
+      localStorage.setItem("first-visit", "nope");
+    }
     if (window.location.hash === "") {
       switchChapter(1);
     }
