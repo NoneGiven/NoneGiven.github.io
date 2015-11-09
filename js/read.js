@@ -31,7 +31,7 @@
   var fitMode = 0; // 0 - nofit, 1 - resize, 2 - fitwidth
   var hashChanging = false;
   var messageHideTimeoutContainer = null;
-  var messageHideTimeout = 2000;
+  var messageHideTimeout = 4000;
   
   function changeCurrentVolume(chapterIndex) {
     var oldVolume = currentVolume;
