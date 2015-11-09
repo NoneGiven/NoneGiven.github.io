@@ -1,11 +1,14 @@
 "use strict";
 (function() {
-  var baseURL = "https://dl.dropboxusercontent.com/s/";
-  var infoURL = "https://nonegiven.github.io/res/opm/vNUM.json"
+  var seriesURL = "https://nonegiven.github.io/res/S/s.json";
+  var imageURL = "";
+  var infoURL = "";
   
-  var lastChapter = 71; // update this and the volume switch below when adding chapters
-  
+  var seriesInfo = {};
   var chapterInfo = {};
+  var lastChapter = 0;
+  var lastVolume = 0;
+  var seriesTitle = "";
   
   var currentVolume = -1;
   var currentChapter = -1;
@@ -35,37 +38,48 @@
   
   function changeCurrentVolume(chapterIndex) {
     var oldVolume = currentVolume;
-    if (chapterIndex > 60) {
-      currentVolume = 10;
-    }
-    else if (chapterIndex > 52) {
-      currentVolume = 9;
-    }
-    else if (chapterIndex > 46) {
-      currentVolume = 8;
-    }
-    else if (chapterIndex > 40) {
-      currentVolume = 7;
-    }
-    else if (chapterIndex > 34) {
-      currentVolume = 6;
-    }
-    else if (chapterIndex > 29) {
-      currentVolume = 5;
-    }
-    else if (chapterIndex > 24) {
-      currentVolume = 4;
-    }
-    else if (chapterIndex > 17) {
-      currentVolume = 3;
-    }
-    else if (chapterIndex > 9) {
-      currentVolume = 2;
-    }
-    else {
-      currentVolume = 1;
+    for (var i = 0; i < seriesInfo.index.length; i++) {
+      if (chapterIndex > seriesInfo.index[i]) {
+        currentVolume = lastVolume - i;
+        break;
+      }
     }
     return oldVolume !== currentVolume;
+  }
+  
+  function buildChapterSwitcher() {
+    var html = "";
+    var i = i;
+    for (var vol in seriesInfo.contents) {
+      html += '<optgroup label="' + vol + '">'
+      for (var ch in seriesInfo.contents[vol]) {
+        html += '<option value="' + i +'">' + ch + '</option>';
+      }
+      html += '</optgroup>';
+    }
+    chapterSwitcherElement.innerHTML = html;
+  }
+  
+  function getSeriesInfo(seriesCode) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", seriesURL.replace("S", seriesCode));
+    xhr.onload = function(data) {
+      seriesInfo = JSON.parse(this.responseText);
+      buildChapterSwitcher();
+      imageURL = seriesInfo.imageURL;
+      infoURL = seriesInfo.infoURL;
+      lastChapter = seriesInfo.chapters
+      lastVolume = seriesInfo.index.length;
+      seriesTitle = seriesInfo.title;
+      document.title = seriesTitle;
+      if (window.location.hash === "") {
+        switchChapter(1);
+      }
+      else {
+        parseFragment();
+      }
+    };
+    xhr.send();
   }
   
   function getVolumeInfo(chapterIndex, pageIndex) {
@@ -111,7 +125,7 @@
     hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
-    currentPageURL = baseURL + path;
+    currentPageURL = imageURL + path;
     var extension = path.substr(path.lastIndexOf(".") + 1);
     if (currentPage < 2 && currentChapter < 2) {
       leftElement.classList.remove("hand");
@@ -374,19 +388,12 @@
     document.getElementById("infoButton").addEventListener("click", showInfo);
     document.addEventListener("keydown", keyCheck);
     document.addEventListener("click", clickCheck);
+    getSeriesInfo();
     if (localStorage.getItem("first-visit") === null) {
       showInfo();
       localStorage.setItem("first-visit", "nope");
     }
-    if (window.location.hash === "") {
-      switchChapter(1);
-    }
-    else {
-      parseFragment();
-    }
   }
   
   document.addEventListener("DOMContentLoaded", setup);
-  var seriesTitle = "One-Punch Man";
-  document.title = seriesTitle;
 }).call(this);
