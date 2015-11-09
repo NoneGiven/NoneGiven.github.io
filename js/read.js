@@ -264,7 +264,8 @@
         pageBlock.classList.add("selected");
       }
       pageBlock.setAttribute("data-page", i);
-      split = chapterInfo[currentChapter].pages[i].split("_");
+      split = chapterInfo[currentChapter].pages[i].split("/");
+      split = split[split.length - 1].split("_");
       pageBlock.innerHTML = split[split.length - 1].split(".")[0];
       pageSwitchBarElement.appendChild(pageBlock);
     }
