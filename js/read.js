@@ -49,11 +49,12 @@
   
   function buildChapterSwitcher() {
     var html = "";
-    var i = i;
+    var i = 1;
     for (var vol in seriesInfo.contents) {
       html += '<optgroup label="' + vol + '">'
-      for (var ch in seriesInfo.contents[vol]) {
-        html += '<option value="' + i +'">' + ch + '</option>';
+      for (var j = 0; j < seriesInfo.contents[vol].length; j++) {
+        html += '<option value="' + i +'">' +  seriesInfo.contents[vol][j] + '</option>';
+        i++;
       }
       html += '</optgroup>';
     }
