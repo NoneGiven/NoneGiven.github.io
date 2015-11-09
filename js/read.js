@@ -402,9 +402,9 @@
     document.addEventListener("keydown", keyCheck);
     document.addEventListener("click", clickCheck);
     getSeriesInfo("opm");
-    if (localStorage.getItem("first-visit") === null) {
+    if (localStorage.getItem("reader-first-visit") === null) {
       showInfo();
-      localStorage.setItem("first-visit", "nope");
+      localStorage.setItem("reader-first-visit", "nope");
     }
   }
   
