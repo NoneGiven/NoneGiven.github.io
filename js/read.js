@@ -47,16 +47,26 @@
     return oldVolume !== currentVolume;
   }
   
+  function convertHtmlEntities(str) {
+    return str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  }
+  
   function buildChapterSwitcher() {
     var html = "";
-    var i = 1;
-    for (var vol in seriesInfo.contents) {
-      html += '<optgroup label="' + vol + '">'
-      for (var j = 0; j < seriesInfo.contents[vol].length; j++) {
-        html += '<option value="' + i +'">' +  seriesInfo.contents[vol][j] + '</option>';
-        i++;
+    var vol = 0;
+    var group = false;
+    for (var i = 0; i < seriesInfo.contents.length; i++) {
+      if (seriesInfo.index.indexOf(i) !== -1) {
+        vol++;
+        html += '<optgroup label="Volume ' + vol + '">'
+        group = true;
       }
-      html += '</optgroup>';
+      var ch = seriesInfo.contents[i];
+      html += '<option value="' + (i + 1) + '">' + ch.num + ': ' + convertHtmlEntities(ch.title) + '</option>';
+      if (group) {
+        html += '</optgroup>';
+        group = false;
+      }
     }
     chapterSwitcherElement.innerHTML = html;
   }
@@ -102,10 +112,10 @@
         return;
       }
       currentChapter = chapterIndex;
-      currentTitle = chapterInfo[currentChapter].title;
-      currentNumber = chapterInfo[currentChapter].number;
+      currentTitle = seriesInfo.contents[currentChapter].title;
+      currentNumber = seriesInfo.contents[currentChapter].num;
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
-      titleElement.innerHTML = "Ch " + currentNumber + ": " + currentTitle;
+      titleElement.innerHTML = "Ch " + currentNumber + ": " + convertHtmlEntities(currentTitle);
       hashChanging = true;
       chapterSwitcherElement.selectedIndex = currentChapter - 1;
       buildPageSwitchBar();
