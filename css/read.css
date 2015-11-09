@@ -66,6 +66,14 @@
 #loading {
   top: 4px;
   left: 4px;
+}
+
+#message {
+  bottom: 4px;
+  left: 4px;
+}
+
+.bar {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   z-index: 10001;
