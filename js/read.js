@@ -118,6 +118,7 @@
       currentNumber = seriesInfo.contents[currentChapter - 1].num;
       chapterSize = chapterInfo[currentChapter].pages.length - 1;
       titleElement.innerHTML = "Ch " + currentNumber + ": " + convertHtmlEntities(currentTitle);
+      document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle;
       hashChanging = true;
       chapterSwitcherElement.selectedIndex = currentChapter - 1;
       buildPageSwitchBar();
@@ -134,7 +135,6 @@
     pageSwitchBarElement.children[pageIndex - 1].classList.add("selected");
     pageSwitchBarElement.setAttribute("data-selected", pageIndex - 1);
     currentPage = pageIndex;
-    document.title = seriesTitle + " Ch " + currentNumber + ": " + currentTitle;
     hashChanging = true;
     setFragment();
     var path = chapterInfo[currentChapter].pages[currentPage];
