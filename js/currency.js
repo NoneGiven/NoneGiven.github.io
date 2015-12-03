@@ -4,6 +4,7 @@
   var to = null;
   var amount = null;
   var result = null;
+  
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     var xhr = new XMLHttpRequest();
@@ -19,14 +20,17 @@
     to.selectedIndex = 5;
     amount.focus();
   }
+  
   function clone() {
     to.innerHTML = from.innerHTML;
   }
+  
   function convert(amt, from, to) {
     if (conversions !== null && from in conversions.rates && to in conversions.rates) {
       return amt / parseFloat(conversions.rates[from]) * parseFloat(conversions.rates[to]);
     }
   }
+  
   function trunc(amt) {
     var trunc = (Math.round(amt * 100) / 100).toString();
     if (trunc.indexOf(".") == -1) {
@@ -38,8 +42,9 @@
     }
     return split[0] + "." + split[1];
   }
+  
   function submit() {
-    var amt = parseFloat(amount.value);
+    var amt = parseFloat(amount.value.replace(/,/g, ""));
     if (!isNaN(amt)) {
       var res = trunc(convert(amt, from[from.selectedIndex].value, to[to.selectedIndex].value));
       if (!isNaN(res)) {
@@ -47,5 +52,6 @@
       }
     }
   }
+  
   document.addEventListener("DOMContentLoaded", setup);
 }).call();
