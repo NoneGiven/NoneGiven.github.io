@@ -3,7 +3,7 @@
   "author": "Yusuke Murata",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
   "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
-  "chapters": 75,
+  "chapters": 76,
   "index": [71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
@@ -81,5 +81,6 @@
     {"num": "55", "title": "Meddling Continued"},
     {"num": "56", "title": "Creeping Darkness"},
     {"num": "57", "title": "Only You"}
+    {"num": "58", "title": "Unnamed"}
   ]
 }
