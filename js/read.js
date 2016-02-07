@@ -123,7 +123,7 @@
       hashChanging = true;
       chapterSwitcherElement.selectedIndex = currentChapter - 1;
       buildPageSwitchBar();
-      loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too becuase lol Javascript
+      loadPage(pageIndex > 0 ? pageIndex : 1); // handles not-passed case too because lol Javascript
     }
   }
   
@@ -246,11 +246,11 @@
   function parseFragment() {
     if (!hashChanging) {
       var split = window.location.hash.split("#")[1].split(",");
-      var chapterIndex = parseInt(split[0]);
+      var chapterIndex = +split[0];
       if (isNaN(chapterIndex)) {
         chapterIndex = 1;
       }
-      var pageIndex = parseInt(split[1]);
+      var pageIndex = +split[1];
       if (isNaN(pageIndex)) {
         pageIndex = 1;
       }
@@ -260,8 +260,8 @@
   
   function chapterSwitcherChange(e) {
     if (!hashChanging) {
-      var chapter = parseInt(e.target[e.target.selectedIndex].value);
-      if (chapter !== currentChapter) {
+      var chapter = +e.target[e.target.selectedIndex].value;
+      if (!isNaN(chapter) && chapter !== currentChapter) {
         switchChapter(chapter);
       }
     }
@@ -315,7 +315,7 @@
     if (e.target.classList.contains("selected")) {
       return;
     }
-    var page = parseInt(e.target.getAttribute("data-page"));
+    var page = +e.target.getAttribute("data-page");
     if (!isNaN(page)) {
       loadPage(page);
     }
@@ -387,7 +387,7 @@
     chapterSwitcherElement = document.getElementById("chapterSwitcher");
     infoPanelElement = document.getElementById("infoPanel");
     fitButtonElement = document.getElementById("fitButton");
-    setFit(parseInt(localStorage.getItem("reader-fit-mode")));
+    setFit(+localStorage.getItem("reader-fit-mode"));
     leftElement.addEventListener("click", pageBack);
     rightElement.addEventListener("click", pageForward);
     imageElement.addEventListener("load", stopLoading);
