@@ -1,8 +1,9 @@
 "use strict";
 (function() {
-  var seriesURL = "https://nonegiven.github.io/res/S/s.json";
+  var seriesURL = "https://nonegiven.github.io/res/SER/s.json";
   var imageURL = "";
   var infoURL = "";
+  var infoURLBase = "https://nonegiven.github.io/res/SER/vNUM.json";
   
   var seriesInfo = {};
   var chapterInfo = {};
@@ -75,12 +76,12 @@
   
   function getSeriesInfo(seriesCode) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", seriesURL.replace("S", seriesCode));
+    xhr.open("GET", seriesURL.replace("SER", seriesCode));
     xhr.onload = function(data) {
       seriesInfo = JSON.parse(this.responseText);
       buildChapterSwitcher();
       imageURL = seriesInfo.imageURL;
-      infoURL = seriesInfo.infoURL;
+      infoURL = infoURLBase.replace("SER", seriesCode);
       lastChapter = seriesInfo.chapters
       lastVolume = seriesInfo.index.length;
       seriesTitle = seriesInfo.title;
