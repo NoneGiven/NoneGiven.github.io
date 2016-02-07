@@ -3,7 +3,7 @@
   "author": "Yusuke Murata",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
   "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
-  "chapters": 72,
+  "chapters": 75,
   "index": [71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
@@ -77,6 +77,9 @@
     {"num": "EX10B", "title": "Taste"},
     {"num": "YJ2", "title": "Young Jump Special 2"},
     {"num": "YJ3", "title": "Young Jump Special 3"},
-    {"num": "54", "title": "Meddling"}
+    {"num": "54", "title": "Meddling"},
+    {"num": "55", "title": "Meddling Continued"},
+    {"num": "56", "title": "Creeping Darkness"},
+    {"num": "57", "title": "Only You"}
   ]
 }
