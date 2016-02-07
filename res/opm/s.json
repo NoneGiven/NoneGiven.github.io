@@ -1,8 +1,8 @@
 {
   "title": "One-Punch Man",
   "author": "Yusuke Murata",
+  "seriesCode": "opm",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
-  "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
   "chapters": 76,
   "index": [71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
