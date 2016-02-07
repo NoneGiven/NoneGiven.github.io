@@ -269,7 +269,7 @@
   
   function showMessage(msg) {
     if (messageHideTimeoutContainer !== null) {
-      clearTimeout("messageHideTimeoutContainer");
+      clearTimeout(messageHideTimeoutContainer);
     }
     if (!msg) {
       msg = "Empty message!"
