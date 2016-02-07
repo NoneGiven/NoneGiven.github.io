@@ -3,8 +3,8 @@
   "author": "Yusuke Murata",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
   "infoURL": "https://nonegiven.github.io/res/opm/vNUM.json",
-  "chapters": 71,
-  "index": [60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
+  "chapters": 72,
+  "index": [71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
     {"num": "2", "title": "Crab & Job Hunting"},
@@ -74,7 +74,8 @@
     {"num": "52", "title": "Centipede"},
     {"num": "53", "title": "Fighting Spirit"},
     {"num": "54", "title": "Meddling"},
-    {"num": "EX10", "title": "Taste"},
+    {"num": "EX10A", "title": "Tatsumaki's Day Off"},
+    {"num": "EX10B", "title": "Taste"},
     {"num": "YJ2", "title": "Young Jump Special 2"},
     {"num": "YJ3", "title": "Young Jump Special 3"}
   ]
