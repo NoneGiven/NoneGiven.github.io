@@ -15,8 +15,8 @@
   
   function rgbChange(event) {
     var red = +e.r.value;
-    var green = +e.r.value;
-    var blue = +e.r.value;
+    var green = +e.g.value;
+    var blue = +e.b.value;
     if (red === red && green === green && blue === blue) {
       e.hex.value = red.toString(16) + green.toString(16) + blue.toString(16);
       e.fr.value = red / 255;
