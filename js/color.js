@@ -13,7 +13,7 @@
     v: null
   };
   
-  function rgbChange(e) {
+  function rgbChange(event) {
     var red = +e.r.value;
     var green = +e.r.value;
     var blue = +e.r.value;
@@ -37,15 +37,15 @@
     }
   }
   
-  function hexChange(e) {
+  function hexChange(event) {
     
   }
   
-  function frgbChange(e) {
+  function frgbChange(event) {
     
   }
   
-  function hsvChange(e) {
+  function hsvChange(event) {
     
   }
   
