@@ -18,10 +18,10 @@
     var green = +e.r.value;
     var blue = +e.r.value;
     if (red === red && green === green && blue === blue) {
-      e.hex.value = r.toString(16) + g.toString(16) + b.toString(16);
-      e.fr.value = r / 255;
-      e.fg.value = g / 255;
-      e.fb.value = b / 255;
+      e.hex.value = red.toString(16) + green.toString(16) + blue.toString(16);
+      e.fr.value = red / 255;
+      e.fg.value = green / 255;
+      e.fb.value = blue / 255;
       e.h.value = "";
       e.s.value = "";
       e.v.value = "";
