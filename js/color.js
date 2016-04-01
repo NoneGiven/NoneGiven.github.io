@@ -25,7 +25,9 @@
     var red = +e.r.value;
     var green = +e.g.value;
     var blue = +e.b.value;
-    if (red === red && green === green && blue === blue) {
+    if (red === red && green === green && blue === blue && red >= 0 && red <= 255 &&
+      green >= 0 && green <= 255 && blue >= 0 && blue <= 255)
+    {
       e.hex.value = hex(red) + hex(green) + hex(blue);
       e.fr.value = red / 255;
       e.fg.value = green / 255;
@@ -33,6 +35,7 @@
       e.h.value = "";
       e.s.value = "";
       e.v.value = "";
+      e.box.style.color = "rgb(" + red + "," + green + "," + blue + ")";
     }
     else {
       e.hex.value = "?";
