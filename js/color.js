@@ -35,7 +35,7 @@
       e.h.value = "";
       e.s.value = "";
       e.v.value = "";
-      e.box.style.color = "rgb(" + red + "," + green + "," + blue + ")";
+      e.box.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
     }
     else {
       e.hex.value = "?";
