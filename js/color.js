@@ -21,13 +21,13 @@
     return hex.toUpperCase();
   }
   
-  function rgbChange(event) {
-    var red = +e.r.value;
-    var green = +e.g.value;
-    var blue = +e.b.value;
+  function updateStuff(target, red, green, blue) {
     if (red === red && green === green && blue === blue && red >= 0 && red <= 255 &&
       green >= 0 && green <= 255 && blue >= 0 && blue <= 255)
     {
+      e.r.value = red;
+      e.g.value = green;
+      e.b.value = blue;
       e.hex.value = hex(red) + hex(green) + hex(blue);
       e.fr.value = red / 255;
       e.fg.value = green / 255;
@@ -38,14 +38,17 @@
       e.box.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
     }
     else {
-      e.hex.value = "?";
-      e.fr.value = "?";
-      e.fg.value = "?";
-      e.fb.value = "?";
-      e.h.value = "?";
-      e.s.value = "?";
-      e.v.value = "?";
+      for (let elem in e) {
+        // todo
+      }
     }
+  }
+  
+  function rgbChange(event) {
+    var red = +e.r.value;
+    var green = +e.g.value;
+    var blue = +e.b.value;
+    updateStuff(event.target, red, green, blue);
   }
   
   function hexChange(event) {
