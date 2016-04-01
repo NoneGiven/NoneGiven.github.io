@@ -1,19 +1,16 @@
 (function() {
   var e = {
-    "color-box": null,
-    "rgb-r": null,
-    "rgb-g": null,
-    "rgb-b": null,
+    "box": null,
+    "r": null,
+    "g": null,
+    "b": null,
     "hex": null,
-    "int-r": null,
-    "int-g": null,
-    "int-b": null,
-    "int-r": null,
-    "int-g": null,
-    "int-b": null,
-    "hsv-h": null,
-    "hsv-s": null,
-    "hsv-v": null
+    "fr": null,
+    "fg": null,
+    "fb": null,
+    "h": null,
+    "s": null,
+    "v": null
   };
   
   function setup() {
