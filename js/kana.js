@@ -94,7 +94,7 @@
         changeMode(0);
         document.body.innerHTML = '<span>#:</span>&nbsp;<div id="form"><input maxlength="3" id="reps" type="text"><br>' +
             '<input data-mode="1" id="sub1" type="submit" value="!"><input data-mode="2" id="sub2" type="submit" value="?">' +
-            '<br><input data-mode="3" id="sub3" type="submit" value="*"></div><div id="info">i</div>';
+            '<br><input data-mode="3" id="sub3" type="submit" value="*"></div><div id="info" class="pointer">i</div>';
         id("reps").addEventListener("input", onRepChange);
         id("sub1").style.width = "72px";
         id("sub1").addEventListener("click", onFormSubmit);
@@ -102,11 +102,16 @@
         id("sub2").addEventListener("click", onFormSubmit);
         id("sub3").style.width = "144px";
         id("sub3").addEventListener("click", onFormSubmit);
+        id("info").addEventListener("click", openInfo);
         if (!isNaN(repsCount) && repsCount >= 1) {
             id("reps").value = repsCount;
         }
         id("reps").focus();
         stateChanging = false;
+    }
+    
+    function openInfo() {
+        window.open("/kanainfo", "_blank");
     }
     
     function randomInt(min, max) {
