@@ -8,6 +8,10 @@ h1, h1 a {
   color: white;
 }
 
+h1 a.smaller {
+  font-size: 1em;
+}
+
 a:focus {
   outline: none;
 }
