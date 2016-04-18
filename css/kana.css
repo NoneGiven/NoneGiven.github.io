@@ -53,6 +53,7 @@
   right: 0.15em;
   cursor: pointer;
   text-decoration: underline;
+  font-size: 1.5em;
 }
 
 #mode-disp {
