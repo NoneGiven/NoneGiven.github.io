@@ -9,6 +9,13 @@
   padding: 0.5em;
 }
 
+#info {
+  position: fixed;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0.5em;
+}
+
 .kana {
   text-align: center;
   font-size: 5em;
