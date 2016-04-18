@@ -3,6 +3,13 @@ body, body a {
   color: black;
 }
 
+body.obama {
+  text-align: center;
+  background-image: url("/res/obama.gif");
+  background-repeat: repeat;
+  background-color: black;
+}
+
 h1, h1 a {
   font-size: 1.8em;
   color: white;
