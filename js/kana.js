@@ -94,7 +94,7 @@
         changeMode(0);
         document.body.innerHTML = '<span>#:</span>&nbsp;<div id="form"><input maxlength="3" id="reps" type="text"><br>' +
             '<input data-mode="1" id="sub1" type="submit" value="!"><input data-mode="2" id="sub2" type="submit" value="?">' +
-            '<br><input data-mode="3" id="sub3" type="submit" value="*"></div>';
+            '<br><input data-mode="3" id="sub3" type="submit" value="*"></div><div id="info">i</div>';
         id("reps").addEventListener("input", onRepChange);
         id("sub1").style.width = "72px";
         id("sub1").addEventListener("click", onFormSubmit);
@@ -122,7 +122,7 @@
         thisRep = -1;
         var built = buildRep();
         document.body.innerHTML = '<div id="container"></div>' + built + '<div id="rep-disp"><span id="rep-cur">1</span> of ' + repsCount + '</div>' +
-            '<div id="reset">Reset</div>';
+            '<div id="reset">←</div>';
         id("reset").addEventListener("click", reset);
         nextRep();
     }
