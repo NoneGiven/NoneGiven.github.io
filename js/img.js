@@ -1,19 +1,19 @@
 (function() {
   "use strict";
   var states = {
-    MAIN = 0,
-    VIEW = 1
+    MAIN: 0,
+    VIEW: 1
   };
   
   var sequenceTypes = {
-    ALPHABETICAL = 0,
-    NUMERIC = 1
+    ALPHABETICAL: 0,
+    NUMERIC: 1
   };
 
   var casings = {
-    LOWERCASE = 0,
-    UPPERCASE = 1,
-    MIXED = 2
+    LOWERCASE: 0,
+    UPPERCASE: 1,
+    MIXED: 2
   };
   
   var state = null;
