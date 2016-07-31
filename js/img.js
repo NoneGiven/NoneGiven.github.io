@@ -49,7 +49,7 @@
   }
   
   function addNumericSequence(padding, start) {
-    addSequence(sequenceTypes.NUMERIC, padding, casing.MIXED, start);
+    addSequence(sequenceTypes.NUMERIC, padding, casings.MIXED, start);
   }
   
   function addSequence(type, padding, casing, start) {
@@ -70,7 +70,7 @@
   }
 
   function addNewSequence() {
-    addAlphabeticalSequence(casing.LOWERCASE, "a");
+    addAlphabeticalSequence(casings.LOWERCASE, "a");
   }
 
   function onTypeChange(e) {
