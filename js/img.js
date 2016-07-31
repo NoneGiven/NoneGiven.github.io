@@ -66,7 +66,7 @@
       'Start at: <input type="text" class="start">';
     element.className = "sequence";
     byId("sequences").appendChild(element);
-    element.byClass("type").addEventListener("change", onTypeChange);
+    element.byClass("type")[0].addEventListener("change", onTypeChange);
   }
 
   function addNewSequence() {
