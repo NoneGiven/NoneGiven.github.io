@@ -44,28 +44,33 @@
       return this.getElementsByTagName(input);
   };
   
-  function addAlphabeticalSequence(casing) {
-    addSequence(sequenceTypes.ALPHABETICAL, 0, casing);
+  function addAlphabeticalSequence(casing, start) {
+    addSequence(sequenceTypes.ALPHABETICAL, 0, casing, start);
   }
   
-  function addNumericSequence(padding) {
-    addSequence(sequenceTypes.NUMERIC, padding, casing.MIXED);
+  function addNumericSequence(padding, start) {
+    addSequence(sequenceTypes.NUMERIC, padding, casing.MIXED, start);
   }
   
-  function addSequence(type, padding, casing) {
+  function addSequence(type, padding, casing, start) {
     var sequence = {
       type: type,
       padding: padding,
-      casing: casing
+      casing: casing,
+      start: start
     };
     sequences.push(sequence);
     var element = document.createElement("div");
     element.innerHTML = '<select class="type"><option value="0">Alphabetical</option><option value="1">Numeric</option></select></div>' +
       '&nbsp;<select class="casing"><option value="0">Lowercase</option><option value="1">Uppercase</option><option value="1">Mixed</option></select>' +
-      'Start at: <input type="text" class="start-at">';
+      'Start at: <input type="text" class="start">';
     element.className = "sequence";
     byId("sequences").addChild(element);
     element.byClass("type").addEventListener("change", onTypeChange);
+  }
+
+  function addNewSequence() {
+    addAlphabeticalSequence(casing.LOWERCASE, "a");
   }
 
   function onTypeChange(e) {
@@ -81,7 +86,7 @@
   function setup() {
     document.removeEventListener("DOMContentLoaded", setup);
     state = states.MAIN;
-    
+    byId("add-sequence").addEventListener("click", addNewSequence);
   }
   
   document.addEventListener("DOMContentLoaded", setup);
