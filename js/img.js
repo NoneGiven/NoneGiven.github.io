@@ -65,7 +65,7 @@
       '&nbsp;<select class="casing"><option value="0">Lowercase</option><option value="1">Uppercase</option><option value="1">Mixed</option></select>' +
       'Start at: <input type="text" class="start">';
     element.className = "sequence";
-    byId("sequences").addChild(element);
+    byId("sequences").appenChild(element);
     element.byClass("type").addEventListener("change", onTypeChange);
   }
 
