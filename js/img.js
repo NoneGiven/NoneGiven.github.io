@@ -79,10 +79,10 @@
   function onTypeChange(e) {
       let elem = this.parentElement.byClass("config")[0];
       if (this.selectedIndex === sequenceTypes.ALPHABETICAL) {
-        elem.innerHTML = casingHtml;
+        elem.outerHTML = casingHtml;
       }
       else if (this.selectedIndex === sequenceTypes.NUMERIC) {
-        elem.innerHTML = paddingHtml;
+        elem.outerHTML = paddingHtml;
         elem.value = 0;
       }
   }
