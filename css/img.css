@@ -1,0 +1,7 @@
+body, div#view {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
