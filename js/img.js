@@ -51,10 +51,12 @@
     var element = document.createElement("div");
     element.className = "sequence";
     element.innerHTML = '<select class="type"><option value="0">Alphabetical</option><option value="1">Numeric</option></select></div>' +
-      '&nbsp;' + casingHtml +
-      'Start at: <input type="text" class="start" value="a">';
+      '&nbsp;' + (type === sequenceTypes.ALPHABETICAL ? casingHtml : paddingHtml) +
+      'Start at: <input type="text" class="start" value="' + (type === sequenceTypes.ALPHABETICAL ? "a" : "1") + '">';
     byId("sequences").appendChild(element);
-    element.byClass("type")[0].addEventListener("change", onTypeChange);
+    var sel = element.byClass("type")[0];
+    sel.selectedIndex = type;
+    sel.addEventListener("change", onTypeChange);
   }
 
   function addNewSequence() {
