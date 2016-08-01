@@ -144,18 +144,18 @@
       let width = image.width;
       if (height > width) {
         if (height > window.innerHeight) {
-          constrainByHeight();
+          constrainByHeight(image);
         }
         else if (width > window.innerWidth) {
-          constrainByWidth();
+          constrainByWidth(image);
         }
       }
       else {
         if (width > window.innerWidth) {
-          constrainByWidth();
+          constrainByWidth(image);
         }
         else if (height > window.innerHeight) {
-          constrainByHeight();
+          constrainByHeight(image);
         }
       }
     }
