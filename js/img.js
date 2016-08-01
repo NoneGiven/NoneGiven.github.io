@@ -106,6 +106,8 @@
       name = "0" + name;
     }
     src += name + ".jpg";
+    var split = src.split("/");
+    window.location.hash = split[split.length - 1].replace(/\./g, "_");
     image.src = src;
     image.alt = src;
     setTimeout(setImageSize, 100);
