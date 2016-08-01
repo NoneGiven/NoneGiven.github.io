@@ -91,11 +91,8 @@
     if (sequences.length < 1) {
       alert("Error!");
     }
-    if (seqIndex > sequences.length) {
+    if (seqIndex < 0) {
       seqIndex = 0;
-    }
-    else if (seqIndex < 0) {
-      seqIndex = sequences.length - 1;
     }
     var seq = sequences[0];
     var image = byId("image");
