@@ -45,13 +45,13 @@
   };
 
   var casingHtml = '<select class="config"><option value="0">Lowercase</option><option value="1">Uppercase</option><option value="1">Mixed</option></select>';
-  var paddingHtml = '<input class="config" type="number" value="0">';
+  var paddingHtml = '<input class="config" type="number" value="PAD">';
   
   function addSequence(type, padding, casing, start) {
     var element = document.createElement("div");
     element.className = "sequence";
     element.innerHTML = '<select class="type"><option value="0">Alphabetical</option><option value="1">Numeric</option></select></div>' +
-      '&nbsp;' + (type === sequenceTypes.ALPHABETICAL ? casingHtml : paddingHtml) +
+      '&nbsp;' + (type === sequenceTypes.ALPHABETICAL ? casingHtml : paddingHtml.replace("PAD", padding)) +
       'Start at: <input type="text" class="start" value="' + (type === sequenceTypes.ALPHABETICAL ? "a" : "1") + '">';
     byId("sequences").appendChild(element);
     var sel = element.byClass("type")[0];
