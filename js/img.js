@@ -196,7 +196,7 @@
     var elems = byClass("sequence");
     for (let i = elems.length - 1; i >= 0; i--) {
       let elem = elems[i];
-      let seq = { };
+      let seq = {};
       let type = elem.byClass("type")[0].selectedIndex;
       seq.type = type;
       seq.start = elem.byClass("start")[0].value;
