@@ -97,7 +97,7 @@
     else if (seqIndex < 0) {
       seqIndex = sequences.length - 1;
     }
-    var seq = sequences[seqIndex];
+    var seq = sequences[0];
     var image = byId("image");
     var src = baseUrl;
     var name = seqIndex.toString();
@@ -113,7 +113,7 @@
     state = states.VIEW;
     buildSequences();
     byId("main").classList.add("hidden");
-    byId("view").classList.add("hidden");
+    byId("view").classList.remove("hidden");
     document.addEventListener("keydown", keyCheck);
     doSequence();
   }
