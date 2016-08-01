@@ -108,6 +108,31 @@
     image.alt = src;
   }
 
+  function onImageClick(e) {
+    if (this.classList.contains("fit")) {
+      this.classList.remove("fit");
+      this.classList.add("full");
+      this.removeAttribute("height");
+      this.removeAttribute("width");
+    }
+    else {
+      this.classList.add("fit");
+      this.classList.remove("full");
+      let height = this.height;
+      let width = this.width;
+      if (height > width) {
+        width = width * (document.body.clientHeight / height);
+        height = document.body.clientHeight;
+      }
+      else {
+        height = height * (document.body.clientWidth / width); 
+        width = document.body.clientWidth;
+      }
+      this.setAttribute("height", height);
+      this.setAttribute("width", width);
+    }
+  }
+
   function start() {
     state = states.VIEW;
     buildSequences();
@@ -115,6 +140,7 @@
     byId("view").classList.remove("hidden");
     document.addEventListener("keydown", keyCheck);
     document.body.classList.add("view");
+    id("image").addEventListener("click", onImageClick);
     doSequence();
   }
 
