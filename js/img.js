@@ -106,6 +106,7 @@
     src += name + ".jpg";
     image.src = src;
     image.alt = src;
+    setImageSize();
   }
 
   function onImageClick(e) {
@@ -136,18 +137,20 @@
 
   function setImageSize() {
     var image = byId("image");
-    let height = image.height;
-    let width = image.width;
-    if (height > width) {
-      width = width * (window.innerHeight / height);
-      height = window.innerHeight;
+    if (image.classList.contains("fit")) {
+      let height = image.height;
+      let width = image.width;
+      if (height > width) {
+        width = width * (window.innerHeight / height);
+        height = window.innerHeight;
+      }
+      else {
+        height = height * (window.innerWidth / width); 
+        width = window.innerWidth;
+      }
+      image.setAttribute("height", height);
+      image.setAttribute("width", width);
     }
-    else {
-      height = height * (window.innerWidth / width); 
-      width = window.innerWidth;
-    }
-    image.setAttribute("height", height);
-    image.setAttribute("width", width);
   }
 
   function keyCheck(e) {
