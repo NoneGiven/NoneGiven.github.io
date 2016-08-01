@@ -112,6 +112,7 @@
     byId("main").classList.add("hidden");
     byId("view").classList.remove("hidden");
     document.addEventListener("keydown", keyCheck);
+    document.body.classList.add("view");
     doSequence();
   }
 
