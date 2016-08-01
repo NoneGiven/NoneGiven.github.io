@@ -2,11 +2,7 @@ body, div#view {
   margin: 0;
 }
 
-div#view {
-  min-height: 100vh;
-  width: 100%;
-  position: absolute;
-  color: #EEE;
+body.view {
   background: repeat url("/res/darknoise.png");
 }
 
@@ -22,11 +18,11 @@ div#view img {
   left: 0;
 }
 
-img.view.full {
+img.full {
   cursor: zoom-out;
 }
 
-img.view.fit {
+img.fit {
   cursor: zoom-in;
 }
 
