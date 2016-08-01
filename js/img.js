@@ -114,7 +114,17 @@
     buildSequences();
     byId("main").classList.add("hidden");
     byId("view").classList.add("hidden");
+    document.addEventListener("keydown", keyCheck);
     doSequence();
+  }
+
+  function keyCheck(e) {
+    if (e.keyCode === 39) {
+      doNextSequence();
+    }
+    else if (e.keyCode === 37) {
+      doPrevSequence();
+    }
   }
 
   var seqIndex = 0;
