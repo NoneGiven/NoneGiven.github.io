@@ -106,7 +106,7 @@
     src += name + ".jpg";
     image.src = src;
     image.alt = src;
-    setImageSize();
+    setTimeout(setImageSize, 50);
   }
 
   function onImageClick(e) {
