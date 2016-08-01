@@ -137,20 +137,46 @@
 
   function setImageSize() {
     var image = byId("image");
+    image.removeAttribute("height");
+    image.removeAttribute("width");
     if (image.classList.contains("fit")) {
       let height = image.height;
       let width = image.width;
       if (height > width) {
-        width = Math.floor(width * (window.innerHeight / height));
-        height = window.innerHeight;
+        if (height > window.innerHeight) {
+          constrainByHeight();
+        }
+        else if (width > window.innerWidth) {
+          constrainByWidth();
+        }
       }
       else {
-        height = Math.floor(height * (window.innerWidth / width)); 
-        width = window.innerWidth;
+        if (width > window.innerWidth) {
+          constrainByWidth();
+        }
+        else if (height > window.innerHeight) {
+          constrainByHeight();
+        }
       }
-      image.setAttribute("height", height);
-      image.setAttribute("width", width);
     }
+  }
+
+  function constrainByWidth(image) {
+    let height = image.height;
+    let width = image.width;
+    height = Math.floor(height * (window.innerWidth / width)); 
+    width = window.innerWidth;
+    image.setAttribute("height", height);
+    image.setAttribute("width", width);
+  }
+
+  function constrainByHeight(image) {
+    let height = image.height;
+    let width = image.width;
+    width = Math.floor(width * (window.innerHeight / height));
+    height = window.innerHeight;
+    image.setAttribute("height", height);
+    image.setAttribute("width", width);
   }
 
   function keyCheck(e) {
