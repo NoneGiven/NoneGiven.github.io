@@ -33,47 +33,32 @@
   }
 
   Element.prototype.byId = function(input) {
-      return this.getElementById(input);
+    return this.getElementById(input);
   };
 
   Element.prototype.byClass = function(input) {
-      return this.getElementsByClassName(input);
+    return this.getElementsByClassName(input);
   };
 
   Element.prototype.byTag = function(input) {
-      return this.getElementsByTagName(input);
+    return this.getElementsByTagName(input);
   };
-  
-  function addAlphabeticalSequence(casing, start) {
-    addSequence(sequenceTypes.ALPHABETICAL, 0, casing, start);
-  }
-  
-  function addNumericSequence(padding, start) {
-    addSequence(sequenceTypes.NUMERIC, padding, casings.MIXED, start);
-  }
 
   var casingHtml = '<select class="config"><option value="0">Lowercase</option><option value="1">Uppercase</option><option value="1">Mixed</option></select>';
   var paddingHtml = '<input class="config" type="number" value="0">';
   
   function addSequence(type, padding, casing, start) {
-    var sequence = {
-      type: type,
-      padding: padding,
-      casing: casing,
-      start: start
-    };
-    sequences.push(sequence);
     var element = document.createElement("div");
+    element.className = "sequence";
     element.innerHTML = '<select class="type"><option value="0">Alphabetical</option><option value="1">Numeric</option></select></div>' +
       '&nbsp;' + casingHtml +
       'Start at: <input type="text" class="start" value="a">';
-    element.className = "sequence";
     byId("sequences").appendChild(element);
     element.byClass("type")[0].addEventListener("change", onTypeChange);
   }
 
   function addNewSequence() {
-    addAlphabeticalSequence(casings.LOWERCASE, "a");
+    addSequence(sequenceTypes.ALPHABETICAL, 0, casings.LOWERCASE, "a");
   }
 
   function onTypeChange(e) {
@@ -90,7 +75,61 @@
   
   function removeSequence(index) {
     if (index > -1 && index < sequences.length) {
-        sequences.splice(index, 1);
+      sequences.splice(index, 1);
+    }
+  }
+
+  function doNextSequence() {
+    doSequence(++seqIndex);
+  }
+
+  function doPrevSequence() {
+    doSequence(--seqIndex);
+  }
+
+  function doSequence() {
+    if (sequences.length < 1) {
+      alert("Error!");
+    }
+    if (seqIndex > sequences.length) {
+      seqIndex = 0;
+    }
+    else if (seqIndex < 0) {
+      seqIndex = sequences.length - 1;
+    }
+    
+  }
+
+  function start() {
+    state = states.VIEW;
+    buildSequences();
+    byId("main").classList.add("hidden");
+    byId("view").classList.add("hidden");
+    doSequence();
+  }
+
+  var seqIndex = 0;
+
+  function buildSequences() {
+    sequences = [];
+    seqIndex = 0;
+    var elems = byClass("sequence");
+    for (let i = elements.length - 1; i >= 0; i--) {
+      let elem = elems[i];
+      let seq = { };
+      let type = elem.byClass("type")[0].selectedIndex;
+      seq.type = type;
+      seq.start = elem.byClass("start")[0].value;
+      if (type === sequenceTypes.ALPHABETICAL) {
+        seq.padding = 0;
+        seq.casing = elem.byClass("config")[0].selectedIndex;
+      }
+      else if (type === sequenceTypes.NUMERIC) {
+        seq.padding = elem.byClass("config")[0].value;
+        seq.casing = casings.LOWERCASE;
+        seq.start = +seq.start;
+      }
+      sequences.push(seq);
     }
   }
   
@@ -98,6 +137,7 @@
     document.removeEventListener("DOMContentLoaded", setup);
     state = states.MAIN;
     byId("add-sequence").addEventListener("click", addNewSequence);
+    byId("start").addEventListener("click", start);
   }
   
   document.addEventListener("DOMContentLoaded", setup);
