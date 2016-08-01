@@ -53,7 +53,7 @@
   }
 
   var casingHtml = '<select class="config"><option value="0">Lowercase</option><option value="1">Uppercase</option><option value="1">Mixed</option></select>';
-  var paddingHtml = '<input class="config" type="number">';
+  var paddingHtml = '<input class="config" type="number" value="0">';
   
   function addSequence(type, padding, casing, start) {
     var sequence = {
@@ -66,7 +66,7 @@
     var element = document.createElement("div");
     element.innerHTML = '<select class="type"><option value="0">Alphabetical</option><option value="1">Numeric</option></select></div>' +
       '&nbsp;' + casingHtml +
-      'Start at: <input type="text" class="start">';
+      'Start at: <input type="text" class="start" value="a">';
     element.className = "sequence";
     byId("sequences").appendChild(element);
     element.byClass("type")[0].addEventListener("change", onTypeChange);
@@ -80,10 +80,11 @@
       let elem = this.parentElement.byClass("config")[0];
       if (this.selectedIndex === sequenceTypes.ALPHABETICAL) {
         elem.outerHTML = casingHtml;
+        this.parentElement.byClass("start")[0].value = "a";
       }
       else if (this.selectedIndex === sequenceTypes.NUMERIC) {
         elem.outerHTML = paddingHtml;
-        elem.value = 0;
+        this.parentElement.byClass("start")[0].value = "1";
       }
   }
   
