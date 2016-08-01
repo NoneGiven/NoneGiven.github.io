@@ -141,11 +141,11 @@
       let height = image.height;
       let width = image.width;
       if (height > width) {
-        width = width * (window.innerHeight / height);
+        width = Math.floor(width * (window.innerHeight / height));
         height = window.innerHeight;
       }
       else {
-        height = height * (window.innerWidth / width); 
+        height = Math.floor(height * (window.innerWidth / width)); 
         width = window.innerWidth;
       }
       image.setAttribute("height", height);
