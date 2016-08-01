@@ -93,6 +93,7 @@
     if (sequences.length < 1) {
       alert("Error!");
     }
+    showMessage("Loading...");
     if (seqIndex < 0) {
       seqIndex = 0;
     }
@@ -133,8 +134,30 @@
     window.addEventListener("resize", setImageSize);
     var image = byId("image"); 
     image.addEventListener("click", onImageClick);
-    image.addEventListener("load", setImageSize);
+    image.addEventListener("error", onImageError);
+    image.addEventListener("load", onImageLoad);
     doSequence();
+  }
+
+  function onImageError(e) {
+    showMessage("Error");
+  }
+
+  function onImageLoad(e) {
+    hideMessage();
+    setImageSize();
+  }
+
+  function showMessage(text) {
+    var msg = byId("msg"); 
+    if (text) {
+      msg.innerHTML = text;
+    }
+    msg.classList.remove("hidden");
+  }
+
+  function hideMessage() {
+    byId("msg").classList.add("hidden");
   }
 
   function setImageSize() {
