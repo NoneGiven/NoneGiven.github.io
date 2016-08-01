@@ -58,7 +58,7 @@
   }
 
   function addNewSequence() {
-    addSequence(sequenceTypes.ALPHABETICAL, 0, casings.LOWERCASE, "a");
+    addSequence(sequenceTypes.NUMERIC, 3, casings.LOWERCASE, 1);
   }
 
   function onTypeChange(e) {
@@ -130,7 +130,6 @@
   function buildSequences() {
     baseUrl = byId("base-url").value;  
     sequences = [];
-    seqIndex = 0;
     var elems = byClass("sequence");
     for (let i = elems.length - 1; i >= 0; i--) {
       let elem = elems[i];
@@ -149,6 +148,7 @@
       }
       sequences.push(seq);
     }
+    seqIndex = sequences[0].start;
   }
   
   function setup() {
