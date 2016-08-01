@@ -118,18 +118,7 @@
     else {
       this.classList.add("fit");
       this.classList.remove("full");
-      let height = this.height;
-      let width = this.width;
-      if (height > width) {
-        width = width * (window.innerHeight / height);
-        height = window.innerHeight;
-      }
-      else {
-        height = height * (window.innerWidth / width); 
-        width = window.innerWidth;
-      }
-      this.setAttribute("height", height);
-      this.setAttribute("width", width);
+      setImageSize();
     }
   }
 
@@ -140,8 +129,25 @@
     byId("view").classList.remove("hidden");
     document.addEventListener("keydown", keyCheck);
     document.body.classList.add("view");
+    window.addEventListener("resize", setImageSize);
     byId("image").addEventListener("click", onImageClick);
     doSequence();
+  }
+
+  function setImageSize() {
+    var image = byId("image");
+    let height = image.height;
+    let width = image.width;
+    if (height > width) {
+      width = width * (window.innerHeight / height);
+      height = window.innerHeight;
+    }
+    else {
+      height = height * (window.innerWidth / width); 
+      width = window.innerWidth;
+    }
+    image.setAttribute("height", height);
+    image.setAttribute("width", width);
   }
 
   function keyCheck(e) {
