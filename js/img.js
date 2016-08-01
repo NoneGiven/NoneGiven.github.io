@@ -140,7 +140,7 @@
     byId("view").classList.remove("hidden");
     document.addEventListener("keydown", keyCheck);
     document.body.classList.add("view");
-    id("image").addEventListener("click", onImageClick);
+    byId("image").addEventListener("click", onImageClick);
     doSequence();
   }
 
