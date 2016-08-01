@@ -3,6 +3,7 @@ body, div#view {
 }
 
 body.view {
+  color: #EEE;
   background: repeat url("/res/darknoise.png");
 }
 
