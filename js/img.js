@@ -121,12 +121,12 @@
       let height = this.height;
       let width = this.width;
       if (height > width) {
-        width = width * (document.body.clientHeight / height);
-        height = document.body.clientHeight;
+        width = width * (window.innerHeight / height);
+        height = window.innerHeight;
       }
       else {
-        height = height * (document.body.clientWidth / width); 
-        width = document.body.clientWidth;
+        height = height * (window.innerWidth / width); 
+        width = window.innerWidth;
       }
       this.setAttribute("height", height);
       this.setAttribute("width", width);
