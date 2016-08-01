@@ -97,7 +97,16 @@
     else if (seqIndex < 0) {
       seqIndex = sequences.length - 1;
     }
-    
+    var seq = sequences[seqIndex];
+    var image = byId("image");
+    var src = baseUrl;
+    var name = seqIndex.toString();
+    while (name.length < seq.padding) {
+      name = "0" + name;
+    }
+    src += name + ".jpg";
+    image.src = src;
+    image.alt = src;
   }
 
   function start() {
@@ -111,6 +120,7 @@
   var seqIndex = 0;
 
   function buildSequences() {
+    baseUrl = byId("base-url").value;  
     sequences = [];
     seqIndex = 0;
     var elems = byClass("sequence");
