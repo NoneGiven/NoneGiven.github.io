@@ -93,6 +93,7 @@
     if (sequences.length < 1) {
       alert("Error!");
     }
+    loading = true;
     showMessage("Loading...");
     if (seqIndex < 0) {
       seqIndex = 0;
@@ -124,6 +125,8 @@
     }
   }
 
+  var loading = false;
+
   function start() {
     state = states.VIEW;
     buildSequences();
@@ -141,11 +144,13 @@
 
   function onImageError(e) {
     showMessage("Error");
+    loading = false;
   }
 
   function onImageLoad(e) {
     hideMessage();
     setImageSize();
+    loading = false;
   }
 
   function showMessage(text) {
@@ -205,6 +210,9 @@
   }
 
   function keyCheck(e) {
+    if (loading) {
+      return;
+    }
     if (e.keyCode === 39) {
       doNextSequence();
     }
