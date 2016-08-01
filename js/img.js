@@ -156,6 +156,7 @@
     state = states.MAIN;
     byId("add-sequence").addEventListener("click", addNewSequence);
     byId("start").addEventListener("click", start);
+    addNewSequence();
   }
   
   document.addEventListener("DOMContentLoaded", setup);
