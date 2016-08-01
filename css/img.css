@@ -30,11 +30,11 @@ img.fit {
 .msg {
   background-color: rgba(0, 0, 0, 0.35);
   color: white;
-  padding: 0.5;
+  padding: 0.5em;
   position: fixed;
   top: 0.3em;
   left: 0.3em;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .hidden {
