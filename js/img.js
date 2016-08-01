@@ -106,7 +106,7 @@
     src += name + ".jpg";
     image.src = src;
     image.alt = src;
-    setTimeout(setImageSize, 50);
+    setTimeout(setImageSize, 100);
   }
 
   function onImageClick(e) {
@@ -131,7 +131,9 @@
     document.addEventListener("keydown", keyCheck);
     document.body.classList.add("view");
     window.addEventListener("resize", setImageSize);
-    byId("image").addEventListener("click", onImageClick);
+    var image = byId("image"); 
+    image.addEventListener("click", onImageClick);
+    image.addEventListener("load", setImageSize);
     doSequence();
   }
 
