@@ -19,6 +19,10 @@ div#view img {
   left: 0;
 }
 
+div#view img.full {
+  margin-top: 0;
+}
+
 img.full {
   cursor: zoom-out;
 }
