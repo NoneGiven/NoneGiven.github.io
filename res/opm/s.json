@@ -4,7 +4,7 @@
   "seriesCode": "opm",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
   "chapters": 79,
-  "index": [71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
+  "index": [79, 71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
     {"num": "2", "title": "Crab & Job Hunting"},
@@ -85,5 +85,12 @@
     {"num": "59", "title": "Dark Horse"},
     {"num": "EX11", "title": "Vol 11 Extra"},
     {"num": "YJ4", "title": "Young Jump Special 4"}
+    {"num": "60", "title": "Reason for Seeking"},
+    {"num": "61", "title": "Match and Battle"},
+    {"num": "62", "title": "Limit"},
+    {"num": "65", "title": "Sisters"},
+    {"num": "66", "title": "The Strong Guys"},
+    {"num": "67", "title": "Outside the Norm"},
+    {"num": "68", "title": "Great Battle Strength"},
   ]
 }
