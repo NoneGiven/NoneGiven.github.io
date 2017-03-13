@@ -51,7 +51,13 @@
   /* stuff actually needed for tripcode generation is ABOVE THIS LINE */
   
   function updatePrettyStuff(conv, pass) {
-    replInput.value = conv;
+    if (conv === pass) {
+      charDiff.className = "";
+    }
+    else {
+      charDiff.className = "different";
+    }
+    conv = conv.substr(0, 8);
     replCount.innerHTML = conv.length;
     if (conv.length > 8) {
       replCount.className = "bad";
@@ -59,12 +65,7 @@
     else {
       replCount.className = "";
     }
-    if (conv === pass) {
-      charDiff.className = "";
-    }
-    else {
-      charDiff.className = "different";
-    }
+    replInput.value = conv;
   }
   
   function listenTick() {
