@@ -3,7 +3,7 @@
   "author": "Yusuke Murata",
   "seriesCode": "opm",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
-  "chapters": 87,
+  "chapters": 91,
   "index": [86, 79, 71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
@@ -92,6 +92,10 @@
     {"num": "66", "title": "The Strong Guys"},
     {"num": "67", "title": "Outside the Norm"},
     {"num": "EX12", "title": "King's Weekend-like Weekday"},
-    {"num": "68", "title": "Great Battle Strength"}
+    {"num": "68", "title": "Great Battle Strength"},
+    {"num": "69", "title": "Monster Cells"},
+    {"num": "70", "title": "Being Strong is Fun"},
+    {"num": "71", "title": "Martial Arts Means...!!"},
+    {"num": "EX13", "title": "Star"}
   ]
 }
