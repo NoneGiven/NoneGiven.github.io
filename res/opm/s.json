@@ -3,8 +3,8 @@
   "author": "Yusuke Murata",
   "seriesCode": "opm",
   "imageURL": "https://dl.dropboxusercontent.com/s/",
-  "chapters": 91,
-  "index": [86, 79, 71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
+  "chapters": 95,
+  "index": [91, 86, 79, 71, 60, 52, 46, 40, 34, 29, 24, 17, 9, 0],
   "contents": [
     {"num": "1", "title": "One Punch"},
     {"num": "2", "title": "Crab & Job Hunting"},
@@ -96,6 +96,10 @@
     {"num": "69", "title": "Monster Cells"},
     {"num": "70", "title": "Being Strong is Fun"},
     {"num": "71", "title": "Martial Arts Means...!!"},
-    {"num": "EX13", "title": "Star"}
+    {"num": "EX13", "title": "Star"},
+    {"num": "72", "title": "Monsterization"},
+    {"num": "73", "title": "Resistance of the Strong"},
+    {"num": "74", "title": "Depths of Despair"},
+    {"num": "75", "title": "Anomaly"}
   ]
 }
