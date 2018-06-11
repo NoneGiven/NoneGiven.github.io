@@ -33,7 +33,7 @@
     var today = new Date();
     if (today >= june12) {
       document.getElementById("result").innerHTML = "YES";
-      document.getElementById("message").innerHTML = "WOHOO!";
+      document.getElementById("message").innerHTML = "";
     }
     else {
       let dayTime = 24 * 60 * 60 * 1000;
@@ -41,11 +41,19 @@
       let wholeDays = Math.floor(timeDiff / dayTime);
       let remainder = Math.round((timeDiff - wholeDays * dayTime) / 1000 / 60 / 60);
       let hourString = "";
+      let dayString = wholeDays + " DAY" + (wholeDays === 1 ? "" : "S");
       if (remainder > 0) {
-        hourString = remainder + " HOUR" + (remainder === 1 ? "" : "S") + " AND ";
+        hourString = remainder + " HOUR" + (remainder === 1 ? "" : "S");
+        if (wholeDays < 1) {
+          dayString = "";
+          hourString += " ";
+        }
+        else {
+          hourString += " AND "
+        }
       }
       document.getElementById("result").innerHTML = "NO";
-      document.getElementById("message").innerHTML = hourString + wholeDays + " DAY" + (wholeDays === 1 ? "" : "S") + " LEFT";
+      document.getElementById("message").innerHTML = hourString + dayString + " LEFT";
     }
   }
   doThing();
