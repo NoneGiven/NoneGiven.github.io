@@ -78,7 +78,7 @@
       let c = currentSerial[i];
       if (i === 0) {
         if (c != "X") {
-          results.push("Unknkown product " + c + " (must be X).");
+          results.push("Unknkown product " + c + " (must be X)");
           break;
         }
         results.push("[X] Product: NX");
