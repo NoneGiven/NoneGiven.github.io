@@ -21,7 +21,7 @@
     serialInput = document.getElementById("serial");
     serialCount = document.getElementById("chars");
     tickIntervalContainer = setInterval(listenTick, tickInterval);
-    passInput.focus();
+    serialInput.focus();
   }
   
   function onDOMContentLoaded() {
