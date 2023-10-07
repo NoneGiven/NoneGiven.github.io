@@ -133,6 +133,11 @@
         }
       }
     }
+    for (let result of results) {
+      let elem = document.createElement("li");
+      elem.innerText = result;
+      info.appendChild(elem);
+    }
   }
   
   function startListening() {
