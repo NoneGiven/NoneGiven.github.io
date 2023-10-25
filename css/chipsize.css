@@ -1,0 +1,19 @@
+.hidden {
+  display: none;
+}
+
+#area {
+  width: 230px;
+  height: 230px;
+  position: relative;
+}
+
+#chip {
+  position: absolute;
+  background-color: #0a89ae;
+}
+
+#die {
+  position: absolute;
+  background-color: #ffdc99;
+}
