@@ -72,11 +72,13 @@
     document.getElementById("info").innerText = info;
   }
 
-  document.getElementById("chipInput").addEventListener("input", chipChanged);
-  document.getElementById("densityInputEight").addEventListener("input", densityInputEightChanged);
-  document.getElementById("densityInputFour").addEventListener("input", densityInputFourChanged);
-  document.getElementById("nodeEight").addEventListener("click", radioChanged);
-  document.getElementById("nodeFour").addEventListener("click", radioChanged);
-  document.getElementById("transInput").addEventListener("input", transChanged);
-  update();
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("chipInput").addEventListener("input", chipChanged);
+    document.getElementById("densityInputEight").addEventListener("input", densityInputEightChanged);
+    document.getElementById("densityInputFour").addEventListener("input", densityInputFourChanged);
+    document.getElementById("nodeEight").addEventListener("click", radioChanged);
+    document.getElementById("nodeFour").addEventListener("click", radioChanged);
+    document.getElementById("transInput").addEventListener("input", transChanged);
+    update();
+  });
 }).call(this);
