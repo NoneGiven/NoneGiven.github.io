@@ -70,7 +70,7 @@
     var ratioDisp = (chipArea / dieArea).toFixed(3);
     info += `Substrate area to die area ratio: ${ratioDisp}\n`;
     var pctDisp = (dieArea / chipArea * 100).toFixed(3);
-    info += `Die percentage of substrate: ${pctDisp}`;
+    info += `Die percentage of substrate: ${pctDisp}%`;
     document.getElementById("info").innerText = info;
   }
 
