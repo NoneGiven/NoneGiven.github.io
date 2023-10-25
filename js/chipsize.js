@@ -44,7 +44,7 @@
   }
   
   function update() {
-  	var densityValue = nodeValue === "4N" ? densityValueFour : densityValueEight;
+    var densityValue = nodeValue === "4N" ? densityValueFour : densityValueEight;
     var dieArea = transValue * 1000 / densityValue;
     var dieSide = Math.sqrt(dieArea);
     var chip = document.getElementById("chip");
