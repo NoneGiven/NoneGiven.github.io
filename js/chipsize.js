@@ -33,11 +33,11 @@
   function radioChanged(e) {
     nodeValue = e.target.value;
     if (nodeValue === "4N") {
-    	document.getElementById("densityEight").classList.add("hidden");
+      document.getElementById("densityEight").classList.add("hidden");
       document.getElementById("densityFour").classList.remove("hidden");
     }
     else {
-    	document.getElementById("densityFour").classList.add("hidden");
+      document.getElementById("densityFour").classList.add("hidden");
       document.getElementById("densityEight").classList.remove("hidden");
     }
     update();
