@@ -63,7 +63,7 @@
   
   function listenTick() {
     currentSerial = serialInput.value;
-    currentSerial = currentSerial.trim();
+    currentSerial = currentSerial.trim().toUpperCase();
     serialInput.value = currentSerial;
     serialCount.className = "";
     if (!currentSerial) {
