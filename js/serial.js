@@ -102,13 +102,13 @@
     for (let i = 0; i < currentSerial.length; i++) {
       let c = currentSerial[i];
       if (i === 0) {
-        key = c;
         let product = products[c];
         if (!product) {
           results.push("Unknown product " + c + " (must be X or H)");
           break;
         }
         results.push("[" + c + "] Product: " + product);
+        key = c;
       }
       else if (i === 1) {
         let model = models[key][c];
