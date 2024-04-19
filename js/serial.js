@@ -11,8 +11,8 @@
     "X": "NX",
     "H": "[REDACTED]"
   };
-
-  var models = {
+  
+  var models1 = {
     "A": "Nintendo Switch (2017)",
     "B": "Left Joy-Con",
     "C": "Right Joy-Con",
@@ -36,6 +36,16 @@
     "Z": "SDEV Cradle"
   };
 
+  var models2 = {
+    "A": "Nintendo Switch 2 (temp.)",
+    "Y": "Relay Box"
+  };
+
+  var models = {
+    "X": models1,
+    "H": models2
+  };
+
   var regions = {
     "C": "China",
     "E": "Europe",
@@ -46,7 +56,7 @@
     "W": "Worldwide"
   };
 
-  var types = {
+  var types1 = {
     "00": "Unspecified",
     "01": "Prototype",
     "02": "SDEV",
@@ -65,6 +75,15 @@
     "14": "Retail Joy-Con",
     "17": "Retail Joy-Con"
   };
+
+  var types2 = {
+    "00": "Unspecified"
+  };
+
+  var types = {
+    "X": types1,
+    "H": types2
+  };
   
   function listenTick() {
     currentSerial = serialInput.value;
@@ -79,9 +98,11 @@
     info.innerHTML = "";
     var results = [];
     var isFactory = false;
+    var key = null;
     for (let i = 0; i < currentSerial.length; i++) {
       let c = currentSerial[i];
       if (i === 0) {
+        key = c;
         let product = products[c];
         if (!product) {
           results.push("Unknown product " + c + " (must be X or H)");
@@ -90,7 +111,7 @@
         results.push("[" + c + "] Product: " + product);
       }
       else if (i === 1) {
-        let model = models[c];
+        let model = models[key][c];
         if (!model) {
           model = "Unknown";
         }
@@ -113,7 +134,10 @@
     var minLength = 5 + (isFactory ? 1 : 0);
     if (currentSerial.length >= minLength) {
       let code = currentSerial[minLength - 2] + currentSerial[minLength - 1];
-      let type = types[code];
+      let type = null;
+      if (key) {
+        type = types[key][code];
+      }
       if (!type) {
         type = "Unknown";
       }
