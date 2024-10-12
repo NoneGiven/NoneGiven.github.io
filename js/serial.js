@@ -95,7 +95,7 @@
   var types = {
     "X": types1,
     "H": types2,
-    "C": type3
+    "C": types3
   };
   
   function listenTick() {
