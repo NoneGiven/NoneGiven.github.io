@@ -117,7 +117,7 @@
       if (i === 0) {
         let product = products[c];
         if (!product) {
-          results.push("Unknown product " + c + " (must be X or H)");
+          results.push("Unknown product " + c + " (must be X, H, or C)");
           break;
         }
         results.push("[" + c + "] Product: " + product);
