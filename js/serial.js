@@ -9,7 +9,8 @@
 
   var products = {
     "X": "NX",
-    "H": "[REDACTED]"
+    "H": "Ounce",
+    "C": "QOL"
   };
   
   var models1 = {
@@ -41,9 +42,14 @@
     "Y": "Relay Box"
   };
 
+  var models3 {
+    "A": "Alarmo"
+  };
+
   var models = {
     "X": models1,
-    "H": models2
+    "H": models2,
+    "C": models3
   };
 
   var regions = {
@@ -80,9 +86,14 @@
     "00": "Unspecified"
   };
 
+  var types3 = {
+    "00": "Unspecified"
+  };
+
   var types = {
     "X": types1,
-    "H": types2
+    "H": types2,
+    "C": type3
   };
   
   function listenTick() {
