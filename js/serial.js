@@ -57,7 +57,7 @@
     "E": "Europe",
     "J": "Japan",
     "K": "Korea",
-    "L": "All (devkit only)",
+    "L": "All (prototype)",
     "M": "Malaysia",
     "W": "Worldwide"
   };
@@ -97,10 +97,16 @@
     "H": types2,
     "C": types3
   };
+
+  var lastSerial = "";
   
   function listenTick() {
     currentSerial = serialInput.value;
     currentSerial = currentSerial.trim().toUpperCase();
+    if (currentSerial === lastSerial) {
+      return;
+    }
+    lastSerial = currentSerial;
     serialInput.value = currentSerial;
     serialCount.className = "";
     if (!currentSerial) {
