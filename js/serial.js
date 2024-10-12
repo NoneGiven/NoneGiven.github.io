@@ -42,7 +42,7 @@
     "Y": "Relay Box"
   };
 
-  var models3 {
+  var models3 = {
     "A": "Alarmo"
   };
 
