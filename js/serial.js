@@ -87,7 +87,9 @@
   };
 
   var types3 = {
-    "00": "Unspecified"
+    "00": "Unspecified",
+    "01": "Prototype",
+    "10": "Retail"
   };
 
   var types = {
