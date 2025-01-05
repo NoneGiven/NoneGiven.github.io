@@ -15,11 +15,11 @@
   
   var models1 = {
     "A": "Nintendo Switch (2017)",
-    "B": "Left Joy-Con",
-    "C": "Right Joy-Con",
-    "D": "Joy-Con Charging Grip",
-    "E": "Pro Controller",
-    "F": "Dock",
+    "B": "Left Joy-Con (Nintendo Switch)",
+    "C": "Right Joy-Con (Nintendo Switch)",
+    "D": "Joy-Con Charging Grip (Nintendo Switch)",
+    "E": "Pro Controller (Nintendo Switch)",
+    "F": "Dock (Nintendo Switch)",
     "H": "Poké Ball Plus",
     "J": "Nintendo Switch Lite",
     "K": "Nintendo Switch (2019)",
@@ -31,15 +31,17 @@
     "R": "SNES Controller",
     "S": "N64 Controller",
     "T": "Nintendo Switch - OLED Model",
-    "V": "Dock (OLED)",
+    "V": "Dock (Nintendo Switch - OLED Model)",
     "X": "Sega Genesis Controller",
-    "Y": "Relay Box",
-    "Z": "SDEV Cradle"
+    "Y": "Relay Box (Nintendo Switch)",
+    "Z": "SDEV Cradle (Nintendo Switch)"
   };
 
   var models2 = {
-    "A": "Nintendo Switch 2 (temp.)",
-    "Y": "Relay Box"
+    "A": "Nintendo Switch 2",
+    "B": "Left Joy-Con (Nintendo Switch 2)",,
+    "C": "Right Joy-Con (Nintendo Switch 2)",
+    "Y": "Relay Box (Nintendo Switch 2)"
   };
 
   var models3 = {
