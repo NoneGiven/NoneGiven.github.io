@@ -85,7 +85,8 @@
   };
 
   var types2 = {
-    "00": "Unspecified"
+    "00": "Unspecified",
+    "51": "Retail" // Joy-Con
   };
 
   var types3 = {
