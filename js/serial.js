@@ -39,7 +39,7 @@
 
   var models2 = {
     "A": "Nintendo Switch 2",
-    "B": "Left Joy-Con (Nintendo Switch 2)",,
+    "B": "Left Joy-Con (Nintendo Switch 2)",
     "C": "Right Joy-Con (Nintendo Switch 2)",
     "Y": "Relay Box (Nintendo Switch 2)"
   };
