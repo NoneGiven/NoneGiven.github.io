@@ -61,7 +61,7 @@
     "E": "Europe",
     "J": "Japan",
     "K": "Korea",
-    "L": "All (prototype)",
+    "L": "All",
     "M": "Malaysia",
     "W": "Worldwide"
   };
@@ -88,7 +88,9 @@
 
   var types2 = {
     "00": "Unspecified",
-    "51": "Retail" // Joy-Con
+    "01": "Prototype",
+    "10": "Retail",
+    "51": "Unknown" // Joy-Con
   };
 
   var types3 = {
