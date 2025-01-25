@@ -41,6 +41,8 @@
     "A": "Nintendo Switch 2",
     "B": "Left Joy-Con (Nintendo Switch 2)",
     "C": "Right Joy-Con (Nintendo Switch 2)",
+    "D": "Joy-Con Charging Grip (Nintendo Switch 2)",
+    "F": "Dock (Nintendo Switch 2)",
     "Y": "Relay Box (Nintendo Switch 2)"
   };
 
