@@ -43,6 +43,7 @@
     "C": "Right Joy-Con (Nintendo Switch 2)",
     "D": "Joy-Con Charging Grip (Nintendo Switch 2)",
     "F": "Dock (Nintendo Switch 2)",
+    "H": "GameCube Controller",
     "Y": "Relay Box (Nintendo Switch 2)"
   };
 
@@ -89,6 +90,7 @@
   var types2 = {
     "00": "Unspecified",
     "01": "Prototype",
+    "04": "Unknown", // GCN controller
     "10": "Retail",
     "51": "Unknown" // Joy-Con
   };
